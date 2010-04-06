@@ -55,7 +55,7 @@ class comedi_ao : public analog_out
 public:
     comedi_ao(comedi_t* dev) : analog_out(4), dev(dev), min_ao(-4.096), max_ao(4.094) {}
 
-    virtual void updateOutputs();
+    virtual void updateAnalogOutputs();
 
     comedi_t* dev;
     double min_ao;
@@ -72,7 +72,7 @@ public:
             comedi_dio_config(dev,2,i,COMEDI_OUTPUT);
     }
 
-    virtual bool updateOutputs();
+    virtual bool updateDigitalOutputs();
 
     comedi_t* dev;
 };

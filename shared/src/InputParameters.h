@@ -171,6 +171,7 @@ operator T(){
 T Value()
 {
 	UpdateValueFromBackend();
+	//std::cout << IGetName() << " = " << value << std::endl;
 	return value;
 }
 

@@ -7,6 +7,6 @@
 
 using namespace std;
 
-analog_in::analog_in(unsigned nValues) : values(nValues)
+analog_in::analog_in(unsigned nValues) : values(nValues, 0)
 {
 }

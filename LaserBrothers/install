@@ -3,6 +3,6 @@ cd src
 qmake LaserBrothers.pro
 make
 make clean
-sudo cp -f LaserBrothers /usr/local/bin
+sudo cp -f LaserBrothers /usr/local/bin/LaserBrothers2
 cd ..
 

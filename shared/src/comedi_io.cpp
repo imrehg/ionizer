@@ -262,7 +262,7 @@ double comedi_ai::get_datum(lsampl_t raw, int channel_index)
     return comedi_to_phys(raw, range_info[channel_index], maxdata[channel_index]);
 }
 
-void comedi_ao::updateOutputs()
+void comedi_ao::updateAnalogOutputs()
 {
     for(unsigned i=0; i<new_aOut.size(); i++)
     {
@@ -282,7 +282,7 @@ void comedi_ao::updateOutputs()
     }
 }
 
-bool comedi_do::updateOutputs()
+bool comedi_do::updateDigitalOutputs()
 {
     bool bDifferent = false;
 
