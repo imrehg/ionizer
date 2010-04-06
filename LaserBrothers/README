@@ -1,0 +1,95 @@
+/*
+*
+* Ionizer: LaserBrothers
+*
+* Ion Storage Group
+* Time and Frequency Division
+* National Institute of Technology,
+* Boulder, CO USA
+*
+*
+* This software was developed at the National Institute of Standards and
+* Technology (NIST) by employees of the Federal Government in the course
+* of their official duties. Pursuant to title 17 Section 105 of the
+* United States Code, this software is not subject to copyright protection
+* and is in the public domain. NIST assumes no responsibility whatsoever for
+* its use by other parties, and makes no guarantees, expressed or implied,
+* about its quality, reliability, or any other characteristic.   
+* ___
+*  |R 4/2010
+*/
+
+** Purpose: LaserBrothers is software to automatically re-lock lasers and resonant cavities,
+e.g. lock lasers to Fabry-Perot reference cavities or resonant doubling cavities to lasers.
+The software performs only minimal feedback.  It's main function is to control the integrator 
+of a separate feedback controller, and re-acquire lock when the signal is disrupted.
+A GUI shows the laser status, real-time signals, and allows adjustment of parameters.
+
+** Several additional features are implemented:
+ -Automated adjustment of laser-temperature via RS232 commands to keep it within the center of it's tuning range.
+  [Currently supported laser: NP Photonics fiber lasers]
+
+ -Automated adjustment of waveplate angles to optimize the polarization of light coming out of
+  optical fibers and maximize the cavity signal.  The optimization currently relies on GSL's implementation
+  of the Nelder-Mead method.  Other optimization strategies are being explored.
+  [Currently supported hardware: Newport Agilis rotation stages]
+
+** Basic function
+The actual feedback system consists of four main components:
+
+1. A PDH or HC-type detector that produces an error signal
+2. An analog PID-type loop filter
+3. A high-voltage amplifier 
+4. A PZT to control the cavity length or laser frequency.
+5. A monitoring detector that checks whether the laser and cavity are resonant (monitors power build-up in the cavity).
+
+The software uses signals from the monitor (5) to detect whether or not the system is "locked."
+
+HW requirements (per locker):
+2 A/D inputs
+1 D/A output
+1 Digital output
+
+USB-DUX-D (Linux) and NI USB-6008 (Windows) analog/digital IO devices have been tested to work.
+The USB-6008 devices time-out occasionally and the software must be restarted.
+The USB-DUX-D devices typically run without errors.
+  
+
+For NIST-type loop filters and HV amps:
+
+Connect the CAVITY MONITOR signal to an ADC channel.
+Connect the LOOP FILTER MONITOR to another ADC channel.
+Connect the HV amp SWEEP input to a DAC channel.
+Connect the loop filter WINDOW input to a digital output channel.
+
+For auto re-lock mode:
+
+If the CAVITY MONITOR is between the min and max range from the GUI, the status switches to LOCKED.
+Then the digital output (WINDOW in) goes low to enable the loop filter integrator.
+The SWEEP signal gets adjusted slowly to drive LOOP FILTER MONITOR towards zero.
+If "Set temperature" is enabled in the GUI, and an NP Photonics fiber laser is connected,
+its temperature gets adjusted slowly to drive SWEEP towards zero.
+
+If the CAVITY MONITOR is not between the min and max range from the GUI, the status switches to ACQUIRE.
+Then the digital (WINDOW in) goes high to disable the loop filter integrator.
+The SWEEP signal gets swept slowly in a search pattern.  When the CAVITY MONITOR is within the window range,
+the status switches to locked, and the loop-filter integrator is enabled.
+
+The software currently (4/2010) keeps eight lasers / cavities locked for NIST's Al+ clock, 
+and several resonant frequency-doublers for NIST quantum computing experiments.
+
+** Requirements:
+See the README file in the base directory to get the build environment setup.
+
+** Run simulated locks:
+From the LaserBrothers directory (in Linux)
+./install
+LaserBrothers etc/laserbrothers_sim.conf
+Press "RUN"
+
+Re-write the configuration file for each laboratory setting.  
+There are several sample configuration files from different labs in the etc folder.
+
+
+
+

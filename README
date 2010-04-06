@@ -1,0 +1,33 @@
+*Requirements (Ubuntu Linux)
+ Make sure the following packages are installed:
+ subversion build-essential  libgsl0-dev libcomedi-dev libfftw3-dev qtcreator qt4-dev-tools libqwt5-qt4-dev
+
+*Requirements (Windows):
+ - Visual C++ command prompt
+   Visual C++ 2008 Express is avaible for free from Microsoft here:
+   http://www.microsoft.com/express/Downloads/#2008-Visual-CPP
+
+   wget.exe and unzip.exe programs should be on the search path (available at http://gnuwin32.sourceforge.net/)
+   svn.exe on the search path (available from www.collab.net)
+
+- Obtain Qt:
+  From VC++ command prompt, "deploy" directory run: get_qt.bat and follow the installer
+  *Put Qt binaries on the search path
+  *Create an environment variable QtInstallDir that contains the Qt installation path
+  *For the default Qt installation (verion 4.6.2) "echo %QtInstallDir%" yields c:\qt\4.6.2
+ 
+- Obtain Qwt:
+  From VC++ command prompt, "deploy" directory run: get_qwt.bat
+
+- Obtain GSL: 
+  From VC++ command prompt, "deploy" directory run: get_gsl.bat
+
+- Obtain FFTW:
+  From VC++ command prompt, "deploy" directory run: get_fftw.bat
+
+Some of the paths used in these scripts may get out of date eventually.
+The scripts work as of 4/2010.
+
+
+ 
+

@@ -1,0 +1,47 @@
+*Qudratic minimum search*
+Adjust the position of two actuators (waveplate angles) to get maximum laser power.
+The shape the the surface where the maximum is located is simple.  There will be 8 maxima
+that are all equivalent and it doesn't matter which one is found.  However,
+there are two subtleties:
+1.  The actuators are inaccurate, with large uncontrolled differences (up to 20%) between forwards and backwards motion.
+2.  The optimum slowly drifts due to thermal changes.  When we first turn on the system the drift will be faster
+    (moving significantly every few minutes), and later slower (changing over an hour perhaps).
+
+
+We'll dynamically establish statistics that take into account the measurement history.
+
+Initialize:
+
+dir=0;
+i=0;
+
+1.  Move actuator (waveplate# i) in direction dir (small step size)
+
+2.  Record signal
+
+3.  Fit quadratic polynomial  
+
+4.  Establish confidence intervals
+
+5.  If the maximum is "close" to the current position with high confidence.
+    a. Stop movement
+    b. Go directly to maximum.  
+    c. Goto 8.
+
+6.  If the maximum is "behind" the current position with high confidence (but not "close").
+    a. Stop movement 
+    b. Clear history data
+    c. Reverse direction: dir *= -1;
+    d. Goto 8.
+
+7.  Goto 2.  (Either the maximum is ahead of the current position with high confidence, or confidence is too low)
+
+8.  i++; (switch actuator)
+
+9.  if(i > 1) wait some time interval, i=0, Goto 1.
+
+10. else Goto 2.
+
+James Penya 2240504
+
+
