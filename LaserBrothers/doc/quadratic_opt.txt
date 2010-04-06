@@ -42,6 +42,4 @@ i=0;
 
 10. else Goto 2.
 
-James Penya 2240504
-
 
