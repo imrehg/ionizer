@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+        <head>
+                <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+                <meta name="description" content="SourceForge presents the Ionizer project. Ionizer is an open source application. SourceForge provides the world's largest selection of Open Source Software. Control software for atomic physics experiments in ion traps." />
+                <meta name="keywords" content="Open Source, Software, Development, Developers, Projects, Downloads, OSTG, VA Software, SF.net, SourceForge, Physics, Qt, Science/Research, Public Domain, WinXP, Linux, C++, Ionizer,ionizer" />
+                <title>
+                        Ionizer: LaserBrothers
+                </title>
+<style type="text/css">
+        body
+        {
+                font-family: sans-serif;
+                line-height: 140%;
+                font-size: 90%;
+        }
+
+        a img
+        {
+                border-style: none;
+                text-decoration: none;
+                vertical-align: middle;
+        }
+
+        h1 { margin: 0 0 1em 5%; width: 80%; font-size: 160%; line-height: normal;}
+	small {margin: .5em 0 0 5%; font-size: 80%; position: relative; display: block;}
+	h3 { margin-top: 2em; font-size: 100%; }
+	h2 { margin-top: 1em; font-size: 120%; }
+
+        /* layout */
+        .host
+        {
+                position: absolute;
+                right: 1em;
+                top: 2em;
+                width: 25em;
+                text-align: center;
+                font-size: 80%;
+                font-weight: bold;
+        }
+
+        .host a { text-decoration: none; }
+
+        div.left
+        {
+                float: left;
+                width: 52%;
+                margin: 0 1% 0 5%;
+        }
+
+
+        div.right
+        {
+                float: left;
+                width: 40%;
+		margin-left: 2%;
+        }
+
+        /* footer */
+        #ft
+        {
+                clear: both;
+                display: block;
+                padding: 1em;
+                margin-left: -5%;
+                font-size: 80%;
+                text-align: center;
+        }
+
+        #fad
+        {
+                height: 250px; overflow: hidden;
+                line-height: 120%; font-size: 80%;
+        }
+</style>
+        </head>
+        <body>
+<h1><a href="index.html">Ionizer:</a> Build environment</h1>
+<div class="left">
+<h2>Microsoft Windows XP</h2>
+<h3>Microsoft Visual C++</h3>
+   <p>Visual C++ 2008 Express is avaible for free from Microsoft here:</p>
+   <code>http://www.microsoft.com/express/Downloads/#2008-Visual-CPP</code>
+<h3>Other software</h3>
+<p>wget.exe and unzip.exe programs should be on the search path (available at http://gnuwin32.sourceforge.net/)</p>
+<p>svn.exe should be on the search path (available from www.collab.net)</p>
+
+<h3>Qt</h3>
+  From VC++ command prompt, "deploy" directory run <code>get_qt.bat</code> and follow the installer<br>
+  *Put Qt binaries on the search path<br>
+  *Create an environment variable QtInstallDir that contains the Qt installation path<br>
+ 
+<h3>Qwt</h3>
+  From VC++ command prompt, "deploy" directory run: <code>get_qwt.bat</code>
+
+<h3>GSL</h3> 
+  From VC++ command prompt, "deploy" directory run: <code>get_gsl.bat</code>
+
+<h3>FFTW</h3>
+  From VC++ command prompt, "deploy" directory run: <code>get_fftw.bat</code>
+<p>Some of the paths used in these scripts may get out of date eventually.
+The scripts work as of 4/2010.</p>
+</div>
+<div class="right">
+<h2>Linux (Ubuntu)</h2>
+<h3>Required packages:</h3>
+<code>subversion build-essential libgsl0-dev libcomedi-dev libfftw3-dev qtcreator qt4-dev-tools libqwt5-qt4-dev</code>
+</div>
+
+</body>
+</html>
+
+
