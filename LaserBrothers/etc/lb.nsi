@@ -14,7 +14,7 @@ Name "LaserBrothers"
 OutFile "LaserBrothersSetup.exe"
 
 ; The default installation directory
-InstallDir $PROGRAMFILES\LaserBrothers
+InstallDir $desktop\LaserBrothers
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
@@ -40,6 +40,7 @@ Section "" ;No components page, name is not important
   SetOutPath $INSTDIR
   
   ; Put file there
-  File LaserBrothers.exe
+  File *.dll
+  File *.exe
   
 SectionEnd ; end the section
