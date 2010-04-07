@@ -18,6 +18,12 @@ int read(HANDLE hCOM, char* rcv_buff, unsigned nToRead)
 	ReadFile(hCOM, rcv_buff, nToRead, &nRead, 0);
 	return nRead;
 }
+
+void usleep(unsigned us)
+{
+	Sleep(us/1000);
+}
+
 #else
 typedef int HANDLE;
 #define INVALID_HANDLE_VALUE (-1)
