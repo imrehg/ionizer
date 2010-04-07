@@ -234,7 +234,7 @@ bg(0)
 
     for (int i = 0; i< PLOT_SIZE; i++)
     {
-        d_x[i] = 0.5 * i;     // time axis
+        d_x[i] = 5 * i;     // time axis
 
 		for(int j=0;j<4;j++)
 			d_y[j][i] = 0.0+0.1*j;
@@ -255,9 +255,11 @@ bg(0)
 	curves.back()->setStyle(QwtPlotCurve::Dots);
 
 
-	// Axis 
-    plot.setAxisTitle(QwtPlot::xBottom, "Time");
-    plot.setAxisScale(QwtPlot::xBottom, 0, 100);
+    // Axis
+    QwtText at("Time [ms]");
+    at.font().setPointSize(10);
+    plot.setAxisTitle(QwtPlot::xBottom, at);
+    plot.setAxisScale(QwtPlot::xBottom, 0, 1000);
     plot.setAxisScale(QwtPlot::yLeft, -5.0, 5.0);
 
     alignScales();

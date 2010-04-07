@@ -26,8 +26,8 @@ numLockers("Number of lockers", params, "4")
 
 	lockers.resize(numLockers);
 
-	for(unsigned i=0; i<lockers.size(); i++)
-		lockers[i] = new LockerWidget(this, i, params, this, &settings);
+        for(unsigned i=0; i<lockers.size(); i++)
+                lockers[i] = new LockerWidget(this, i, params, this, &settings, i == 0 ? this : 0);
 
 	for(unsigned i=0; i<lockers.size(); i++)
 	{
