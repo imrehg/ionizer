@@ -9,7 +9,9 @@
 
 #include <string>
 #include "RS232device.h"
+
 #include "NelderMead_opt.h"
+#include "actuator_opt.h"
 
 
 class WavePlate_adjuster : public QObject, public RS232device, public opt_actuator
@@ -43,7 +45,9 @@ public:
 	QSpinBox* wp[2];
 
 	int current_angles[2];
+
 	NelderMead_opt nm_opt;
+
 	QTime lastMovementT[2];
 	int lastMovementS[2];
 };

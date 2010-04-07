@@ -4,17 +4,20 @@ CONFIG += console
 QT += core \
     network
 shared = ../../shared/src
+thirdparty = ../../thirdparty
+
 INCLUDEPATH += $$shared
 DEFINES += NO_MCC
 win32 { 
     CONFIG += debug_and_release
-    CONFIG += build_all
-    INCLUDEPATH += ../gsl/include \
-        ../qwt-5.2/src
-    DEFINES += WIN32
-    LIBS += ../LIB/NIDAQmx.lib \
-        ../GSL/LIB/LIBGSL.A \
-        ../GSL/LIB/LIBGSLCBLAS.A \
+    CONFIG += build_all static
+    INCLUDEPATH += $$thirdparty/gsl-1.8/include \
+        $$thirdparty/qwt-5.2/src \
+        $$thirdparty/NI
+    DEFINES += WIN32 NO_NIDAQ
+    LIBS += $$thirdparty/NI/NIDAQmx.lib \
+        $$thirdparty/gsl-1.8/LIB/LIBGSL.A \
+        $$thirdparty/gsl-1.8/LIB/LIBGSLCBLAS.A \
         qwt5.lib
     
     # LIBS += ../lib/cbw32.lib

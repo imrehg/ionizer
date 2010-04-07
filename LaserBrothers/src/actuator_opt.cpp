@@ -6,6 +6,10 @@
 
 using namespace std;
 
+#ifdef WIN32
+#define  snprintf  _snprintf
+#endif
+
 opt_actuator::opt_actuator(unsigned N) : x(N, 0)
 {
 	t0.start();

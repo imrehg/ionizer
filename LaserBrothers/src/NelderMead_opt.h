@@ -3,13 +3,11 @@
 
 #include <gsl/gsl_multimin.h>
 
-#include "actuator_opt.h"
-
-
 /* Nelder-Mead optimizer based on GSL.
  * Runs in a separate thread.
  */
 
+#include "actuator_opt.h"
 
 class NelderMead_opt : public Actuator_opt
 {

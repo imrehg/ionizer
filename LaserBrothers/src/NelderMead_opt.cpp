@@ -142,3 +142,4 @@ void NelderMead_opt::iterate(unsigned iter)
 		gsl_multimin_fminimizer_set (fminimizer, &minex_func, x, ss);
 	}
 }
+
