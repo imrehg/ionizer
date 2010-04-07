@@ -59,7 +59,7 @@ comedi_ai::comedi_ai(comedi_t* dev, unsigned range, unsigned stop_src, unsigned 
     options.n_chan = nAI;
 
     options.freq = freq;
-    options.verbose = true;
+    options.verbose = false;
 
     if(!dev){
             exit(1);
@@ -158,6 +158,21 @@ void comedi_ai::stop() //virtual
     }
 }
 
+int comedi_ai::getData() //virtual
+{
+
+    //can't seem to read data unless the SDF_BUSY_OWNER flag is set
+    subdev_flags = comedi_get_subdevice_flags(dev, subdevice);
+    if(!(subdev_flags & SDF_BUSY_OWNER))
+        return 0;
+
+    if(isSampling)
+        return getAvailableData();
+
+
+    return 0;
+}
+
 int comedi_ai::getAvailableData()
 {
     int n = 0;
@@ -212,24 +227,6 @@ int comedi_ai::getAvailableData()
     return n;
 }
 
-int comedi_ai::getData() //virtual
-{
-    int n = 0;
-
-    if(isSampling)
-    {
-        n = getAvailableData();
-    }
-
-    start();
-
-    return n;
-}
-
-/*
- * This prepares a command in a pretty generic way.  We ask the
- * library to create a stock command that supports periodic
- * sampling of data, then modify the parts we want. */
 int comedi_ai::prepare_cmd_lib(int n_chan, unsigned scan_period_nanosec)
 {
         int ret;
@@ -240,7 +237,6 @@ int comedi_ai::prepare_cmd_lib(int n_chan, unsigned scan_period_nanosec)
          * command for a particular board.  If it returns -1,
          * that's bad. */
         ret = comedi_get_cmd_generic_timed(dev, subdevice, cmd, n_chan, scan_period_nanosec);
-
         if(ret<0){
                 printf("comedi_get_cmd_generic_timed failed\n");
                 return ret;
@@ -251,8 +247,11 @@ int comedi_ai::prepare_cmd_lib(int n_chan, unsigned scan_period_nanosec)
         cmd->chanlist           = chanlist;
         cmd->chanlist_len       = n_chan;
 
-        cmd->stop_src =	stop_src;
-        cmd->stop_arg =	stop_arg;
+        cmd->scan_end_arg = n_chan;
+
+        cmd->stop_src=TRIG_NONE;
+        cmd->stop_arg=0;
+
 
         return 0;
 }

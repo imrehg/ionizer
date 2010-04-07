@@ -18,25 +18,30 @@ NP_adjuster::NP_adjuster(const std::string& port, unsigned baud, const std::stri
  maxT(maxT),
  T(0),
  deltaT(deltaT),
- numValidT(0)
+ numValidT(0),
+ numQueries(0)
 {
-	try
-	{
-		if(isPortOpen())
-		{
-                        sendCmd("*IDN?\r");
-                        sendCmd(":SYSTem:PASSword:CENable \"NP\"\r"); //unlock protected commands
+    bDebugRS232 = true;
 
-			timeOfLastAdj.start();
-                        timeOfLastT.start();
-		}
-		
-	}
-	catch(runtime_error e)
-	{
-		cerr << "RUNTIME ERROR: " << endl;
-		cerr << "\t" << e.what() << endl;
-	}
+    try
+    {
+            if(isPortOpen())
+            {
+                    idn = sendCmd_getResponse("*IDN?\r", '\n');
+                    sendCmd(":SYSTem:PASSword:CENable \"NP\"\r"); //unlock protected commands
+
+                    timeOfLastAdj.start();
+                    timeOfLastT.start();
+            }
+
+    }
+    catch(runtime_error e)
+    {
+            cerr << "RUNTIME ERROR: " << endl;
+            cerr << "\t" << e.what() << endl;
+    }
+
+    bDebugRS232 = false;
 }
 
 NP_adjuster::~NP_adjuster()
@@ -45,11 +50,14 @@ NP_adjuster::~NP_adjuster()
 
 double NP_adjuster::getTemperature()
 {
-    double t = 0;
+    if(numValidT > 5)
+        return T;
 
-    if(numValidT < 3 && timeOfLastT.elapsed() > 1000)
+    if(numQueries>0 && timeOfLastT.elapsed() < 1000 && timeOfLastT.elapsed() > 100)
     {
+        double t = 0;
         string s = getResponse('\n');
+        numQueries--;
 
         istringstream iss(s.c_str());
 
@@ -61,10 +69,16 @@ double NP_adjuster::getTemperature()
             timeOfLastT.restart();
             T = t;
         }
-        else
+
+        cout << idn << " T = " << t << "  minT = " << minT << "  maxT = " << maxT <<  " numValidT = " << numValidT << endl;
+    }
+    else
+    {
+        if(timeOfLastT.elapsed() > 500)
         {
-            if(timeOfLastT.elapsed() > 500)
-                getTempCmd();
+            timeOfLastT.restart();
+            getTempCmd();
+            numQueries++;
         }
     }
 

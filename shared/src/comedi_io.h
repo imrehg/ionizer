@@ -34,6 +34,7 @@ protected:
         int getAvailableData();
 
         int prepare_cmd_lib(int n_chan, unsigned scan_period_nanosec);
+        int prepare_cmd_lib2(int n_chan, unsigned scan_period_nanosec);
 
         double get_datum(lsampl_t raw, int channel_index);
 

@@ -29,12 +29,12 @@ maxAI1("IO Device ai 1 max V", params, "5")
 
 void adio::setupIO()
 {
-	if(ioDevice0.Value().find("sim_io") != string::npos)
+        if(ioDevice0.Value().find("sim_io") != string::npos)
 	{
 		sim_io* sio = new sim_io(8,4,4);
 		aIn.push_back(sio);
-      aOut.push_back(sio);
-      dOut.push_back(sio);
+                aOut.push_back(sio);
+                dOut.push_back(sio);
 
 		return;
 	}
@@ -52,7 +52,8 @@ void adio::setupIO()
             exit(1);
         }
 
-        aIn.push_back(new comedi_ai(dev));
+
+        aIn.push_back(new comedi_ai(dev, 1, TRIG_NONE, 0,500.0, 8));
         aOut.push_back(new comedi_ao(dev));
         dOut.push_back(new comedi_do(dev));
 	}
@@ -78,15 +79,15 @@ void adio::setupIO()
 
 double adio::get_ai(unsigned iDev, unsigned iChan)
 {
-	return aIn.at(iDev)->data(iChan);
+        return *(aIn.at(iDev)->ptrData(iChan));
 }
 
 void adio::set_ao(unsigned iDev, unsigned iChan, double d)
 {
-	aOut.at(iDev)->setOutputNoUpdate(iChan, d);
+    aOut.at(iDev)->setOutputNoUpdate(iChan, d);
 }
 
 void adio::set_do(unsigned iDev, unsigned iChan, bool b)
 {
-	dOut.at(iDev)->setOutputNoUpdate(iChan, b);
+    dOut.at(iDev)->setOutputNoUpdate(iChan, b);
 }

@@ -30,6 +30,8 @@ public:
 
 protected:
         int numValidT;
+        int numQueries;
+        std::string idn;
 };
 
 double restrict(double v, double bottom, double top);

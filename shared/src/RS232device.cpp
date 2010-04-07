@@ -32,12 +32,11 @@ typedef int HANDLE;
 
 using namespace std;
 
-bool bDebugRS232 = false;
-
 RS232device::RS232device(const std::string& port_name, unsigned baud) :
 	port_name(port_name),
 	baud(baud),
-	hCOM(INVALID_HANDLE_VALUE)
+        hCOM(INVALID_HANDLE_VALUE),
+        bDebugRS232(false)
 {
 	try
 	{
@@ -116,15 +115,24 @@ std::string RS232device::getResponse(char line_end)
 {
 	int iRcv = 0;
 
-	while (1)
+        unsigned maxTries = 10;
+        unsigned nTries = 0;
+
+        while (nTries < maxTries)
 	{
 		int nNew = read(hCOM, rcv_buff + iRcv, 1024);
 
 		if (nNew > 0)
 		{
+                        nTries = 0;
 			iRcv += nNew;
 			rcv_buff[iRcv] = 0;
 		}
+                else
+                {
+                    usleep(1000);
+                    nTries++;
+                }
 
 		if (iRcv)
 			if (rcv_buff[iRcv - 1] == line_end)
@@ -135,7 +143,7 @@ std::string RS232device::getResponse(char line_end)
 			}
 	}
 
-	printf("WARNING: failed to receive line-end character: %d", (int)(line_end));
+        printf("WARNING: failed to receive line-end character: %d on device %s\n", (int)(line_end), port_name.c_str());
 	return "";
 }
 

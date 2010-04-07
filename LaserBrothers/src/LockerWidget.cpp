@@ -143,8 +143,6 @@ bg(0)
 
 	alwaysReplot.setToolTip("Always update plots (checked), or only when unlocked (unchecked)");
 	restoreSettings(settings);
-
-	shiftT.setChecked(false);
 	  
 	cavityMonitorInput = 0;
 	AcqIndex = 0;
@@ -200,7 +198,6 @@ bg(0)
 
 	if(adjNP)
 	{
-		shiftT.setChecked(true);
 	}
 	else
 	{
@@ -297,7 +294,7 @@ LockerWidget::~LockerWidget()
 	settings->setValue("Max. cavity", max_mon.value());
 	settings->setValue("Min. cavity", min_mon.value());
 	settings->setValue("Scan delta", scan_delta.value());
-	settings->setValue("Shift T", shiftT.isChecked());
+        settings->setValue(shiftT.text(), shiftT.isChecked());
 	settings->setValue(alwaysReplot.text(), alwaysReplot.isChecked());
 	settings->endGroup();
 
@@ -333,6 +330,11 @@ void LockerWidget::restoreSettings(QSettings* s)
 		alwaysReplot.setChecked(s->value(alwaysReplot.text()).toBool());
 	else 
 		alwaysReplot.setChecked(true);
+
+        if(s->contains(shiftT.text()))
+                shiftT.setChecked(s->value(shiftT.text()).toBool());
+        else
+                shiftT.setChecked(true);
 
 	s->endGroup();
 }

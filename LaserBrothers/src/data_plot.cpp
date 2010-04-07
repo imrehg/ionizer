@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <iomanip>
 
-
+#include <QTimerEvent>
 
 #include "WavePlate_adjuster.h"
 
@@ -66,7 +66,7 @@ void MainWindow::run()
 	for(unsigned i=0; i<aIn.size(); i++)
 		aIn[i]->start();
 
-	setTimerInterval(5.0);
+        setTimerInterval(5.0);
 }
 
 void MainWindow::stop()
@@ -107,8 +107,8 @@ void MainWindow::setTimerInterval(double ms)
 	
 void MainWindow::timerEvent(QTimerEvent *)
 {
-	if(d_timerId < 0)
-		return;
+        if(d_timerId < 0)
+                return;
 
 	t++;
 
@@ -130,7 +130,7 @@ void MainWindow::timerEvent(QTimerEvent *)
 		{
 			lockers[i]->updatePlotData();
 
-			if(t % 20 == 0)
+                        if(t % 10 == 0)
 				lockers[i]->replot();
 		}
 
@@ -153,12 +153,12 @@ void MainWindow::updateOutputs(bool bRecalculate)
 
 		for(unsigned i=0; i<dOut.size(); i++)
 		{
-			bool bChanged = dOut[i]->updateDigitalOutputs();
-			bNewStatus |= bChanged;
+                        bool bChanged = dOut[i]->updateDigitalOutputs();
+                        bNewStatus |= bChanged;
 		}
 
-		for(unsigned i=0; i<aOut.size(); i++)
-			aOut[i]->updateAnalogOutputs();
+                for(unsigned i=0; i<aOut.size(); i++)
+                        aOut[i]->updateAnalogOutputs();
 		
 		if(bNewStatus)
 		{

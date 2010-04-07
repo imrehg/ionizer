@@ -32,4 +32,5 @@ unsigned baud;
 
 com_t hCOM;
 char rcv_buff[1024];
+bool bDebugRS232;
 };
