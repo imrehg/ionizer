@@ -1,0 +1,17 @@
+#!/bin/bash
+cd ../src
+qmake LaserBrothers.pro
+make
+cd ../etc
+
+rm -rf debfiles
+
+mkdir -p debfiles/usr/bin
+cp -f ../src/LaserBrothers debfiles/usr/bin/laserbrothers
+
+mkdir -p debfiles/DEBIAN
+cp -f CONTROL debfiles/DEBIAN/control
+dpkg -b debfiles laserbrothers.deb
+mv laserbrothers.deb ../../installers
+
+

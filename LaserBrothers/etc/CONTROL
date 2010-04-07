@@ -1,0 +1,10 @@
+Package: laserbrothers
+Version: 1.0
+Priority: optional
+Architecture: all
+Essential: no
+Depends: libgsl0-dev, libcomedi-dev, libqwt5-qt4
+Installed-Size: 268487
+Maintainer: Till Rosenband [trosen@sourceforge.net]
+Provides: LaserBrothers
+Description: LaserBrothers is software to automatically re-lock lasers and resonant cavities, e.g. lock lasers to Fabry-Perot reference cavities or resonant doubling cavities to lasers. The software performs only minimal feedback. It's main function is to control the integrator of a separate feedback controller, and re-acquire lock when the signal is disrupted. A GUI shows the laser status, real-time signals, and allows adjustment of parameters. Other configuration options are specified in a text file.
