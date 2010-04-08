@@ -10,12 +10,12 @@ cd qwt-5.2
 qmake
 nmake
 
-copy lib\*.dll %QtInstallDir%bin
-copy lib\*.lib %QtInstallDir%lib
+copy lib\*.dll %QtInstallDir%\bin
+copy lib\*.lib %QtInstallDir%\lib
 
 mkdir  %QtInstallDir%\include\qwt
 copy /Y src/*.h %QtInstallDir%\include\qwt
 
 nmake clean
-cd ..\deploy
+cd ..\..\deploy
 

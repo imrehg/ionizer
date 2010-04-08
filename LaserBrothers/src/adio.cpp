@@ -29,7 +29,7 @@ maxAI1("IO Device ai 1 max V", params, "5")
 
 void adio::setupIO()
 {
-        if(ioDevice0.Value().find("sim_io") != string::npos)
+    if(ioDevice0.Value().find("sim_io") != string::npos)
 	{
 		sim_io* sio = new sim_io(8,4,4);
 		aIn.push_back(sio);
@@ -63,14 +63,14 @@ void adio::setupIO()
 	//NI IO device
 	if(ioDevice0.Value().find("Dev") != string::npos)
 	{
-		aIn.push_back(new NI_analog_in(ioDevice0.Value() + ioDeviceAI0.Value(), minAI1, maxAI1));
+		aIn.push_back(new NI_analog_in(ioDevice0.Value() + ioDeviceAI0.Value(), minAI0, maxAI0));
 		aOut.push_back(new NI_analog_out(ioDevice0.Value() + ioDeviceAO0.Value(), 2, 0, 5, 2.5));
 		dOut.push_back(new NI_digital_out(ioDevice0.Value() + ioDeviceDO0.Value(), 2));
 	}
 
 	if(ioDevice1.Value().find("Dev") != string::npos)
 	{
-		aIn.push_back(new NI_analog_in(ioDevice1.Value() + ioDeviceAI1.Value(), minAI2, maxAI2));
+		aIn.push_back(new NI_analog_in(ioDevice1.Value() + ioDeviceAI1.Value(), minAI1, maxAI1));
 		aOut.push_back(new NI_analog_out(ioDevice1.Value() + ioDeviceAO1.Value(), 2, 0, 5, 2.5));
 		dOut.push_back(new NI_digital_out(ioDevice1.Value() + ioDeviceDO1.Value(), 2));
 	}

@@ -267,7 +267,9 @@ bg(0)
     if(legendParent)
     {
         plot.insertLegend(new QwtLegend(legendParent), QwtPlot::ExternalLegend );
-        plot.legend()->setGeometry(500,15,400,50);
+        plot.legend()->setGeometry(500,15,400,30);
+		plot.legend()->setAutoFillBackground(false);
+	//	plot.legend()->resize(legendParent->size());
     }
 
 	for(unsigned i=0; i<curves.size(); i++)

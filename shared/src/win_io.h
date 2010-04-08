@@ -44,7 +44,7 @@ public:
 	NI_analog_out(const std::string& Achannels, unsigned numAO, 
 				  double minV, double maxV, double offset=0);
 
-	virtual void updateOutputs();
+	virtual void updateAnalogOutputs();
 
 protected:
 	TaskHandle taskHandleAO;
@@ -56,7 +56,7 @@ class NI_digital_out : public digital_out
 public:
 	NI_digital_out( const std::string& Dchannels, unsigned numDO);
 
-	virtual bool updateOutputs();
+	virtual bool updateDigitalOutputs();
 
 protected:
 	TaskHandle taskHandleDO;

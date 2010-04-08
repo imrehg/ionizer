@@ -22,8 +22,6 @@ settings("NIST", "LaserBothers"),
 tb(this),
 numLockers("Number of lockers", params, "4")
 {
-	setupIO();
-
 	lockers.resize(numLockers);
 
         for(unsigned i=0; i<lockers.size(); i++)
@@ -41,7 +39,7 @@ numLockers("Number of lockers", params, "4")
 	tb.addAction("STOP", this, SLOT(stop()));
 	tb.addAction("STOP [DISABLE INTEGRATORS]", this, SLOT(stopDisable()));
 	
-        QGridLayout *layout = new QGridLayout(this);
+   QGridLayout *layout = new QGridLayout(this);
 
 	layout->addWidget(&tb, 0, 0, 1, 2);
 

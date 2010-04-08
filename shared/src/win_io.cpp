@@ -180,7 +180,7 @@ offset(offset)
 	catch(runtime_error e) {}
 }
 
-void NI_analog_out::updateOutputs()
+void NI_analog_out::updateAnalogOutputs()
 {
 	//do analog update if values have changed
 	valarray<bool> check_equalAO(new_aOut.size());
@@ -218,7 +218,7 @@ digital_out(numDO)
 	catch(runtime_error e) {}
 }
 
-bool NI_digital_out::updateOutputs()
+bool NI_digital_out::updateDigitalOutputs()
 {
 	bool bDifferent = false;
 	unsigned dOut = 0;

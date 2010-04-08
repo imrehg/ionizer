@@ -42,5 +42,6 @@ Section "" ;No components page, name is not important
   ; Put file there
   File *.dll
   File *.exe
+  File *.conf
   
 SectionEnd ; end the section

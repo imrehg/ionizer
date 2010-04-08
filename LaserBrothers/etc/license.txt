@@ -1,3 +1,4 @@
 This software was developed at the National Institute of Standards and Technology (NIST) by employees of the Federal Government in the course of their official duties. Pursuant to title 17 Section 105 of the United States Code, this software is not subject to copyright protection and is in the public domain. NIST assumes no responsibility whatsoever for its use by other parties, and makes no guarantees, expressed or implied, about its quality, reliability, or any other characteristic.
 
-
+The complete source may be obtained at http://ionizer.sourceforge.net/ .
+LaserBrothers is based in part on the work of the Qwt project (http://qwt.sf.net), Qt by Nokia (http://qt.nokia.com), and the GNU Scientific Library (http://www.gnu.org/software/gsl).

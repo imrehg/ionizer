@@ -14,7 +14,7 @@ win32 {
     INCLUDEPATH += $$thirdparty/gsl-1.8/include \
         $$thirdparty/qwt-5.2/src \
         $$thirdparty/NI
-    DEFINES += WIN32 NO_NIDAQ
+    DEFINES += WIN32 HAS_NI_ADIO
     LIBS += $$thirdparty/NI/NIDAQmx.lib \
         $$thirdparty/gsl-1.8/LIB/LIBGSL.A \
         $$thirdparty/gsl-1.8/LIB/LIBGSLCBLAS.A \
