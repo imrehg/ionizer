@@ -160,12 +160,6 @@ void comedi_ai::stop() //virtual
 
 int comedi_ai::getData() //virtual
 {
-
-    //can't seem to read data unless the SDF_BUSY_OWNER flag is set
-    subdev_flags = comedi_get_subdevice_flags(dev, subdevice);
-    if(!(subdev_flags & SDF_BUSY_OWNER))
-        return 0;
-
     if(isSampling)
         return getAvailableData();
 
