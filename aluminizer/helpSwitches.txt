@@ -1,0 +1,13 @@
+*** Switches ***
+
+Control TTL outputs of FPGA.  
+Colored fields can be modified (typed in) to label the channels.  
+
+There are three states for each channel:
+
+0 (Red)   - Forced low
+1 (Green) - Forced high
+2 (Grey)  - Controlled by the FPGA's pulse sequencer
+
+The DEFAULT command sets all channels to state 2.
+When the FPGA is initialized, all channels are in state 2.

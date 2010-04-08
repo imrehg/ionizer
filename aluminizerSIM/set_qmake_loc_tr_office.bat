@@ -1,0 +1,2 @@
+qmake -set LOCATION LOC_TR_OFFICE
+qmake -set EXPERIMENT AL

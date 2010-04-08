@@ -1,0 +1,12 @@
+*** DDS ***
+
+Manually set DDS output frequencies/phases.
+These will be the default settings when the program starts up.
+Frequencies are rounded to the nearest value that the DDS can produce.
+
+TEST writes and read many random frequencies/phases to each DDS,
+and checks for errors.  Error messages are written to the debug port.
+Be sure to disconnect any sensitive RF devices that may be damaged
+by random drive frequencies before running TEST.
+
+

@@ -1,0 +1,2 @@
+qmake -set LOCATION LOC_LAB_2034
+qmake -set EXPERIMENT AL

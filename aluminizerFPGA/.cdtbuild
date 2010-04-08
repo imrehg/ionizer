@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 3.0.0?>
+
+<ManagedProjectBuildInfo>
+<project id="IonizerES.xygwin.ppc.exec.1713915798" name="Xilinx PowerPC Executable" projectType="xygwin.ppc.exec">
+<configuration artifactExtension="elf" artifactName="IonizerES" cleanCommand="rm -rf" description="" id="ppc.xygwin.exec.debug.1920474535" name="Debug" parent="ppc.xygwin.exec.debug">
+<toolChain id="ppc.xygwin.exec.debug.toolchain.1303449030" name="Debug.toolchain" superClass="ppc.xygwin.exec.debug.toolchain">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler.1769796307" name="PowerPC C Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler"/>
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler">
+<option id="xygwin.ppc.compiler.debugging.level.1460121304" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1957921533" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+<option id="xygwin.ppc.preprocessor.def.symbols.1451981786" superClass="xygwin.ppc.preprocessor.def.symbols" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="CONFIG_AL"/>
+</option>
+<option id="xygwin.ppc.compiler.general.include.paths.1090092764" superClass="xygwin.ppc.compiler.general.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="shared/src"/>
+</option>
+</tool>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link.1586784502" name="PowerPC C Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link.1411811270" name="PowerPC C++ Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link">
+<option id="xygwin.ppc.link.libs.711428929" superClass="xygwin.ppc.link.libs" valueType="libs">
+<listOptionValue builtIn="false" value="lwip4"/>
+<listOptionValue builtIn="false" value="xilkernel"/>
+</option>
+<option id="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript.159360582" superClass="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript" valueType="includePath">
+<listOptionValue builtIn="false" value="../IonizerES.ld"/>
+</option>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.1920474535.937611224" name="HFS_Al.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Al.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699./IonizerES/shared/src/HFS_Al.cpp">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699./IonizerES/shared/src/HFS_Al.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699">
+<option id="xygwin.ppc.compiler.debugging.level.1576598690" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1105219275" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.1920474535.603952402" name="HFS_Mg.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Mg.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699./IonizerES/shared/src/HFS_Mg.cpp">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699./IonizerES/shared/src/HFS_Mg.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699">
+<option id="xygwin.ppc.compiler.debugging.level.2037754641" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1390594308" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.1920474535.2022592796" name="HFS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699./IonizerES/shared/src/HFS.cpp">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699./IonizerES/shared/src/HFS.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699">
+<option id="xygwin.ppc.compiler.debugging.level.987094288" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.508503754" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="elf" artifactName="IonizerES" cleanCommand="rm -rf" description="" id="ppc.xygwin.exec.release.909793072" name="Release" parent="ppc.xygwin.exec.release">
+<toolChain id="ppc.xygwin.exec.release.toolchain.419308089" name="Release.toolchain" superClass="ppc.xygwin.exec.release.toolchain">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler.1822078846" name="PowerPC C Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler"/>
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler">
+<option id="xygwin.ppc.compiler.debugging.level.1408705753" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.none" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1806253133" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.most" valueType="enumerated"/>
+<option id="xygwin.ppc.preprocessor.def.symbols.313800186" superClass="xygwin.ppc.preprocessor.def.symbols" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="CONFIG_LMS"/>
+</option>
+</tool>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link.1061621075" name="PowerPC C Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link.560376771" name="PowerPC C++ Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link">
+<option id="xygwin.ppc.link.libs.1810379617" superClass="xygwin.ppc.link.libs" valueType="libs">
+<listOptionValue builtIn="false" value="lwip4"/>
+<listOptionValue builtIn="false" value="xilkernel"/>
+</option>
+<option id="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript.448398372" superClass="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript" valueType="includePath">
+<listOptionValue builtIn="false" value="../IonizerES.ld"/>
+</option>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.909793072.1761753876" name="HFS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242./IonizerES/shared/src/HFS.cpp">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242./IonizerES/shared/src/HFS.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.909793072.1411840707" name="HFS_Al.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Al.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242./IonizerES/shared/src/HFS_Al.cpp">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242./IonizerES/shared/src/HFS_Al.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.909793072.1157408013" name="HFS_Mg.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Mg.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242./IonizerES/shared/src/HFS_Mg.cpp">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242./IonizerES/shared/src/HFS_Mg.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242"/>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="elf" artifactName="IonizerES" cleanCommand="rm -rf" description="" id="ppc.xygwin.exec.profile.1327649572" name="Profile" parent="ppc.xygwin.exec.profile">
+<toolChain id="ppc.xygwin.exec.profile.toolchain.6155670" name="Profile.toolchain" superClass="ppc.xygwin.exec.profile.toolchain">
+<tool id="ppc.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler.873968228" name="PowerPC C Compiler" superClass="ppc.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler"/>
+<tool id="ppc.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.853783342" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link.1780169908" name="PowerPC C Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link.1415439335" name="PowerPC C++ Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link">
+<option id="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript.804000590" superClass="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript" valueType="includePath">
+<listOptionValue builtIn="false" value="../IonizerES.ld"/>
+</option>
+</tool>
+</toolChain>
+</configuration>
+<configuration artifactExtension="elf" artifactName="AluminizerES" cleanCommand="rm -rf" description="" id="ppc.xygwin.exec.debug.16184560" name="Al_Debug" parent="ppc.xygwin.exec.debug">
+<toolChain id="ppc.xygwin.exec.debug.toolchain.411630662" name="Debug.toolchain" superClass="ppc.xygwin.exec.debug.toolchain">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler.615584994" name="PowerPC C Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler"/>
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.104307618" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler">
+<option id="xygwin.ppc.compiler.debugging.level.606787760" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1164834907" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+<option id="xygwin.ppc.preprocessor.def.symbols.1975702512" name="Defined Symbols (-D)" superClass="xygwin.ppc.preprocessor.def.symbols" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="CONFIG_AL"/>
+<listOptionValue builtIn="false" value="VERSION_STR=&quot;\&quot;&quot;Aluminizer_Dbg&quot;\&quot;&quot;"/>
+</option>
+<option id="xygwin.ppc.compiler.general.include.paths.205089016" name="Include Paths (-I)" superClass="xygwin.ppc.compiler.general.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="C:/dev/Al/control_trunk/IonizerES/shared/src"/>
+<listOptionValue builtIn="false" value="../shared/src"/>
+</option>
+</tool>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link.827440266" name="PowerPC C Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link.700702793" name="PowerPC C++ Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link">
+<option id="xygwin.ppc.link.libs.277323061" name="Libraries (-l)" superClass="xygwin.ppc.link.libs" valueType="libs">
+<listOptionValue builtIn="false" value="lwip4"/>
+<listOptionValue builtIn="false" value="xilkernel"/>
+</option>
+<option id="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript.1190880141" superClass="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript" valueType="includePath">
+<listOptionValue builtIn="false" value="../IonizerES.ld"/>
+</option>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.16184560.177116084" name="HFS_Al.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Al.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.303323351">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.303323351" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.104307618">
+<option id="xygwin.ppc.compiler.debugging.level.1521593747" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1467663757" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.16184560.1656048211" name="HFS_Mg.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Mg.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1285000268">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1285000268" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.104307618">
+<option id="xygwin.ppc.compiler.debugging.level.223085948" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1687848645" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.16184560.1358004635" name="HFS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1909161127">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1909161127" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.104307618">
+<option id="xygwin.ppc.compiler.debugging.level.1405647071" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.788970624" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.16184560.1206091232" name="exp_LMS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/exp_LMS.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.104307618./IonizerES/exp_LMS.cpp">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.104307618./IonizerES/exp_LMS.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.104307618"/>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="elf" artifactName="MercurizerES" cleanCommand="rm -rf" description="" id="ppc.xygwin.exec.debug.2015339818" name="Hg_Debug" parent="ppc.xygwin.exec.debug">
+<toolChain id="ppc.xygwin.exec.debug.toolchain.1992060283" name="Debug.toolchain" superClass="ppc.xygwin.exec.debug.toolchain">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler.1868386968" name="PowerPC C Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler"/>
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.370036646" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler">
+<option id="xygwin.ppc.compiler.debugging.level.1449919158" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.76383125" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+<option id="xygwin.ppc.preprocessor.def.symbols.89566404" name="Defined Symbols (-D)" superClass="xygwin.ppc.preprocessor.def.symbols" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="CONFIG_HG"/>
+<listOptionValue builtIn="false" value="VERSION_STR=&quot;\&quot;&quot;Mercurizer_Dbg&quot;\&quot;&quot;"/>
+</option>
+<option id="xygwin.ppc.compiler.general.include.paths.2122750368" name="Include Paths (-I)" superClass="xygwin.ppc.compiler.general.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="C:/dev/Al/control_trunk/IonizerES/shared/src"/>
+</option>
+</tool>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link.147714504" name="PowerPC C Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link.634953026" name="PowerPC C++ Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link">
+<option id="xygwin.ppc.link.libs.136823488" name="Libraries (-l)" superClass="xygwin.ppc.link.libs" valueType="libs">
+<listOptionValue builtIn="false" value="lwip4"/>
+<listOptionValue builtIn="false" value="xilkernel"/>
+</option>
+<option id="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript.787099368" superClass="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript" valueType="includePath">
+<listOptionValue builtIn="false" value="../IonizerES.ld"/>
+</option>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.2015339818.1179078407" name="HFS_Al.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Al.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1975801136">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1975801136" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.370036646">
+<option id="xygwin.ppc.compiler.debugging.level.1289549790" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.930559037" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.2015339818.1590263409" name="HFS_Mg.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Mg.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.645029573">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.645029573" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.370036646">
+<option id="xygwin.ppc.compiler.debugging.level.1257438561" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.525954701" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.debug.2015339818.444827068" name="HFS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS.cpp" toolsToInvoke="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1453347633">
+<tool id="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.946451699.1453347633" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.370036646">
+<option id="xygwin.ppc.compiler.debugging.level.1042031427" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.default" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.1791360044" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.none" valueType="enumerated"/>
+</tool>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="elf" artifactName="AluminizerES" cleanCommand="rm -rf" description="" id="ppc.xygwin.exec.release.2129141160" name="Al_Release" parent="ppc.xygwin.exec.release">
+<toolChain id="ppc.xygwin.exec.release.toolchain.1641199235" name="Release.toolchain" superClass="ppc.xygwin.exec.release.toolchain">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler.784400274" name="PowerPC C Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler"/>
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler">
+<option id="xygwin.ppc.compiler.debugging.level.1256150367" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.none" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.80345562" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.most" valueType="enumerated"/>
+<option id="xygwin.ppc.preprocessor.def.symbols.1569946955" name="Defined Symbols (-D)" superClass="xygwin.ppc.preprocessor.def.symbols" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="CONFIG_AL"/>
+<listOptionValue builtIn="false" value="VERSION_STR=&quot;\&quot;&quot;Aluminizer_Rls&quot;\&quot;&quot;"/>
+</option>
+<option id="xygwin.ppc.compiler.general.include.paths.491879603" superClass="xygwin.ppc.compiler.general.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="C:/dev/Al/control_trunk/IonizerES/shared/src"/>
+<listOptionValue builtIn="false" value="../shared/src"/>
+</option>
+</tool>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link.1441782631" name="PowerPC C Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link.942388909" name="PowerPC C++ Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link">
+<option id="xygwin.ppc.link.libs.1714957716" name="Libraries (-l)" superClass="xygwin.ppc.link.libs" valueType="libs">
+<listOptionValue builtIn="false" value="lwip4"/>
+<listOptionValue builtIn="false" value="xilkernel"/>
+</option>
+<option id="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript.2036356652" superClass="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript" valueType="includePath">
+<listOptionValue builtIn="false" value="../IonizerES.ld"/>
+</option>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.2129141160.1181513260" name="HFS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242.434822091">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242.434822091" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.2129141160.390115034" name="HFS_Al.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Al.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242.998113698">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242.998113698" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.2129141160.1756386559" name="HFS_Mg.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Mg.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242.1892072753">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.1447378242.1892072753" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.2129141160.1427291593" name="exp_LMS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/exp_LMS.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723./IonizerES/exp_LMS.cpp">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723./IonizerES/exp_LMS.cpp" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723"/>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="elf" artifactName="IonizerES" cleanCommand="rm -rf" description="" id="ppc.xygwin.exec.release.2095291670" name="Hg_Release" parent="ppc.xygwin.exec.release">
+<toolChain id="ppc.xygwin.exec.release.toolchain.1815452313" name="Release.toolchain" superClass="ppc.xygwin.exec.release.toolchain">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler.1592440019" name="PowerPC C Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.compiler"/>
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.792526305" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler">
+<option id="xygwin.ppc.compiler.debugging.level.987579638" name="Debug Level" superClass="xygwin.ppc.compiler.debugging.level" value="xygwin.ppc.debugging.level.none" valueType="enumerated"/>
+<option id="xygwin.ppc.compiler.general.optimization.level.987347457" name="Optimization Level" superClass="xygwin.ppc.compiler.general.optimization.level" value="xygwin.ppc.optimization.level.most" valueType="enumerated"/>
+<option id="xygwin.ppc.preprocessor.def.symbols.730014921" name="Defined Symbols (-D)" superClass="xygwin.ppc.preprocessor.def.symbols" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="CONFIG_HG"/>
+<listOptionValue builtIn="false" value="VERSION_STR=&quot;\&quot;&quot;Mercurizer_Rls&quot;\&quot;&quot;"/>
+</option>
+<option id="xygwin.ppc.compiler.general.include.paths.997924852" name="Include Paths (-I)" superClass="xygwin.ppc.compiler.general.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="C:/dev/Al/control_trunk/IonizerES/shared/src"/>
+</option>
+</tool>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link.1546201538" name="PowerPC C Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.c.link"/>
+<tool id="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link.582138487" name="PowerPC C++ Linker" superClass="com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.link">
+<option id="xygwin.ppc.link.libs.1271380805" name="Libraries (-l)" superClass="xygwin.ppc.link.libs" valueType="libs">
+<listOptionValue builtIn="false" value="lwip4"/>
+<listOptionValue builtIn="false" value="xilkernel"/>
+</option>
+<option id="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript.1234265081" superClass="com.xilinx.mdt.edk.managedbuilder.ppc.cpp.linkerscript" valueType="includePath">
+<listOptionValue builtIn="false" value="../IonizerES.ld"/>
+</option>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.2095291670.554063630" name="HFS.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723.1219360366">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723.1219360366" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.792526305"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.2095291670.2050712411" name="HFS_Al.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Al.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723.655074939">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723.655074939" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.792526305"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="ppc.xygwin.exec.release.2095291670.1632800159" name="HFS_Mg.cpp" rcbsApplicability="disable" resourcePath="/IonizerES/shared/src/HFS_Mg.cpp" toolsToInvoke="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723.1153892905">
+<tool id="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.2086603723.1153892905" name="PowerPC C++ Compiler" superClass="ppc.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.ppc.cpp.compiler.792526305"/>
+</resourceConfiguration>
+</configuration>
+</project>
+</ManagedProjectBuildInfo>

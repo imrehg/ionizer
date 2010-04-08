@@ -1,0 +1,5 @@
+*** FPGA ***
+
+TEST LATENCY measures the round-trip communications latencey from the PC to the FPGA.  It should be about 1 ms.
+
+TEST MEMORY tests dynamic memory allocation on the FPGA.  Memory in different sizes up to 2 MB is allocated, write/read is tested, and then the memory is freed again.  Information is sent to the debug port.  There seems to be a bug in the memory allocation functions, where if an allocation is attemped that is too large, then the memory manager is corrupted.  This is avoided by not allocating too much memory, and setting a large enough heap size in the linker script (AluminizerES.ld).
