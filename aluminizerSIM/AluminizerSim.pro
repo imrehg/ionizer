@@ -1,11 +1,11 @@
 TEMPLATE = app
 TARGET = AluminizerSim
 
-include(sim_local.pro)
+include(local.pro)
 
-INCLUDEPATH += ../INCLUDE/TNT ../INCLUDE/JAMA
+INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA
 
-FPGApath = ../IonizerES
+FPGApath = ../aluminizerFPGA
 shared = $$FPGApath/shared/src
 DRIVER_PATH = ../FPGA/customIP2/IP/drivers/pulse_controller_v3_01_a/src
 INCLUDEPATH += $$shared $$DRIVER_PATH $$FPGApath
@@ -16,7 +16,7 @@ DEFINES += ALUMINIZER_SIM LITTLE_ENDIAN _CRT_SECURE_NO_WARNINGS HAS_HFS CONFIG_P
 
 QT += core \
     network
-HEADERS += AluminizerSim.pro sim_local.pro
+HEADERS += AluminizerSim.pro local.pro
 HEADERS += $$FPGApath/info_interface.h
 HEADERS += $$DRIVER_PATH/pulse_controller.h
 HEADERS += $$FPGApath/common.h
@@ -60,7 +60,7 @@ SOURCES += main.cpp \
     sim_pulse_controller.cpp sim_dac.cpp \
     sim_ions.cpp
 SOURCES += $$FPGApath/exp_recover.cpp
-SOURCES += ../Ionizer/GbE_msg.cpp
+SOURCES += ../aluminizer/GbE_msg.cpp
 AL { 
     DEFINES += CONFIG_AL
     HEADERS += $$FPGApath/Al/config_Al.h  $$FPGApath/Al/voltagesAl.h

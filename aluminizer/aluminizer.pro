@@ -1,15 +1,15 @@
 TEMPLATE = app
-INCLUDEPATH += ../trlib ../INCLUDE/TNT ../INCLUDE/JAMA ../INCLUDE  ../fftw
 RC_FILE = Aluminizer2.rc
 PRECOMPILED_HEADER = common.h
+INCLUDEPATH += ../trlib
+win32 { INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA ../thirdparty/fftw }
 
-
-include(Ionizer_local.pro)
+include(local.pro)
 
 CONFIG += console precompile_header
 CONFIG += debug
 
-TARGET = Ionizer
+TARGET = Aluminizer
 
 AL {
 message("target = Aluminizer")
@@ -22,9 +22,9 @@ DEFINES += CONFIG_HG
 }
 
 CONFIG(debug, debug|release) {
-win32 { LIBS += qwtd5.lib  ../trlib/debug/trlib.lib }
+win32 { LIBS += qwtd5.lib ..\trlib\debug\trlib.lib}
 } else {
-win32 { LIBS += qwt5.lib ../trlib/release/trlib.lib }
+win32 { LIBS += qwt5.lib }
 }
  
 
@@ -76,9 +76,8 @@ win32 { DEFINES += _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 }
 win32 { DEFINES += _CRT_SECURE_NO_WARNINGS }
 
 
-win32 { LIBS += ../fftw/libfftw3-3.lib }
-win32 { INCLUDEPATH += ../fftw }
-win32 { INCLUDEPATH += ../qwt-5.2/src }
+win32 { LIBS += ../thirdparty/fftw/libfftw3-3.lib }
+win32 { INCLUDEPATH += ../thirdparty/qwt-5.2/src }
 
 
 #LINUX defines / libraries
@@ -92,7 +91,7 @@ OTHERS += ../issues.txt
 
 
 sharedSRC = ../shared/src
-srcFPGA = ../IonizerES
+srcFPGA = ../aluminizerFPGA
 sharedFPGA = $$srcFPGA/shared/src
 
 INCLUDEPATH += $$sharedFPGA $$sharedSRC
@@ -101,7 +100,7 @@ INCLUDEPATH += $$sharedFPGA $$sharedSRC
 INCLUDEPATH += $$shared $$sharedSRC
 
 # Input
-HEADERS += Ionizer.pro Ionizer_local.pro ../issues.txt
+HEADERS += aluminizer.pro local.pro ../issues.txt
 
 HEADERS += $$sharedFPGA/messaging.h  
 HEADERS += $$sharedFPGA/dds_pulse_info.h  
@@ -149,4 +148,4 @@ SOURCES += $$sharedFPGA/HFS.cpp $$sharedFPGA/HFS_Mg.cpp $$sharedFPGA/HFS_Al.cpp 
            $$sharedFPGA/Numerics.cpp $$sharedFPGA/fractions.cpp  $$sharedFPGA/Transition.cpp \
            $$sharedFPGA/my_matrix.cpp $$sharedFPGA/string_func.cpp
 
-OTHER += Ionizer_local.pro
+OTHER += local.pro
