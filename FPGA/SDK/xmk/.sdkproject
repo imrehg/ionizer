@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<sdkproject major_version='11' minor_version='1'>
+<processor name='ppc405_0' type='ppc405_virtex4' />
+<os name='xilkernel' />
+</sdkproject>

@@ -1,0 +1,15 @@
+-batch 
+-create pulse_controller 
+-ver 3.01.a 
+-dir "C:\dev\control_trunk\FPGA\DDS_GbE_11_2" 
+-lang verilog 
+-bus plbv46 s 
+-burst s 64 
+-rst 
+-rfifo 2 16 
+-wfifo 2 1024 
+-reg 8 
+-wrbuf 16 
+-xps 
+-ise 
+-driver 

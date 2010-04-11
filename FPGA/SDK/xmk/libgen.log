@@ -1,0 +1,43 @@
+Release 11.3 - libgen Xilinx EDK 11.3 Build EDK_LS3.57
+ (nt)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+
+Command Line: libgen -hw ../SDK_Export/hw/system.xml -pe ppc405_0 -od . -lp
+../../customIP2 -lp ../SDK_Export -log libgen.log xmk.mss 
+
+WARNING:EDK:411 - mpmc - C:\DEV\Al\control_trunk\FPGA\SDK\xmk\xmk.mss line 31 -
+   deprecated driver!
+WARNING:EDK:411 - spi - C:\DEV\Al\control_trunk\FPGA\SDK\xmk\xmk.mss line 73 -
+   deprecated driver!
+WARNING:EDK:411 - spi - C:\DEV\Al\control_trunk\FPGA\SDK\xmk\xmk.mss line 79 -
+   deprecated driver!
+WARNING:EDK:411 - spi - C:\DEV\Al\control_trunk\FPGA\SDK\xmk\xmk.mss line 85 -
+   deprecated driver!
+WARNING:EDK:411 - cpu_ppc405 - C:\DEV\Al\control_trunk\FPGA\SDK\xmk\xmk.mss line
+   22 - deprecated processor!
+INFO:EDK:1740 - List of peripherals connected to processor instance ppc405_0: 
+  - DDR_SDRAM_32Mx16
+  - RS232
+  - TriMode_MAC_GMII
+  - TriMode_MAC_GMII_fifo
+  - pulse_controller_0
+  - xps_bram_if_cntlr_1
+  - xps_intc_0
+  - xps_spi_0
+  - xps_spi_1
+  - xps_spi_2
+
+Staging source files.
+Running DRCs.
+Runnning DRC for lwIP library... 
+
+lwIP can be used with the following EMAC peripherals found in your system:
+TriMode_MAC_GMII
+Running generate.
+Running post_generate.
+Running include - 'make -s include "COMPILER=powerpc-eabi-gcc"
+"ARCHIVER=powerpc-eabi-ar" "COMPILER_FLAGS= -O2 -c" "EXTRA_COMPILER_FLAGS=-g"'.
+
+Running libs - 'make -s libs "COMPILER=powerpc-eabi-gcc"
+"ARCHIVER=powerpc-eabi-ar" "COMPILER_FLAGS= -O2 -c" "EXTRA_COMPILER_FLAGS=-g"'.
+Running execs_generate.

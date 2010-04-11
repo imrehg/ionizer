@@ -1,0 +1,337 @@
+
+# ##############################################################################
+# Created by Base System Builder Wizard for Xilinx EDK 9.2.01 Build EDK_Jm_SP1.2
+# Wed Dec 05 15:48:11 2007
+# Target Board:  Memec Virtex-4 FX12 LC Development Board Rev 1
+# Family:	 virtex4
+# Device:	 XC4VFX12
+# Package:	 FF668
+# Speed Grade:	 -10
+# Processor: ppc405_0
+# Processor clock frequency: 100.00 MHz
+# Bus clock frequency: 100.00 MHz
+# On Chip Memory :   8 KB
+# Total Off Chip Memory :  64 MB
+# - DDR_SDRAM_32Mx16 =  64 MB
+# ##############################################################################
+ PARAMETER VERSION = 2.1.0
+
+
+ PORT fpga_0_RS232_RX_pin = fpga_0_RS232_RX, DIR = I
+ PORT fpga_0_RS232_TX_pin = fpga_0_RS232_TX, DIR = O
+ PORT fpga_0_RS232_req_to_send_pin = net_gnd, DIR = O
+ PORT fpga_0_RS232_USB_RX_pin = fpga_0_RS232_USB_RX, DIR = I
+ PORT fpga_0_RS232_USB_TX_pin = fpga_0_RS232_USB_TX, DIR = O
+ PORT fpga_0_RS232_USB_reset_dummy_pin = net_vcc, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_Clk_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_Clk, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_Clk_n_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_Clk_n, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_Addr_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_Addr, DIR = O, VEC = [12:0]
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_BankAddr_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_BankAddr, DIR = O, VEC = [1:0]
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_CAS_n_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_CAS_n, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_CE_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_CE, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_CS_n_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_CS_n, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_RAS_n_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_RAS_n, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_WE_n_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_WE_n, DIR = O
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_DM_pin = fpga_0_DDR_SDRAM_32Mx16_DDR_DM, DIR = O, VEC = [1:0]
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_DQS = fpga_0_DDR_SDRAM_32Mx16_DDR_DQS, DIR = IO, VEC = [1:0]
+ PORT fpga_0_DDR_SDRAM_32Mx16_DDR_DQ = fpga_0_DDR_SDRAM_32Mx16_DDR_DQ, DIR = IO, VEC = [15:0]
+ PORT fpga_0_TriMode_MAC_GMII_GMII_TXD_0_pin = fpga_0_TriMode_MAC_GMII_GMII_TXD_0, DIR = O, VEC = [7:0]
+ PORT fpga_0_TriMode_MAC_GMII_GMII_TX_EN_0_pin = fpga_0_TriMode_MAC_GMII_GMII_TX_EN_0, DIR = O
+ PORT fpga_0_TriMode_MAC_GMII_GMII_TX_ER_0_pin = fpga_0_TriMode_MAC_GMII_GMII_TX_ER_0, DIR = O
+ PORT fpga_0_TriMode_MAC_GMII_GMII_TX_CLK_0_pin = fpga_0_TriMode_MAC_GMII_GMII_TX_CLK_0, DIR = O
+ PORT fpga_0_TriMode_MAC_GMII_GMII_RXD_0_pin = fpga_0_TriMode_MAC_GMII_GMII_RXD_0, DIR = I, VEC = [7:0]
+ PORT fpga_0_TriMode_MAC_GMII_GMII_RX_DV_0_pin = fpga_0_TriMode_MAC_GMII_GMII_RX_DV_0, DIR = I
+ PORT fpga_0_TriMode_MAC_GMII_GMII_RX_ER_0_pin = fpga_0_TriMode_MAC_GMII_GMII_RX_ER_0, DIR = I
+ PORT fpga_0_TriMode_MAC_GMII_GMII_RX_CLK_0_pin = fpga_0_TriMode_MAC_GMII_GMII_RX_CLK_0, DIR = I
+ PORT fpga_0_TriMode_MAC_GMII_MII_TX_CLK_0_pin = fpga_0_TriMode_MAC_GMII_MII_TX_CLK_0, DIR = I
+ PORT fpga_0_TriMode_MAC_GMII_MDIO_0_pin = fpga_0_TriMode_MAC_GMII_MDIO_0, DIR = IO
+ PORT fpga_0_TriMode_MAC_GMII_MDC_0_pin = fpga_0_TriMode_MAC_GMII_MDC_0, DIR = O
+ PORT fpga_0_TriMode_MAC_GMII_TemacPhy_RST_n_pin = fpga_0_TriMode_MAC_GMII_TemacPhy_RST_n, DIR = O
+ PORT sys_clk_pin = dcm_clk_s, DIR = I, SIGIS = CLK, CLK_FREQ = 100000000
+ PORT sys_rst_pin = sys_rst_s, DIR = I, RST_POLARITY = 0, SIGIS = RST
+ PORT spi0_clock_out_pin = SPI0_clock_out, DIR = O
+ PORT spi0_out_pin = SPI0_out, DIR = O
+ PORT spi0_in_pin = SPI0_in, DIR = I
+ PORT spi0_ss_pin = SPI0_ss, DIR = O
+ PORT spi1_clock_out_pin = SPI1_clock_out, DIR = O
+ PORT spi1_out_pin = SPI1_out, DIR = O
+ PORT spi1_in_pin = SPI1_in, DIR = I
+ PORT spi1_ss_pin = SPI1_ss, DIR = O
+ PORT spi2_clock_out_pin = SPI2_clock_out, DIR = O
+ PORT spi2_out_pin = SPI2_out, DIR = O
+ PORT spi2_in_pin = SPI2_in, DIR = I
+ PORT spi2_ss_pin = SPI2_ss, DIR = O
+ PORT pulse_io_pins = pulse_io, DIR = O, VEC = [0:31]
+ PORT counter_pins = counter_in, DIR = I, VEC = [0:0]
+ PORT sync_counter_pin = sync_counter_in, DIR = I
+ PORT fullness_leds = fullness, DIR = O, VEC = [0:3]
+ PORT dds_addr_pins = dds_addr, DIR = O, VEC = [0:5]
+ PORT dds_data_pins = dds_data, DIR = IO, VEC = [0:7]
+ PORT dds_control_pins = dds_control, DIR = O, VEC = [0:3]
+ PORT dds_cs_pins = dds_cs, DIR = O, VEC = [0:7]
+
+
+BEGIN xps_spi
+ PARAMETER INSTANCE = xps_spi_0
+ PARAMETER HW_VER = 2.01.a
+ PARAMETER C_SCK_RATIO = 64
+ PARAMETER C_BASEADDR = 0x83420000
+ PARAMETER C_HIGHADDR = 0x8342ffff
+ BUS_INTERFACE SPLB = plb
+ PORT SCK_O = SPI0_clock_out
+ PORT MOSI_O = SPI0_out
+ PORT MISO_I = SPI0_in
+ PORT SS_O = SPI0_ss
+END
+
+BEGIN xps_spi
+ PARAMETER INSTANCE = xps_spi_1
+ PARAMETER HW_VER = 2.01.a
+ PARAMETER C_SCK_RATIO = 64
+ PARAMETER C_NUM_TRANSFER_BITS = 8
+ PARAMETER C_NUM_SS_BITS = 1
+ PARAMETER C_BASEADDR = 0x83400000
+ PARAMETER C_HIGHADDR = 0x8340ffff
+ BUS_INTERFACE SPLB = plb
+ PORT SCK_O = SPI1_clock_out
+ PORT MOSI_O = SPI1_out
+ PORT MISO_I = SPI1_in
+ PORT SS_O = SPI1_ss
+END
+
+BEGIN xps_spi
+ PARAMETER INSTANCE = xps_spi_2
+ PARAMETER HW_VER = 2.01.a
+ PARAMETER C_BASEADDR = 0x83440000
+ PARAMETER C_HIGHADDR = 0x8344ffff
+ PARAMETER C_SCK_RATIO = 4
+ PARAMETER C_NUM_TRANSFER_BITS = 16
+ BUS_INTERFACE SPLB = plb
+ PORT SCK_O = SPI2_clock_out
+ PORT MOSI_O = SPI2_out
+ PORT MISO_I = SPI2_in
+ PORT SS_O = SPI2_ss
+END
+
+BEGIN xps_intc
+ PARAMETER INSTANCE = xps_intc_0
+ PARAMETER HW_VER = 2.00.a
+ PARAMETER C_BASEADDR = 0x81800000
+ PARAMETER C_HIGHADDR = 0x8180ffff
+ BUS_INTERFACE SPLB = plb
+ PORT Irq = EICC405EXTINPUTIRQ
+ PORT Intr = TriMode_MAC_GMII_TemacIntc0_Irpt & TriMode_MAC_GMII_fifo_IP2INTC_Irpt
+END
+
+BEGIN xps_bram_if_cntlr
+ PARAMETER INSTANCE = xps_bram_if_cntlr_1
+ PARAMETER HW_VER = 1.00.b
+ PARAMETER C_SPLB_NATIVE_DWIDTH = 64
+ PARAMETER C_BASEADDR = 0xffffe000
+ PARAMETER C_HIGHADDR = 0xffffffff
+ BUS_INTERFACE SPLB = plb
+ BUS_INTERFACE PORTA = xps_bram_if_cntlr_1_port
+END
+
+BEGIN pulse_controller
+ PARAMETER INSTANCE = pulse_controller_0
+ PARAMETER HW_VER = 3.01.a
+ PARAMETER N_DDS = 8
+ PARAMETER U_PULSE_WIDTH = 32
+ PARAMETER C_BASEADDR = 0xc9800000
+ PARAMETER C_HIGHADDR = 0xc980ffff
+ BUS_INTERFACE SPLB = plb
+ PORT pulse_io = pulse_io
+ PORT dds_addr = dds_addr
+ PORT dds_data = dds_data
+ PORT dds_control = dds_control
+ PORT dds_cs = dds_cs
+ PORT fullness = fullness
+ PORT counter_in = counter_in
+ PORT sync_in = sync_counter_in
+END
+
+BEGIN proc_sys_reset
+ PARAMETER INSTANCE = proc_sys_reset_0
+ PARAMETER HW_VER = 2.00.a
+ PARAMETER C_EXT_RESET_HIGH = 0
+ BUS_INTERFACE RESETPPC0 = ppc_reset_bus
+ PORT Slowest_sync_clk = sys_clk_s
+ PORT Dcm_locked = Dcm_all_locked
+ PORT Ext_Reset_In = sys_rst_s
+ PORT Bus_Struct_Reset = sys_bus_reset
+ PORT Peripheral_Reset = sys_periph_reset
+END
+
+BEGIN plb_v46
+ PARAMETER INSTANCE = ppc405_0_iplb1
+ PARAMETER HW_VER = 1.04.a
+ PORT PLB_Clk = sys_clk_s
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN plb_v46
+ PARAMETER INSTANCE = ppc405_0_dplb1
+ PARAMETER HW_VER = 1.04.a
+ PORT PLB_Clk = sys_clk_s
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN ppc405_virtex4
+ PARAMETER INSTANCE = ppc405_0
+ PARAMETER HW_VER = 2.01.b
+ PARAMETER C_FASTEST_PLB_CLOCK = DPLB1
+ PARAMETER C_IDCR_BASEADDR = 0b0100000000
+ PARAMETER C_IDCR_HIGHADDR = 0b0111111111
+ BUS_INTERFACE JTAGPPC = jtagppc_0_0
+ BUS_INTERFACE IPLB0 = plb
+ BUS_INTERFACE DPLB0 = plb
+ BUS_INTERFACE IPLB1 = ppc405_0_iplb1
+ BUS_INTERFACE DPLB1 = ppc405_0_dplb1
+ BUS_INTERFACE RESETPPC = ppc_reset_bus
+ PORT CPMC405CLOCK = clk_200mhz_s
+ PORT EICC405EXTINPUTIRQ = EICC405EXTINPUTIRQ
+END
+
+BEGIN bram_block
+ PARAMETER INSTANCE = plb_bram_if_cntlr_1_bram
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE PORTA = xps_bram_if_cntlr_1_port
+END
+
+BEGIN plb_v46
+ PARAMETER INSTANCE = plb
+ PARAMETER C_DCR_INTFCE = 0
+ PARAMETER C_NUM_CLK_PLB2OPB_REARB = 100
+ PARAMETER HW_VER = 1.04.a
+ PORT PLB_Clk = sys_clk_s
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN jtagppc_cntlr
+ PARAMETER INSTANCE = jtagppc_0
+ PARAMETER HW_VER = 2.01.c
+ BUS_INTERFACE JTAGPPC0 = jtagppc_0_0
+END
+
+BEGIN clock_generator
+ PARAMETER INSTANCE = clock_generator_0
+ PARAMETER HW_VER = 3.01.a
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PARAMETER C_CLKIN_FREQ = 100000000
+ PARAMETER C_CLKOUT0_FREQ = 100000000
+ PARAMETER C_CLKOUT0_BUF = TRUE
+ PARAMETER C_CLKOUT0_PHASE = 0
+ PARAMETER C_CLKOUT0_GROUP = DCM0
+ PARAMETER C_CLKOUT1_FREQ = 100000000
+ PARAMETER C_CLKOUT1_BUF = TRUE
+ PARAMETER C_CLKOUT1_PHASE = 90
+ PARAMETER C_CLKOUT1_GROUP = DCM0
+ PARAMETER C_CLKOUT2_FREQ = 200000000
+ PARAMETER C_CLKOUT2_BUF = TRUE
+ PARAMETER C_CLKOUT2_PHASE = 0
+ PARAMETER C_CLKOUT2_GROUP = NONE
+ PARAMETER C_CLKOUT3_FREQ = 125000000
+ PARAMETER C_CLKOUT3_BUF = TRUE
+ PARAMETER C_CLKOUT3_PHASE = 0
+ PARAMETER C_CLKOUT3_GROUP = NONE
+ PORT CLKOUT0 = sys_clk_s
+ PORT CLKOUT1 = DDR_SDRAM_32Mx16_mpmc_clk_90_s
+ PORT CLKOUT2 = clk_200mhz_s
+ PORT CLKOUT3 = temac_clk_s
+ PORT CLKIN = dcm_clk_s
+ PORT LOCKED = Dcm_all_locked
+ PORT RST = net_gnd
+END
+
+BEGIN xps_ll_fifo
+ PARAMETER INSTANCE = TriMode_MAC_GMII_fifo
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_BASEADDR = 0x81a00000
+ PARAMETER C_HIGHADDR = 0x81a0ffff
+ BUS_INTERFACE LLINK = TriMode_MAC_GMIIllink0
+ BUS_INTERFACE SPLB = plb
+ PORT IP2INTC_Irpt = TriMode_MAC_GMII_fifo_IP2INTC_Irpt
+END
+
+BEGIN xps_ll_temac
+ PARAMETER INSTANCE = TriMode_MAC_GMII
+ PARAMETER HW_VER = 2.02.a
+ PARAMETER C_TEMAC_TYPE = 1
+ PARAMETER C_PHY_TYPE = 1
+ PARAMETER C_TEMAC0_PHYADDR = 0b00100
+ PARAMETER C_NUM_IDELAYCTRL = 3
+ PARAMETER C_IDELAYCTRL_LOC = IDELAYCTRL_X1Y2-IDELAYCTRL_X1Y3-IDELAYCTRL_X1Y1
+ PARAMETER C_BUS2CORE_CLK_RATIO = 1
+ PARAMETER C_BASEADDR = 0x81c00000
+ PARAMETER C_HIGHADDR = 0x81c0ffff
+ BUS_INTERFACE SPLB = plb
+ BUS_INTERFACE LLINK0 = TriMode_MAC_GMIIllink0
+ PORT GMII_TXD_0 = fpga_0_TriMode_MAC_GMII_GMII_TXD_0
+ PORT GMII_TX_EN_0 = fpga_0_TriMode_MAC_GMII_GMII_TX_EN_0
+ PORT GMII_TX_ER_0 = fpga_0_TriMode_MAC_GMII_GMII_TX_ER_0
+ PORT GMII_TX_CLK_0 = fpga_0_TriMode_MAC_GMII_GMII_TX_CLK_0
+ PORT GMII_RXD_0 = fpga_0_TriMode_MAC_GMII_GMII_RXD_0
+ PORT GMII_RX_DV_0 = fpga_0_TriMode_MAC_GMII_GMII_RX_DV_0
+ PORT GMII_RX_ER_0 = fpga_0_TriMode_MAC_GMII_GMII_RX_ER_0
+ PORT GMII_RX_CLK_0 = fpga_0_TriMode_MAC_GMII_GMII_RX_CLK_0
+ PORT MII_TX_CLK_0 = fpga_0_TriMode_MAC_GMII_MII_TX_CLK_0
+ PORT MDIO_0 = fpga_0_TriMode_MAC_GMII_MDIO_0
+ PORT MDC_0 = fpga_0_TriMode_MAC_GMII_MDC_0
+ PORT TemacPhy_RST_n = fpga_0_TriMode_MAC_GMII_TemacPhy_RST_n
+ PORT GTX_CLK_0 = temac_clk_s
+ PORT REFCLK = clk_200mhz_s
+ PORT LlinkTemac0_CLK = sys_clk_s
+ PORT TemacIntc0_Irpt = TriMode_MAC_GMII_TemacIntc0_Irpt
+END
+
+BEGIN xps_uartlite
+ PARAMETER INSTANCE = RS232
+ PARAMETER HW_VER = 1.01.a
+ PARAMETER C_BAUDRATE = 57600
+ PARAMETER C_ODD_PARITY = 0
+ PARAMETER C_USE_PARITY = 0
+ PARAMETER C_SPLB_CLK_FREQ_HZ = 100000000
+ PARAMETER C_BASEADDR = 0x84000000
+ PARAMETER C_HIGHADDR = 0x8400ffff
+ BUS_INTERFACE SPLB = plb
+ PORT RX = fpga_0_RS232_USB_RX
+ PORT TX = fpga_0_RS232_USB_TX
+END
+
+BEGIN mpmc
+ PARAMETER INSTANCE = DDR_SDRAM_32Mx16
+ PARAMETER HW_VER = 5.02.a
+ PARAMETER C_NUM_PORTS = 2
+ PARAMETER C_MEM_PARTNO = HYB25D512160BC-6
+ PARAMETER C_NUM_IDELAYCTRL = 2
+ PARAMETER C_IDELAYCTRL_LOC = IDELAYCTRL_X0Y3-IDELAYCTRL_X0Y2
+ PARAMETER C_MEM_DATA_WIDTH = 16
+ PARAMETER C_MEM_DQS_WIDTH = 2
+ PARAMETER C_MEM_DM_WIDTH = 2
+ PARAMETER C_MEM_TYPE = DDR
+ PARAMETER C_PIM0_BASETYPE = 2
+ PARAMETER C_PIM1_BASETYPE = 2
+ PARAMETER C_MPMC_CLK0_PERIOD_PS = 10000
+ PARAMETER C_MPMC_BASEADDR = 0x00000000
+ PARAMETER C_MPMC_HIGHADDR = 0x03ffffff
+ BUS_INTERFACE SPLB0 = ppc405_0_iplb1
+ BUS_INTERFACE SPLB1 = ppc405_0_dplb1
+ PORT DDR_Clk = fpga_0_DDR_SDRAM_32Mx16_DDR_Clk
+ PORT DDR_Clk_n = fpga_0_DDR_SDRAM_32Mx16_DDR_Clk_n
+ PORT DDR_Addr = fpga_0_DDR_SDRAM_32Mx16_DDR_Addr
+ PORT DDR_BankAddr = fpga_0_DDR_SDRAM_32Mx16_DDR_BankAddr
+ PORT DDR_CAS_n = fpga_0_DDR_SDRAM_32Mx16_DDR_CAS_n
+ PORT DDR_CE = fpga_0_DDR_SDRAM_32Mx16_DDR_CE
+ PORT DDR_CS_n = fpga_0_DDR_SDRAM_32Mx16_DDR_CS_n
+ PORT DDR_RAS_n = fpga_0_DDR_SDRAM_32Mx16_DDR_RAS_n
+ PORT DDR_WE_n = fpga_0_DDR_SDRAM_32Mx16_DDR_WE_n
+ PORT DDR_DM = fpga_0_DDR_SDRAM_32Mx16_DDR_DM
+ PORT DDR_DQS = fpga_0_DDR_SDRAM_32Mx16_DDR_DQS
+ PORT DDR_DQ = fpga_0_DDR_SDRAM_32Mx16_DDR_DQ
+ PORT MPMC_Clk0 = sys_clk_s
+ PORT MPMC_Clk90 = DDR_SDRAM_32Mx16_mpmc_clk_90_s
+ PORT MPMC_Clk_200MHz = clk_200mhz_s
+ PORT MPMC_Rst = sys_periph_reset
+END
+

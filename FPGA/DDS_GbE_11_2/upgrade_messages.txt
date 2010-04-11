@@ -1,0 +1,7 @@
+--------------------------------------
+ The following changes need to be made manually by the user:
+ Core xps_ll_temac 1.01.a needs to be replaced by 2.00.a
+ Core xps_gpio 1.00.a needs to be replaced by 2.00.a
+ Core mpmc 4.01.a needs to be replaced by 5.00.a
+ Core clock_generator 2.01.a needs to be replaced by 3.00.a
+ Core xps_intc 1.00.a needs to be replaced by 2.00.a

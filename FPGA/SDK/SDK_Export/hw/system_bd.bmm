@@ -1,0 +1,35 @@
+// BMM LOC annotation file.
+//
+// Release 11.1i - Data2MEM L.46, build 1.5.8 Jul 23, 2008
+// Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+//
+// Created on 12/07/09 10:20 am
+//
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Processor 'ppc405_0', ID 100, memory map.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_MAP ppc405_0 PPC405 100
+
+
+    ///////////////////////////////////////////////////////////////////////////////
+    //
+    // Processor 'ppc405_0' address space 'plb_bram_if_cntlr_1_bram_combined' 0xFFFFE000:0xFFFFFFFF (8 KB).
+    //
+    ///////////////////////////////////////////////////////////////////////////////
+
+    ADDRESS_SPACE plb_bram_if_cntlr_1_bram_combined RAMB16 [0xFFFFE000:0xFFFFFFFF]
+        BUS_BLOCK
+            plb_bram_if_cntlr_1_bram/plb_bram_if_cntlr_1_bram/ramb16_0 [63:48] PLACED = X2Y7;
+            plb_bram_if_cntlr_1_bram/plb_bram_if_cntlr_1_bram/ramb16_1 [47:32] PLACED = X2Y5;
+            plb_bram_if_cntlr_1_bram/plb_bram_if_cntlr_1_bram/ramb16_2 [31:16] PLACED = X2Y6;
+            plb_bram_if_cntlr_1_bram/plb_bram_if_cntlr_1_bram/ramb16_3 [15:0] PLACED = X2Y4;
+        END_BUS_BLOCK;
+    END_ADDRESS_SPACE;
+
+END_ADDRESS_MAP;
+

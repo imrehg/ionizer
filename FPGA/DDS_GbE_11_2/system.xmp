@@ -1,0 +1,51 @@
+#Please do not modify this file by hand
+XmpVersion: 11.3
+VerMgmt: 11.3
+IntStyle: default
+ModuleSearchPath: ../customIP2/
+MHS File: system.mhs
+MSS File: system.mss
+Architecture: virtex4
+Device: xc4vfx12
+Package: ff668
+SpeedGrade: -10
+UserCmd1: 
+UserCmd1Type: 0
+UserCmd2: 
+UserCmd2Type: 0
+GenSimTB: 0
+SdkExportBmmBit: 1
+SdkExportDir: ../SDK/SDK_Export
+InsertNoPads: 0
+WarnForEAArch: 1
+HdlLang: VHDL
+SimModel: BEHAVIORAL
+UcfFile: data/system.ucf
+EnableParTimingError: 1
+ShowLicenseDialog: 0
+Processor: ppc405_0
+BootLoop: 1
+XmdStub: 0
+SwProj: bootloader_FLASH
+Processor: ppc405_0
+Executable: bootloader_FLASH/executable.elf
+Source: bootloader_FLASH/bootloader.c
+Source: bootloader_FLASH/srec.c
+Header: bootloader_FLASH/blconfig.h
+Header: bootloader_FLASH/errors.h
+Header: bootloader_FLASH/portab.h
+Header: bootloader_FLASH/srec.h
+DefaultInit: executable
+InitBram: 0
+Active: 1
+CompilerOptLevel: 2
+GlobPtrOpt: 0
+DebugSym: 1
+ProfileFlag: 0
+ProgStart: 0xFFFFE000
+StackSize: 
+HeapSize: 
+LinkerScript: 
+ProgCCFlags: 
+CompileInXps: 1
+NonXpsApp: 0

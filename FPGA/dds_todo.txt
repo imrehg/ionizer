@@ -1,0 +1,9 @@
+11:40 AM Monday, July 10, 2006
+FPGA tasks
+
+1. Figure out strange behavior of show_progress in Bootloader.
+	* Bootloader is obsolete.  Now booting via XMD / JTAG.
+	* Keep eyes open for weird behavior.  Increased stack and heap size.
+
+2. Setup DDS controller to verify phase/frequency for every change.
+

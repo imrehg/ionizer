@@ -1,0 +1,229 @@
+2:13 PM Wednesday, July 08, 2009
+Upgrade from old version 9.1 Xilinx SW to new version 11.1
+
+*Downloaded and installed EDK & ISE WebPack version 11.1.  We have paid for EDK 10.1 previously, and this was a free upgrade.  Xilinx is providing one node-locked license.  I'm not sure if the ISE installation is the free WebPack, or the 30-day trial of the full version.  We'll see in 30 days.
+
+*Downloaded and extracted the "FX12 LC TEMAC lwIP Web Server Example Design" for our board (V4FX12LC).  This is for ISE Design Suite 10.1.  
+
+*Opened the version 10.1 project in XPS 11.1.  The automated upgrade process said this:
+
+ The following changes need to be made manually by the user:
+ Core xps_ll_temac 1.01.a needs to be replaced by 2.00.a
+ Core xps_gpio 1.00.a needs to be replaced by 2.00.a
+ Core mpmc 4.01.a needs to be replaced by 5.00.a
+ Core clock_generator 2.01.a needs to be replaced by 3.00.a
+ Core xps_intc 1.00.a needs to be replaced by 2.00.a
+
+*Made the required changes by editing system.mhs manually.
+ Not sure if this will work...
+
+*Synthesis (bitstream generation) works in XPS 11.1
+ (Works on 2nd try.  On 1st try, par.exe crashed.)
+
+5:11 PM Thursday, July 09, 2009
+* Copied reference web server project to DDS_GbE_11_1, imported to SVN
+* Synthesize bitstream
+* Generate new peripheral template for pulse_controll user IP (for new plb version 4.6 bus)
+* Select Read/write FIFO
+* No packet mode
+* Read FIFO: 32 entries
+* Write FIFO: 512 entries
+* 8 SW registers
+
+2:59 PM Friday, July 10, 2009
+Migrating user IP (pulse controller) to new system.
+Previously, the pulse FIFO width was 64 bits.
+This seems to be fixed at 32 bits for the new version (PLB 4.6 data width)
+==> Need to increase the PLB data width from 32 to 64 bits.
+
+6:26 AM Saturday, July 11, 2009
+Re-run custom IP wizard
+Select these options
+-Read/write FIFO
+-User logic SW register
+-Burst & cache-line support
+-Data width = 64 bit
+-Write buffer depth = 16
+
+*Read FIFO:
+-No packet mode
+-Use vacancy calc.
+-Depth = 16
+
+*Write FIFO:
+-No packet mode
+-Use vacancy calc.
+-Depth = 1024
+
+* SW registers = 8
+* Burst support
+* Native data width = 64 bit
+
+* Generate stub user logic in Verilog
+* Generate template driver files
+
+Used WinMerge to update the custom IP related
+
+7:46 PM Wednesday, July 15, 2009
+* Got Webserver example to run. (sort-of).  Auto-negotiated link-speed doesn't work.
+* Fix link speed to 1000 by adding in  lwIP .MSS entry:
+  PARAMETER phy_link_speed = CONFIG_LINKSPEED1000
+
+10:36 AM Thursday, July 16, 2009
+*Planning for DDS upgrade from AD9858 (currently) to AD9910
+*AD9910 advantages: DAC has 14 bits resolution & amplitude control & has
+ 1024 word RAM for pulse-shaping
+*Main difference:  AD9910 uses serial programming (2-wire serial, 70 MBps max)
+                   AD9858 uses parallel programming (18 bits + 1 chip-select/board)
+*Approach:  
+  -Use the 8 frequency registers to hold the various sidewband cooling, etc. frequencies
+  -Select & latch profiles to switch frequencies
+  -Signals:
+   serial interface: SDIO (fast), SCLK (fast), CS, IO_RESET(maybe)
+   other: PROFILE[2:0], OSK(maybe), IO_UPDATE(maybe, can be asserted internally)
+   
+4:22 PM Wednesday, August 12, 2009
+* Xilinx Platform Studio crashes when starting program
+* SDK seems ok
+* ISE also ok
+* Uninstall EDK only
+* Reinstall EDK only (c:\downloads\xilinx1\xsetup.exe)
+* Still crashes
+
+6:20 PM Friday, August 21, 2009
+* Removed HP printer drivers
+* XPS 11.1 works now.  Believe "Solution Center" was the culprit.  
+
+12:00 AM Tuesday, August 25, 2009
+Getting IonizerES to compile in SDK
+PULSE_CONTROLLER driver function calls commented out
+Software Platform Settings:
+lwIP options: enable SOCKET_API mode
+xilkernel options: config_sema, config_timer, enhanced_features/config_yield = true
+xilkernel options: add main_thread, priority=1 to static_pthread_table
+xilkernel options: pthread_stack_size = 32768
+Network thread starts & is listening
+
+6:34 PM Saturday, September 05, 2009
+Had to change lots of SPI code previously.
+*Try to build IonizerES.  Lots of errors, as if settings got messed up.
+Include paths wrong, linker not set to link to lwip4.  ELF check fails.
+From EDK export to : ..\SDK\SDK_Export
+Lots of warnings, no errors.
+Launch SDK, clean, rebuild.  ELF check still fails
+Run Linker script generation tool.  Increase heap & stack size.
+ELF is ok now.
+Run debug version.  
+
+*Ethernet link doesn't connect
+Remove CONFIGLINKSPEED1000 setting from xmk.mss
+Set Ethernet card to 100 Mbps, Full duplex
+Reprogram FPGA from SDK.  Works now.
+TTL switches messed up.... pulse_controller function calls are disabled.
+
+7:24 PM Saturday, September 05, 2009
+Get pulse_controller working on version 11.1
+Looks like IP data width was 32 bits?
+Re-run custom IP wizard to generate pulse_controller 2.00 a
+Select these options
+
+IPIF service:
+-Read/write FIFO
+-User logic SW register
+
+Slave interface:
+-Burst & cache-line support
+-Data width = 64 bit
+-Write buffer depth = 16
+
+FIFO Service:
+*Read FIFO:
+-No packet mode
+-Use vacancy calc.
+-Depth = 16
+
+*Write FIFO:
+-No packet mode
+-Use vacancy calc.
+-Depth = 1024
+
+User S/W Registers:
+* SW registers = 8
+
+Peripheral implementation support:
+-Generate stub user logic in verilog
+-Generate ISE and XST project files
+-Generate driver templates
+
+*Merge old verilog and VHDL code in using WinMerge
+Change C_SLV_DWIDTH from 32 to 64 in pulse_controller.vhd
+This looks like it affects the FIFO -> user_logic links, and also the slave registers.
+Bit file compiles...
+
+*Get driver to compile
+S/W registers are 64 bits wide now (was 32).  Register read/write function calls (macros) now require
+an additional offset parameter.  Use 0.
+Driver compiles ok.
+Move pulse controller driver and verilog code to C:\trosen\svn\control_trunk\FPGA\customIP\IP
+Build xmk & IonizerES in SDK.  OK.It runs.
+Uncomment PULSE_CONTROLLER function calls.
+TTL switches ok on GUI, but no outputs!
+
+*Get TTL outputs working
+Try offset=1 for S/W registers.  Still no output.
+Use SR0 bits 0..31 for high (OR) mask, and 32..63 for low (AND NOT) mask
+assign pulse_io = (ttl_out | slv_reg0[0:(U_PULSE_WIDTH-1)]) & (~slv_reg0[U_PULSE_WIDTH:(C_SLV_DWIDTH-1)]);
+Check on: PULSE_CONTROLLER_read_sr
+TTL works.  Was wrong connection from FPGA to front panel.  Duh.
+slave reg 0, offset = 0 -> high mask (bits  0..31)
+slave reg 0, offset = 4 -> high mask (bits 32..63)
+Latency = 0.83 ms round-trip
+
+*Get DDS control working
+PULSE_CONTROLLER_init hangs at PULSE_CONTROLLER_get_PMT.
+More 64 bit issues?
+Comment out PULSE_CONTROLLER_get_PMT
+DDS set works ok.
+
+*Get PMT working
+assign rFIFO_data[0:31] = dds_result | PMT_result;
+Seems to hang when PULSE_CONTROLLER_read_empty is called multiple times?
+Not necessarily...crashes somewhere in or around PULSE_CONTROLLER_pop_result.
+Try reduced PPC clock speed 100 from 200 MHz.  Ugh.
+Stack size is 1 MB, should be enough.  Was 4 MB in 9.1 version though.
+Bigger stack, still doesn't work.
+When the PPC tries to read from the RFIFO, no data comes back, and it just hangs.
+The line:
+	assign IP2Bus_Error       = 0;
+got deleted from user_logic.v
+Restore this line.  Rebuild HW and SW.
+Still doesn't work!
+
+2:46 PM Sunday, September 06, 2009
+*Get PMT working continued
+Generate new pulse controller template (3.00 b), this time with VHDL user logic
+Has a loop-back example where self-test code should show read and write FIFOs working.
+Self test code fails on FIFO read.
+Switch to 32-bit version.  Works.  Posted bug on Xilinx forum.
+Try to upgrade to 11.2
+Still hangs.
+
+Can read from offset 4:
+PULSE_CONTROLLER_mReadFromFIFO(base_addr, 4);
+But offset 0 hangs:
+PULSE_CONTROLLER_mReadFromFIFO(base_addr, 0);
+
+Try to put all the data into the offset 4 word (bits 32...63?)
+and only call PULSE_CONTROLLER_mReadFromFIFO(base_addr, 4);
+
+11:38 PM Sunday, September 06, 2009
+IT WORKS!
+Run PPC at 200 MHz again
+
+10:38 PM 9/11/2009
+Switched to USB RS232 from regular 9-pin port
+Disabled PIT timer interrupts during timed exp sequence to avoid timing glitches.
+
+
+
+ 

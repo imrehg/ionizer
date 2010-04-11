@@ -1,0 +1,14 @@
+-batch 
+-create pulse_controller 
+-ver 3.00.a 
+-dir "C:\trosen\svn\control_trunk\FPGA\customIP\MyProcessorIPLib" 
+-lang verilog 
+-bus plbv46 s 
+-burst s 64 
+-rst 
+-rfifo 2 16 
+-wfifo 2 1024 
+-reg 8 
+-wrbuf 16 
+-xps 
+-driver 
