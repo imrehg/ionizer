@@ -10,6 +10,7 @@
 #include "data_plot.h"
 #include "scan_variable.h"
 #include "Voltages2.h"
+#include <trlib.h>
 
 ExpSCAN_Al::ExpSCAN_Al(const string& sPageName,
                        ExperimentsSheet* pSheet,
@@ -199,7 +200,6 @@ ExpAl3P0_lock::ExpAl3P0_lock(const string& sPageName,
 	pFPGAerr(0),
 	pDirection(0),
 	pClockXition(0),
-	no_xition_sound(soundDir.absoluteFilePath("attention.wav")),
 	xition_ok_sound(soundDir.absoluteFilePath("sounds/xition_ok.wav"))
 {
 	DutyCycle.SetReadOnly(true);
@@ -347,7 +347,7 @@ void ExpAl3P0_lock::PostAcquireDataPoint(Scan_Base* sb, DataFeed& df)
 
 	if (pClockXition->GetCurrentData() == 0)
 	{
-		no_xition_sound.play();
+		creepy_speak("warning. no clock transitions");
 		warningMode = 1;
 	}
 	else

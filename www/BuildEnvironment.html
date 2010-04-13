@@ -79,6 +79,7 @@
 <h1><a href="index.html">Ionizer:</a> Build environment</h1>
 <div class="left">
 <h2>Microsoft Windows XP</h2>
+<p>This project cannot distribute code or binaries under the GPL.  For this reason scripts are used to obtain several required libraries.</p>
 <h3>Microsoft Visual C++</h3>
    <p>Visual C++ 2008 Express is avaible for free from Microsoft here:</p>
    <code>http://www.microsoft.com/express/Downloads/#2008-Visual-CPP</code>
@@ -86,26 +87,26 @@
 <p>wget.exe and unzip.exe programs should be on the search path (available at http://gnuwin32.sourceforge.net/)</p>
 <p>svn.exe should be on the search path (available from www.collab.net)</p>
 
-<h3>Qt</h3>
-  From VC++ command prompt, "deploy" directory run <code>get_qt.bat</code> and follow the installer<br>
+<h3><a href=http://qt.nokia.com>Qt</a></h3>
+  From VC++ command prompt, "deploy" directory run <code>get_qt.bat</code> and follow the installer.<br>
   *Put Qt binaries on the search path<br>
   *Create an environment variable QtInstallDir that contains the Qt installation path<br>
  
-<h3>Qwt</h3>
+<h3><a href=http://qwt.sf.net>Qwt</a></h3>
   From VC++ command prompt, "deploy" directory run: <code>get_qwt.bat</code>
 
-<h3>GSL</h3> 
+<h3><a href=http://www.gnu.org/software/gsl/>GSL</a> via GnuWin32</h3> 
   From VC++ command prompt, "deploy" directory run: <code>get_gsl.bat</code>
 
-<h3>FFTW</h3>
+<h3><a href=http://www.fftw.org>FFTW</a></h3>
   From VC++ command prompt, "deploy" directory run: <code>get_fftw.bat</code>
 <p>Some of the paths used in these scripts may get out of date eventually.
-The scripts work as of 4/2010.</p>
+The scripts work as of April, 2010.</p>
 </div>
 <div class="right">
 <h2>Linux (Ubuntu)</h2>
 <h3>Required packages:</h3>
-<code>subversion build-essential libgsl0-dev libcomedi-dev libfftw3-dev qtcreator qt4-dev-tools libqwt5-qt4-dev</code>
+<code>subversion build-essential qt-creator libgsl0-dev libcomedi-dev libfftw3-dev qt4-dev-tools libqwt5-qt4-dev</code>
 </div>
 
 </body>

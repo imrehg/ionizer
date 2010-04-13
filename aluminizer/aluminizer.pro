@@ -2,7 +2,7 @@ TEMPLATE = app
 RC_FILE = Aluminizer2.rc
 PRECOMPILED_HEADER = common.h
 INCLUDEPATH += ../trlib
-win32 { INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA ../thirdparty/fftw }
+win32 { INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA ../thirdparty/fftw ../thirdparty/ATL}
 
 include(local.pro)
 

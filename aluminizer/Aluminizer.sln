@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aluminizer", "Aluminizer.vcproj", "{41B48301-9FC5-3590-AD6B-FCF2258198FE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B5EC139-8BB8-48DC-AC04-362DB5B1EA74} = {0B5EC139-8BB8-48DC-AC04-362DB5B1EA74}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "trlib", "..\trlib\trlib8.vcproj", "{0B5EC139-8BB8-48DC-AC04-362DB5B1EA74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41B48301-9FC5-3590-AD6B-FCF2258198FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{41B48301-9FC5-3590-AD6B-FCF2258198FE}.Debug|Win32.Build.0 = Debug|Win32
+		{41B48301-9FC5-3590-AD6B-FCF2258198FE}.Release|Win32.ActiveCfg = Release|Win32
+		{41B48301-9FC5-3590-AD6B-FCF2258198FE}.Release|Win32.Build.0 = Release|Win32
+		{0B5EC139-8BB8-48DC-AC04-362DB5B1EA74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0B5EC139-8BB8-48DC-AC04-362DB5B1EA74}.Debug|Win32.Build.0 = Debug|Win32
+		{0B5EC139-8BB8-48DC-AC04-362DB5B1EA74}.Release|Win32.ActiveCfg = Release|Win32
+		{0B5EC139-8BB8-48DC-AC04-362DB5B1EA74}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

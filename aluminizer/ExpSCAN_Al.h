@@ -169,7 +169,7 @@ double nProbesTotal, integralError;
 std::vector<data_plot*> line_shape_plots;
 
 int warningMode;    //0 if normal, 1 if no transitions seen recently
-QSound no_xition_sound, xition_ok_sound;
+QSound xition_ok_sound;
 };
 
 #endif // EXPSCAN_AL_H

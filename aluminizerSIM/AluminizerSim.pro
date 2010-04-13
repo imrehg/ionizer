@@ -3,7 +3,7 @@ TARGET = AluminizerSim
 
 include(local.pro)
 
-INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA
+INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA ../thirdparty/ATL
 
 FPGApath = ../aluminizerFPGA
 shared = $$FPGApath/shared/src
