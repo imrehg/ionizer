@@ -9,5 +9,5 @@ xcopy /D /S /Y aluminizerFPGA\*.c ..\..\control_trunk\ionizerES
 xcopy /D /S /Y aluminizerFPGA\*.h ..\..\control_trunk\ionizerES
 
 cd ..\..\control_trunk\ionizer
-qupdate
+cmd /C qupdate.bat
 cd ..\..\sf\ionizer
