@@ -38,6 +38,7 @@ void init_remote_interfaces()
     new iMg(&global_exp_list, "Mg");
     new iMg(&global_exp_list, "Mg Al");
     new iMg(&global_exp_list, "Mg Al Mg");
+	new iMg(&global_exp_list, "Mg Al Al");
     new iMg(&global_exp_list, "Al Mg Al Mg");
 
     gpAl3P1 = new iAl3P1(&global_exp_list, "Al 3P1");

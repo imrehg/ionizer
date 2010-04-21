@@ -32,6 +32,7 @@ struct likelihood_t
 	int nState; // state
 };
 
+/*
 class detection_index
 {
 public:
@@ -56,12 +57,19 @@ int rotation_angle;
 };
 
 bool operator<(const detection_index& di1, const detection_index& di2);
+*/
 
-//maintains detection stats for a particular state
+/* Maintains detection stats for a particular state
+   Probability histograms are stored, and a sum-of-possonians model is used
+   to initialize the histograms.  The number of Poissonians corresponds to 
+   one plus the number of fluorescing ions.  The number of weights for these
+   Poissonians has to add up to one, so the number of weights equals the number of fluorecing ions.
+*/
+
 class detection_stats
 {
 public:
-detection_stats(size_t max_counts = 42, unsigned num_poissonians = 2);
+detection_stats(size_t max_counts = 42);
 
 void setName(const std::string& n);
 const std::string& getName();
@@ -81,11 +89,7 @@ void reset();
 void set_mean(unsigned i, double m);
 double get_mean(unsigned i);
 
-void set_num_poissonians(unsigned n)
-{
-	num_poissonians = n; reset();
-}
-
+void set_num_poissonians(unsigned n);
 void set_weight(unsigned i, double m);
 double get_weight(unsigned i) const;
 
@@ -98,7 +102,7 @@ unsigned num_poissonians;
 protected:
 
 double total_detections;
-const unsigned min_detections;
+unsigned min_detections;
 
 public:
 vector<rp_double*> gui_weights;
@@ -122,6 +126,6 @@ vector<double> weights;
 std::string name;
 };
 
-typedef  std::map<detection_index, detection_stats> det_stats_map;
+//typedef  std::map<detection_index, detection_stats> det_stats_map;
 
 #endif //DETECTION_STATS_H

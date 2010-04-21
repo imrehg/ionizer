@@ -11,7 +11,7 @@
 
 using namespace std;
 
-
+/*
 //sorting operator detection stats
 bool operator<(const detection_index& di1, const detection_index& di2)
 {
@@ -30,7 +30,7 @@ bool operator<(const detection_index& di1, const detection_index& di2)
 	return di1.rotation_angle < di2.rotation_angle;
 }
 
-/*
+
 
    string detection_index::name() const
    {
@@ -44,19 +44,14 @@ bool operator<(const detection_index& di1, const detection_index& di2)
    }
  */
 
-detection_stats::detection_stats(size_t max_counts, unsigned num_poissonians) :
-	num_poissonians(num_poissonians),
+detection_stats::detection_stats(size_t max_counts) :
+	num_poissonians(0),
 	total_detections(0),
 	min_detections(1000),
-	gui_weights(num_poissonians - 1),
-	gui_means(num_poissonians),
-	counts(max_counts + 1, 0),
-	means(num_poissonians),
-	weights(num_poissonians - 1)
+	counts(max_counts + 1, 0)
 {
 	printf("[detection_stats::detection_stats] max_counts=%u   num_poissonians=%u\r\n",
 	       (unsigned)max_counts, (unsigned)num_poissonians);
-	reset();
 }
 
 void detection_stats::setName(const std::string& n)
@@ -85,7 +80,6 @@ void detection_stats::set_weight(unsigned i, double w)
 {
 	printf("[detection_stats::set_weight] w(%u) = %f.\r\n", i, w);
 	weights.at(i) = w;
-//	reset();
 }
 
 double detection_stats::get_weight(unsigned i) const
@@ -186,15 +180,30 @@ void detection_stats::recalc()
 		counts[i] = calcProb(i) * total_detections;
 }
 
+void detection_stats::set_num_poissonians(unsigned n)
+{
+	num_poissonians = std::max<unsigned>(n, 2); 
+	reset();
+}
+
 void detection_stats::reset()
 {
-	total_detections = 0;
+	if(num_poissonians != means.size())
+	{
+		gui_means.resize(num_poissonians, 0);
+		means.resize(num_poissonians, 0);
 
-	if (weights.size())
-		weights[0] = 1;
+		gui_weights.resize(num_poissonians-1, 0);
+		weights.resize(num_poissonians-1, 0);
+	}
 
 	for (size_t i = 0; i < means.size(); i++)
 		means[i] = 0.3 + 7 * i;
+
+	for (size_t i = 0; i < means.size(); i++)
+		means[i] = 0.3 + 7 * i;
+
+	total_detections = 0;
 }
 
 #endif //CONFIG_AL

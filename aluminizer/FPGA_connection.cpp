@@ -552,21 +552,6 @@ void FPGA_connection::SetMotorAngle(unsigned iMotor, unsigned angle)
 	rfc(C2S_SET_MOTOR_ANGLE, iMotor, angle);
 }
 
-std::valarray<double> FPGA_connection::getDetectionHistogram(unsigned iHist)
-{
-	GbE_msg_exchange eX(&fpga_lock, fpga_tcp, C2S_DETECTION_HISTOGRAM);
-
-	eX.insertOutU(0, iHist);
-	eX.doXfer();
-
-	valarray<double> v(eX.reply(0));
-
-	for (unsigned i = 0; i < v.size(); i++)
-		v[i] = eX.reply(i + 1);
-
-	return v;
-}
-
 void FPGA_connection::resetStats()
 {
 	rfc(C2S_RESET_STATS);
@@ -593,6 +578,13 @@ std::valarray<double> FPGA_connection::getPagePlotData(unsigned page_id, unsigne
 		v[i] = (int)(eX.reply(i + 1));
 
 	return v;
+}
+
+std::string FPGA_connection::getPlotLabel(unsigned page_id, unsigned iPlot)
+{
+	string s = "";
+	s = rfc_os(C2S_HIST_NAME, page_id, iPlot);
+	return s;
 }
 
 void FPGA_connection::calibrateDAC(unsigned page_id)

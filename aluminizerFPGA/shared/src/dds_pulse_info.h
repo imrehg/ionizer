@@ -61,3 +61,10 @@ public:
 
 bool operator==(const dds_pulse_info&, const dds_pulse_info&);
 bool operator!=(const dds_pulse_info&, const dds_pulse_info&);
+
+
+/******** Some shared functions for FPGA and PC programs that should really go somewhere else ********/
+//TODO
+
+//! returns number of occurences of string s2 in s1
+unsigned numOccurences(const std::string& s1, const std::string& s2);

@@ -23,6 +23,7 @@ extern exp_3P0_lock* e3P0LockMQ;
 
 exp_3P0::exp_3P0(list_t* exp_list, const std::string& name) :
         exp_3P1(exp_list, name),
+   alt_xfer_sb("Alt. xfer sb", &params, "value=2"),
    min_prob("Min. probability", &params, "value=0.99"),
    det_memory("Det. memory", &params, "value=1000"),
    //clockTTL("Clock TTL", &params, "value=0"),
@@ -42,6 +43,7 @@ exp_3P0::exp_3P0(list_t* exp_list, const std::string& name) :
 {
    rcSignal.name = COOLING_ION_NAME + std::string(" signal");
 
+   alt_xfer_sb.setExplanation("used to determine state of 2nd (inner) Al+");
    mod3P1.setExplanation("to extract 3P1 freq. servo signal");
    gain3P1.setExplanation("3P1 freq. servo integral gain");
    off_detuning.setExplanation("Detuning used to switch off light (for bi-directional probes)");
@@ -206,11 +208,55 @@ void exp_3P0::makeClockPulse(double dF0, double dF1)
 
 void exp_3P0::experiment_pulses(int) {}
 
+bool operator<(const state_prob& p1, const state_prob& p2)
+{
+	return p1.P > p2.P; //flip < to >, to achieve descending order with std::sort
+}
+
+unsigned exp_3P0::decide_next_pulse_type(vector<state_prob>& P)
+{
+	//only two states to distinguish (Mg Al)
+	if(P.size() <= 2)
+		return 0;
+
+	//Four states to distinguish (Mg Al Al)
+
+	//sort state probabilities in descending order
+	std::sort(P.begin(), P.end());
+
+	//the "2" bit refers to the inner Al+ ion
+	//the "1" bit refers to the outer Al+ ion
+
+	//trying to determine state of outer ion
+	if( (P[0].iState % 2) != (P[1].iState % 2) )
+	{
+		return 0; //pulse type 0 will drive the stretch mode
+	}
+
+	//trying to determine state of inner ion
+	if( (P[0].iState / 2) != (P[1].iState / 2) )
+	{
+		return 1; //pulse type 0 will drive the egyptian mode
+	}
+
+	//shouldn't be possible to get here
+	return 0;
+}
+
 //use maximum likelihood method to determine Bayesian mean of ion state
 //returns number of excited Al+ ions
 double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool bStoreData, bool bUpdateStats)
 {
-   double P[2] = {0.5, 0.5};
+   vector<state_prob> P(gpAl3P0->getNumPlots());
+
+   double P0 = 1.0/P.size();
+
+   for(unsigned i=0; i<P.size(); i++)
+   {
+	   P[i].iState = i;
+	   P[i].P = P0;
+   }
+
    double Psum, Pmax;
 
    *num_detections = 0;
@@ -220,9 +266,11 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 
    //store PMT values here to update histograms
    pmt_array.resize(nMax);
+   pulse_type.resize(nMax);
 
    //get pointer to 3P1 sb pulse
    dds_params* pulse3P1xfer = gpAl3P1->getPulse(mFg_target, pol3P1, abs(xfer_sb));
+   dds_params* pulse3P1alt = gpAl3P1->getPulse(mFg_target, pol3P1, abs(alt_xfer_sb));
 
    //calculate 3P1 freq. offsets for servo signal
    double shift3P1 = mod3P1/(TIME_UNIT*(pulse3P1xfer->t));
@@ -230,8 +278,10 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 
     int mF2 = (int)(2*exp_pulse_gs);
 
-   double pmtMean3P0 = gpAl3P0->getMean(1, mF2);
-   double pmtMean1S0 = gpAl3P0->getMean(0, mF2);
+	unsigned curr_pulse_type = 0;
+
+   double pmtMean3P0 = gpAl3P0->getMean(1, mF2, curr_pulse_type);
+   double pmtMean1S0 = gpAl3P0->getMean(0, mF2, curr_pulse_type);
 
    shift3P1 *= (2*(rand() % 2) - 1);
 
@@ -240,16 +290,26 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
       printf("Check ion state ...\n");
    do
    {
+	  curr_pulse_type = decide_next_pulse_type(P);
+
       //start timing check
       pmt.begin_timing_check(Padding.t, Padding.ttl);
 
       //3P1 pumping and ground-state cooling
       preparation_pulses();
 
-      //qubit transfer sequence
-      pulse3P1xfer->shifted_pulse(shift3P1);
-
-      gpMg->getSB(-1*abs(xfer_sb))->pulse();
+	  //qubit transfer sequence
+	  if(curr_pulse_type = 0)
+	  {
+		  pulse3P1xfer->shifted_pulse(shift3P1);
+		  gpMg->getSB(-1*abs(xfer_sb))->pulse();
+	  }
+	  else
+	  {
+		  pulse3P1xfer->shifted_pulse(shift3P1); //bsb stretch (removes outer Al+ from the picture)
+		  pulse3P1alt->shifted_pulse(0); //bsb egyptian (only goes if inner Al+ is in 1S0)
+		  gpMg->getSB(-1*abs(alt_xfer_sb))->pulse();
+	  }
 
       Detect.detection_pulse();
       Precool.pulseStayOn();
@@ -259,20 +319,21 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 
       unsigned n = pmt.get_new_data(1, bStoreData);
       pmt_array[(*num_detections)] = n;
+	  pulse_type[(*num_detections)] = curr_pulse_type;
 
       Psum = 0;
       Pmax = 0;
       iPmax = 0;
 
-      for(unsigned i=0; i<2; i++)
+      for(unsigned i=0; i<P.size(); i++)
       {
-         P[i] *= gpAl3P0->getProb(i, mF2, n);
-         Psum += P[i];
+         P[i].P *= gpAl3P0->getProb(P[i].iState, mF2, curr_pulse_type, n);
+         Psum += P[i].P;
 
-         if(P[i] > Pmax)
+         if(P[i].P > Pmax)
          {
-            Pmax = P[i];
-            iPmax = i;
+            Pmax = P[i].P;
+            iPmax = P[i].iState;
          }
       }
 
@@ -289,14 +350,15 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
    //calc Bayesian mean
    double m = 0;
    for(unsigned i=0; i<2; i++)
-      m += i*P[i];
+      m += P[i].iState * P[i].P;
 
    if(bUpdateStats && ((*num_detections) <= nMax))
    {
       for(unsigned i=0; i<(*num_detections); i++)
-         gpAl3P0->updateHist(iPmax, mF2, pmt_array[i]);
-
-      gpAl3P0->updateHistMemory(iPmax, mF2, det_memory);
+	  {
+         gpAl3P0->updateHist(iPmax, mF2, pulse_type[i], pmt_array[i]);
+		 gpAl3P0->updateHistMemory(iPmax, mF2, pulse_type[i], det_memory * (*num_detections) );
+	  }
    }
 
    m/= Psum;
@@ -310,6 +372,7 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 
    return m;
 }
+
 
 exp_3P0_lock::exp_3P0_lock(list_t* exp_list, const std::string& name, unsigned num_freq) :
       exp_3P0(exp_list, name),

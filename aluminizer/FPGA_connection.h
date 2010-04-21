@@ -92,12 +92,13 @@ const std::vector<unsigned int>& getResultsVector()
 {
 	return PMT_results;
 }
-std::valarray<double> getDetectionHistogram(unsigned iHist);
+
 void resetStats();
 
 //! get plot data for plots on a particular GUI page
 unsigned numPagePlots(unsigned page_id);
 std::valarray<double> getPagePlotData(unsigned page_id, unsigned iPlot);
+std::string getPlotLabel(unsigned page_id, unsigned iPlot);
 
 //! change the current ion configuraion (changes which sideband pulses are generated)
 void setIonXtal(const std::string& s);

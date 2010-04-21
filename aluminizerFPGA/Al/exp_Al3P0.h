@@ -5,6 +5,12 @@
 
 class FluorescenceChecker;
 
+struct state_prob
+{
+	double P;
+	unsigned iState;
+};
+
 class exp_3P0 : public exp_3P1
 {
 public:
@@ -15,7 +21,7 @@ public:
    virtual void init();
    virtual void run(const GbE_msg& msg_in, GbE_msg& msg_out);
 
-    //! Determines Bayesian mean of ion state
+     //! Determines Bayesian mean of ion state
    /*! Returns number of excited Al+ ions and
     *  copies 3P1 frequency correction to pCorr3P1.
    */
@@ -28,6 +34,9 @@ protected:
    void makeClockPulse(double dF0, double dF1);
 
    virtual void experiment_pulses(int iExp);
+   unsigned decide_next_pulse_type(vector<state_prob>& P);
+   
+   rp_int alt_xfer_sb;
 
    rp_double min_prob;
    rp_unsigned det_memory;
@@ -45,6 +54,7 @@ protected:
    int probe_dir;
 
    std::vector<unsigned> pmt_array;
+   std::vector<unsigned> pulse_type;
 };
 
 class exp_3P0_lock : public exp_3P0

@@ -37,6 +37,8 @@ public:
    iAl3P0(list_t* exp_list, const std::string& name);
    virtual  ~iAl3P0();
 
+   virtual void setIonXtal(const char* name);
+
    virtual dds_params* new_pulse(const pulse_spec& p, params_t* pparams);
 
    FluorescenceChecker* getFC();
@@ -46,43 +48,51 @@ public:
    //or   3P0 mF=-5/2
    void getClockState(const GbE_msg& msg_in, GbE_msg& msg_out);
    double getClockState();
-   void setClockState(double d);
 
-   void getHistogramData(unsigned iHist, GbE_msg& msg_out);
-   void getHistogramData(const GbE_msg& msg_in, GbE_msg& msg_out);
+     void setClockState(double d);
+
+   virtual unsigned getNumPlots();
+
+   //! Return data for plots on a GUI page.  The format is msg_out.m[0] = num_points, msg_out.m[1] = data[0], ...
+   virtual void getPlotData(unsigned iPlot, unsigned iStart, GbE_msg& msg_out);
 
    void resetStats();
    void resetStats(const GbE_msg& msg_in, GbE_msg& msg_out);
 
+   //! initialize detection statistics (allocate histograms, etc.)
+   void initStats();
+
    //! return probability for "n" counts in histogram for n3P0 excitations, and mF2 Zeeman state
-   double getProb(unsigned n3P0, int mF2, unsigned n);
+   double getProb(unsigned n3P0, int mF2, unsigned pulse_type, unsigned n);
 
    //! return mean value of a histogram
-   double getMean(unsigned n3P0, int mF2);
+   double getMean(unsigned n3P0, int mF2, unsigned pulse_type);
 
    //! return name value of a histogram
-   const std::string& getHistName(unsigned n3P0, int mF2);
+   const std::string& getHistName(unsigned n3P0, int mF2, unsigned pulse_type);
    void getHistName(const GbE_msg& msg_in, GbE_msg& msg_out);
 
    //! record observation of "n" PMT counts in histogram
-   void updateHist(unsigned n3P0, int mF2, unsigned n);
+   void updateHist(unsigned n3P0, int mF2, unsigned pulse_type, unsigned n);
 
    //! reduce impact of older data
-   void updateHistMemory(unsigned n3P0, int mF2,  double det_memory);
+   void updateHistMemory(unsigned n3P0, int mF2, unsigned pulse_type, double det_memory);
 
    Al3P0_pulse* getSB(int mFg, int sb, int pol);
 
+protected:
+   unsigned getHistIndex(unsigned n3P0, int mF2, unsigned pulse_type);
+   unsigned numAl, numMg; //number of Al+ and Mg+ ions
+   unsigned num3P1Pulses; //number of different types of 3P1 detection pulses
+   unsigned num3P0states;
+
    std::vector<Al3P0_pulse*> Al3P0_pi_pulses;
 
-   const static unsigned numHist = 4;
-   detection_stats det_stats[numHist];
-   rp_double* det_means[numHist];
+   vector<detection_stats> det_stats;
+   vector<rp_double*> det_means;
 
    /* clock state: number of 3P0 excitations.  negative means indeterminate*/
    double clock_state;
-
-protected:
-   unsigned getHistIndex(unsigned n3P0, int mF2);
 
    rp_unsigned check_interval;
    rp_double dark_rate, bright_rate, min_ok_prob;

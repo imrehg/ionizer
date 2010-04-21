@@ -140,7 +140,25 @@ bool operator!=(const dds_pulse_info& a, const dds_pulse_info& b)
    return !(a==b);
 }
 
+/******** Some shared functions for FPGA and PC programs that should really go somewhere else ********/
+//TODO
 
+//! returns number of occurences of string s2 in s1
+unsigned numOccurences(const std::string& s1, const std::string& s2)
+{
+	unsigned n = 0;
+	unsigned i = 0;
 
+	while(i != string::npos)
+	{
+		i = s1.find(s2, i);
 
+		if(i != string::npos)
+		{
+			n++;
+			i++;
+		}
+	}
 
+	return n;
+}

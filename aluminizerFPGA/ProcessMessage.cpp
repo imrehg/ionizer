@@ -307,7 +307,7 @@ void setIonXtal(const GbE_msg& msg_in, GbE_msg&)
 {
 	const char* p_name = msg_in.extractSC(1);
 
-	printf("Set ion configuration: %s \n", p_name);
+	printf("Set ion configuration: %s (%d Mg, %d Al)\n", p_name, numOccurences(p_name, "Mg"), numOccurences(p_name, "Al"));
 
 	for (unsigned i = 0; i < global_exp_list.size(); i++)
 	{
@@ -394,7 +394,6 @@ int process_message(const GbE_msg& msg_in, GbE_msg& msg_out, bool bDebug)
 		case CS2_SET_ION_XTAL: setIonXtal(msg_in, msg_out);   return 0;
 
 #ifdef CONFIG_AL
-		case C2S_DETECTION_HISTOGRAM: gpAl3P0->getHistogramData(msg_in, msg_out); return 0;
 		case C2S_HIST_NAME:           gpAl3P0->getHistName(msg_in, msg_out); return 0;
 		case C2S_RESET_STATS:         gpAl3P0->resetStats(msg_in, msg_out); return 0;
 		case C2S_GET_AL_STATE:      gpAl3P0->getClockState(msg_in, msg_out); return 0;

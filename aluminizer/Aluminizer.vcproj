@@ -1,1173 +1,1853 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="Aluminizer"
 	ProjectGUID="{41B48301-9FC5-3590-AD6B-FCF2258198FE}"
-	Keyword="Qt4VSv1.0">
+	Keyword="Qt4VSv1.0"
+	TargetFrameworkVersion="0"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="."
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			ConfigurationType="1"
 			IntermediateDirectory="debug\"
-			UseOfMfc="0">
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
 			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;c:\Qt\4.6.2\include\QtCore&quot;,&quot;c:\Qt\4.6.2\include\QtNetwork&quot;,&quot;c:\Qt\4.6.2\include\QtGui&quot;,&quot;c:\Qt\4.6.2\include\QtSvg&quot;,&quot;c:\Qt\4.6.2\include&quot;,&quot;..\trlib&quot;,&quot;..\thirdparty\TNT&quot;,&quot;..\thirdparty\JAMA&quot;,&quot;..\thirdparty\fftw&quot;,&quot;..\thirdparty\ATL&quot;,&quot;..\thirdparty\qwt-5.2\src&quot;,&quot;..\aluminizerFPGA\shared\src&quot;,&quot;..\shared\src&quot;,&quot;..\shared\src&quot;,&quot;c:\Qt\4.6.2\include\ActiveQt&quot;,&quot;debug&quot;,c:\Qt\4.6.2\mkspecs\win32-msvc2008"
-				AdditionalOptions="-Zm200 -w34100 -w34189 -w34100 -w34189"
-				AssemblerListingLocation="debug\"
-				BufferSecurityCheck="false"
-				DebugInformationFormat="3"
-				ExceptionHandling="1"
-				ForcedIncludeFiles="common.h"
-				GeneratePreprocessedFile="0"
-				ObjectFile="debug\"
-				Optimization ="4"
-				PrecompiledHeaderFile="$(IntDir)\Aluminizer.pch"
-				PrecompiledHeaderThrough="common.h"
-				PreprocessorDefinitions="UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
-				ProgramDataBaseFileName=".\"
-				RuntimeLibrary="3"
-				RuntimeTypeInfo="true"
-				SuppressStartupBanner="true"
-				TreatWChar_tAsBuiltInType="false"
-				UsePrecompiledHeader="2"
-				WarningLevel="3"/>
+				Name="VCPreBuildEventTool"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCCustomBuildTool"
+			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="qwtd5.lib ..\trlib\debug\trlib.lib ../thirdparty/fftw/libfftw3-3.lib c:\Qt\4.6.2\lib\QtSvgd4.lib c:\Qt\4.6.2\lib\QtGuid4.lib c:\Qt\4.6.2\lib\QtNetworkd4.lib c:\Qt\4.6.2\lib\QtCored4.lib"
-				AdditionalLibraryDirectories="c:\Qt\4.6.2\lib"
-				GenerateDebugInformation="true"
-				IgnoreImportLibrary="true"
-				LinkTimeCodeGeneration="0"
-				OutputFile="debug\Aluminizer.exe"
-				ProgramDatabaseFile=""
-				SubSystem="1"
-				SuppressStartupBanner="true"/>
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
 			<Tool
 				Name="VCMIDLTool"
+				WarningLevel="0"
 				DefaultCharType="0"
 				EnableErrorChecks="1"
-				WarningLevel="0"/>
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCCLCompilerTool"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -w34100 -w34189"
+				Optimization="4"
+				AdditionalIncludeDirectories="&quot;c:\Qt\4.6.2\include\QtCore&quot;,&quot;c:\Qt\4.6.2\include\QtNetwork&quot;,&quot;c:\Qt\4.6.2\include\QtGui&quot;,&quot;c:\Qt\4.6.2\include\QtSvg&quot;,&quot;c:\Qt\4.6.2\include&quot;,&quot;..\trlib&quot;,&quot;..\thirdparty\TNT&quot;,&quot;..\thirdparty\JAMA&quot;,&quot;..\thirdparty\fftw&quot;,&quot;..\thirdparty\ATL&quot;,&quot;..\thirdparty\qwt-5.2\src&quot;,&quot;..\aluminizerFPGA\shared\src&quot;,&quot;..\shared\src&quot;,&quot;..\shared\src&quot;,&quot;c:\Qt\4.6.2\include\ActiveQt&quot;,&quot;debug&quot;,c:\Qt\4.6.2\mkspecs\win32-msvc2008"
+				PreprocessorDefinitions="UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
+				RuntimeLibrary="3"
+				BufferSecurityCheck="false"
+				TreatWChar_tAsBuiltInType="false"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="common.h"
+				PrecompiledHeaderFile="$(IntDir)\Aluminizer.pch"
+				AssemblerListingLocation="debug\"
+				ObjectFile="debug\"
+				ProgramDataBaseFileName=".\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="3"
+				ForcedIncludeFiles="common.h"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,_DEBUG"/>
+				PreprocessorDefinitions="UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,_DEBUG"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="true"
+				AdditionalDependencies="qwtd5.lib ..\trlib\debug\trlib.lib ../thirdparty/fftw/libfftw3-3.lib c:\Qt\4.6.2\lib\QtSvgd4.lib c:\Qt\4.6.2\lib\QtGuid4.lib c:\Qt\4.6.2\lib\QtNetworkd4.lib c:\Qt\4.6.2\lib\QtCored4.lib"
+				OutputFile="debug\Aluminizer.exe"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="c:\Qt\4.6.2\lib"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile=""
+				SubSystem="1"
+				LinkTimeCodeGeneration="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="."
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			ConfigurationType="1"
 			IntermediateDirectory="release\"
-			UseOfMfc="0">
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
 			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;c:\Qt\4.6.2\include\QtCore&quot;,&quot;c:\Qt\4.6.2\include\QtNetwork&quot;,&quot;c:\Qt\4.6.2\include\QtGui&quot;,&quot;c:\Qt\4.6.2\include\QtSvg&quot;,&quot;c:\Qt\4.6.2\include&quot;,&quot;..\trlib&quot;,&quot;..\thirdparty\TNT&quot;,&quot;..\thirdparty\JAMA&quot;,&quot;..\thirdparty\fftw&quot;,&quot;..\thirdparty\ATL&quot;,&quot;..\thirdparty\qwt-5.2\src&quot;,&quot;..\aluminizerFPGA\shared\src&quot;,&quot;..\shared\src&quot;,&quot;..\shared\src&quot;,&quot;c:\Qt\4.6.2\include\ActiveQt&quot;,&quot;release&quot;,c:\Qt\4.6.2\mkspecs\win32-msvc2008"
-				AdditionalOptions="-Zm200 -w34100 -w34189 -w34100 -w34189"
-				AssemblerListingLocation="release\"
-				BufferSecurityCheck="false"
-				DebugInformationFormat="0"
-				ExceptionHandling="1"
-				ForcedIncludeFiles="common.h"
-				GeneratePreprocessedFile="0"
-				ObjectFile="release\"
-				Optimization ="2"
-				PrecompiledHeaderFile="$(IntDir)\Aluminizer.pch"
-				PrecompiledHeaderThrough="common.h"
-				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_NO_DEBUG,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
-				ProgramDataBaseFileName=".\"
-				RuntimeLibrary="2"
-				RuntimeTypeInfo="true"
-				SuppressStartupBanner="true"
-				TreatWChar_tAsBuiltInType="false"
-				UsePrecompiledHeader="2"
-				WarningLevel="3"/>
+				Name="VCPreBuildEventTool"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCCustomBuildTool"
+			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="qwtd5.lib ..\trlib\debug\trlib.lib ../thirdparty/fftw/libfftw3-3.lib c:\Qt\4.6.2\lib\QtSvg4.lib c:\Qt\4.6.2\lib\QtGui4.lib c:\Qt\4.6.2\lib\QtNetwork4.lib c:\Qt\4.6.2\lib\QtCore4.lib"
-				AdditionalLibraryDirectories="c:\Qt\4.6.2\lib"
-				GenerateDebugInformation="false"
-				IgnoreImportLibrary="true"
-				LinkIncremental="1"
-				LinkTimeCodeGeneration="0"
-				OutputFile="release\Aluminizer.exe"
-				ProgramDatabaseFile=""
-				SubSystem="1"
-				SuppressStartupBanner="true"/>
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
 			<Tool
 				Name="VCMIDLTool"
+				WarningLevel="0"
 				DefaultCharType="0"
 				EnableErrorChecks="1"
-				WarningLevel="0"/>
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCCLCompilerTool"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -w34100 -w34189"
+				Optimization="2"
+				AdditionalIncludeDirectories="&quot;c:\Qt\4.6.2\include\QtCore&quot;,&quot;c:\Qt\4.6.2\include\QtNetwork&quot;,&quot;c:\Qt\4.6.2\include\QtGui&quot;,&quot;c:\Qt\4.6.2\include\QtSvg&quot;,&quot;c:\Qt\4.6.2\include&quot;,&quot;..\trlib&quot;,&quot;..\thirdparty\TNT&quot;,&quot;..\thirdparty\JAMA&quot;,&quot;..\thirdparty\fftw&quot;,&quot;..\thirdparty\ATL&quot;,&quot;..\thirdparty\qwt-5.2\src&quot;,&quot;..\aluminizerFPGA\shared\src&quot;,&quot;..\shared\src&quot;,&quot;..\shared\src&quot;,&quot;c:\Qt\4.6.2\include\ActiveQt&quot;,&quot;release&quot;,c:\Qt\4.6.2\mkspecs\win32-msvc2008"
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_NO_DEBUG,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
+				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="false"
+				TreatWChar_tAsBuiltInType="false"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="common.h"
+				PrecompiledHeaderFile="$(IntDir)\Aluminizer.pch"
+				AssemblerListingLocation="release\"
+				ObjectFile="release\"
+				ProgramDataBaseFileName=".\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="0"
+				ForcedIncludeFiles="common.h"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_NO_DEBUG,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"/>
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,CONFIG_AL,CONFIG_PC,HAS_HFS,_NO_NIDAQ,_NO_MCC_DIO,_NO_MCC_AO,CONNECT_TO_SIM,LITTLE_ENDIAN,PRECOMPILED_HEADER,HAS_HFS,WIN32,QWT_DLL,_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1,_CRT_SECURE_NO_WARNINGS,RECURSIVE_QT_LOCKS,QT_DLL,QT_NO_DEBUG,QT_SVG_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="true"
+				AdditionalDependencies="qwtd5.lib ..\trlib\debug\trlib.lib ../thirdparty/fftw/libfftw3-3.lib c:\Qt\4.6.2\lib\QtSvg4.lib c:\Qt\4.6.2\lib\QtGui4.lib c:\Qt\4.6.2\lib\QtNetwork4.lib c:\Qt\4.6.2\lib\QtCore4.lib"
+				OutputFile="release\Aluminizer.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="c:\Qt\4.6.2\lib"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile=""
+				SubSystem="1"
+				LinkTimeCodeGeneration="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
-			<File
-				RelativePath="AgilisMotors.cpp"/>
-			<File
-				RelativePath="Al3P1Page.cpp"/>
-			<File
-				RelativePath="AlignmentPage.cpp"/>
-			<File
-				RelativePath="AluminizerApp.cpp"/>
-			<File
-				RelativePath="AluminizerPage.cpp"/>
-			<File
-				RelativePath="AnalogOutParameter.cpp"/>
-			<File
-				RelativePath="Bfield.cpp"/>
-			<File
-				RelativePath="CalibrationPage.cpp"/>
-			<File
-				RelativePath="..\shared\src\CriticalSection.cpp"/>
-			<File
-				RelativePath="DDSPage.cpp"/>
-			<File
-				RelativePath="DDS_Pulse_Widget.cpp"/>
-			<File
-				RelativePath="DataFeed.cpp"/>
-			<File
-				RelativePath="DigitalOut.cpp"/>
-			<File
-				RelativePath="DopplerTempCalibration.cpp"/>
-			<File
-				RelativePath="ExpCorrelate.cpp"/>
-			<File
-				RelativePath="ExpLMS.cpp"/>
-			<File
-				RelativePath="ExpSCAN.cpp"/>
-			<File
-				RelativePath="ExpSCAN_Al.cpp"/>
-			<File
-				RelativePath="ExpSCAN_NewFPGA.cpp"/>
-			<File
-				RelativePath="Experiment.cpp"/>
-			<File
-				RelativePath="ExperimentPage.cpp"/>
-			<File
-				RelativePath="ExperimentsSheet.cpp"/>
-			<File
-				RelativePath="FPGA_GUI.cpp"/>
-			<File
-				RelativePath="FPGA_TCP.cpp"/>
-			<File
-				RelativePath="FPGA_connection.cpp"/>
-			<File
-				RelativePath="FPGA_page.cpp"/>
-			<File
-				RelativePath="FitLine.cpp"/>
-			<File
-				RelativePath="FitRabi.cpp"/>
-			<File
-				RelativePath="FitRamsey.cpp"/>
-			<File
-				RelativePath="FitRepump.cpp"/>
-			<File
-				RelativePath="Fitting.cpp"/>
-			<File
-				RelativePath="FrequencySource.cpp"/>
-			<File
-				RelativePath="GbE_msg.cpp"/>
-			<File
-				RelativePath="GlobalsPage.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\HFS.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\HFS_Al.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\HFS_Mg.cpp"/>
-			<File
-				RelativePath="Histogram.cpp"/>
-			<File
-				RelativePath="..\shared\src\InputParameters.cpp"/>
-			<File
-				RelativePath="InputParametersGUI.cpp"/>
-			<File
-				RelativePath="LockScan.cpp"/>
-			<File
-				RelativePath="MCC_AnalogOut.cpp"/>
-			<File
-				RelativePath="MatrixWidget.cpp"/>
-			<File
-				RelativePath="MgAlExperimentsSheet.cpp"/>
-			<File
-				RelativePath="MgPage.cpp"/>
-			<File
-				RelativePath="MotionPage.cpp"/>
-			<File
-				RelativePath="MotorsPage.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\Numerics.cpp"/>
-			<File
-				RelativePath="Ovens.cpp"/>
-			<File
-				RelativePath="ParameterGUI_Base.cpp"/>
-			<File
-				RelativePath="..\shared\src\RS232device.cpp"/>
-			<File
-				RelativePath="RefcavityPage.cpp"/>
-			<File
-				RelativePath="RemoteFrequencySource.cpp"/>
-			<File
-				RelativePath="RunObject.cpp"/>
-			<File
-				RelativePath="ScanObject.cpp"/>
-			<File
-				RelativePath="ScanScheduler.cpp"/>
-			<File
-				RelativePath="ScanSource.cpp"/>
-			<File
-				RelativePath="StringConversion.cpp"/>
-			<File
-				RelativePath="SwitchPanelDialog.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\Transition.cpp"/>
-			<File
-				RelativePath="TransitionPage.cpp"/>
-			<File
-				RelativePath="TxtParametersGUI.cpp"/>
-			<File
-				RelativePath="Voltages2.cpp"/>
-			<File
-				RelativePath="Widgets.cpp"/>
-			<File
-				RelativePath="about.cpp"/>
-			<File
-				RelativePath="..\shared\src\data_plot.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\dds_pulse_info.cpp"/>
-			<File
-				RelativePath="detection_stats.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\fractions.cpp"/>
-			<File
-				RelativePath="..\shared\src\freq_control_packet.cpp"/>
-			<File
-				RelativePath="histogram_item.cpp"/>
-			<File
-				RelativePath="histogram_plot.cpp"/>
-			<File
-				RelativePath="plotlib\lm_lsqr.cpp"/>
-			<File
-				RelativePath="main.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\my_matrix.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\physics.cpp"/>
-			<File
-				RelativePath="scan_variable.cpp"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\string_func.cpp"/>
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath="about.cpp"
+				>
+			</File>
+			<File
+				RelativePath="AgilisMotors.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Al3P1Page.cpp"
+				>
+			</File>
+			<File
+				RelativePath="AlignmentPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="AluminizerApp.cpp"
+				>
+			</File>
+			<File
+				RelativePath="AluminizerPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="AnalogOutParameter.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Bfield.cpp"
+				>
+			</File>
+			<File
+				RelativePath="CalibrationPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\CriticalSection.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\data_plot.cpp"
+				>
+			</File>
+			<File
+				RelativePath="DataFeed.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\dds_pulse_info.cpp"
+				>
+			</File>
+			<File
+				RelativePath="DDS_Pulse_Widget.cpp"
+				>
+			</File>
+			<File
+				RelativePath="DDSPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="detection_stats.cpp"
+				>
+			</File>
+			<File
+				RelativePath="DigitalOut.cpp"
+				>
+			</File>
+			<File
+				RelativePath="DopplerTempCalibration.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ExpCorrelate.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Experiment.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ExperimentPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ExperimentsSheet.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ExpLMS.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ExpSCAN.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ExpSCAN_Al.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ExpSCAN_NewFPGA.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FitLine.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FitRabi.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FitRamsey.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FitRepump.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Fitting.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FPGA_connection.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FPGA_GUI.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FPGA_page.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FPGA_TCP.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\fractions.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\freq_control_packet.cpp"
+				>
+			</File>
+			<File
+				RelativePath="FrequencySource.cpp"
+				>
+			</File>
+			<File
+				RelativePath="GbE_msg.cpp"
+				>
+			</File>
+			<File
+				RelativePath="GlobalsPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\HFS.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\HFS_Al.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\HFS_Mg.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Histogram.cpp"
+				>
+			</File>
+			<File
+				RelativePath="histogram_item.cpp"
+				>
+			</File>
+			<File
+				RelativePath="histogram_plot.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\InputParameters.cpp"
+				>
+			</File>
+			<File
+				RelativePath="InputParametersGUI.cpp"
+				>
+			</File>
+			<File
+				RelativePath="plotlib\lm_lsqr.cpp"
+				>
+			</File>
+			<File
+				RelativePath="LockScan.cpp"
+				>
+			</File>
+			<File
+				RelativePath="main.cpp"
+				>
+			</File>
+			<File
+				RelativePath="MatrixWidget.cpp"
+				>
+			</File>
+			<File
+				RelativePath="MCC_AnalogOut.cpp"
+				>
+			</File>
+			<File
+				RelativePath="MgAlExperimentsSheet.cpp"
+				>
+			</File>
+			<File
+				RelativePath="MgPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="MotionPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="MotorsPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\my_matrix.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\Numerics.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Ovens.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ParameterGUI_Base.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\physics.cpp"
+				>
+			</File>
+			<File
+				RelativePath="RefcavityPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="RemoteFrequencySource.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\RS232device.cpp"
+				>
+			</File>
+			<File
+				RelativePath="RunObject.cpp"
+				>
+			</File>
+			<File
+				RelativePath="scan_variable.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ScanObject.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ScanScheduler.cpp"
+				>
+			</File>
+			<File
+				RelativePath="ScanSource.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\string_func.cpp"
+				>
+			</File>
+			<File
+				RelativePath="StringConversion.cpp"
+				>
+			</File>
+			<File
+				RelativePath="SwitchPanelDialog.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\Transition.cpp"
+				>
+			</File>
+			<File
+				RelativePath="TransitionPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="TxtParametersGUI.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Voltages2.cpp"
+				>
+			</File>
+			<File
+				RelativePath="Widgets.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
 			<File
-				RelativePath="AgilisMotors.H"/>
+				RelativePath="about.h"
+				>
+			</File>
 			<File
-				RelativePath="Al3P1Page.h"/>
+				RelativePath="AgilisMotors.H"
+				>
+			</File>
 			<File
-				RelativePath="AlignmentPage.h"/>
+				RelativePath="Al3P1Page.h"
+				>
+			</File>
 			<File
-				RelativePath="AluminizerApp.h">
+				RelativePath="AlignmentPage.h"
+				>
+			</File>
+			<File
+				RelativePath="aluminizer.pro"
+				>
+			</File>
+			<File
+				RelativePath="AluminizerApp.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="AluminizerApp.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_AluminizerApp.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerApp.h -o debug\moc_AluminizerApp.cpp"
 						Description="MOC AluminizerApp.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_AluminizerApp.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerApp.h -o debug\moc_AluminizerApp.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="AluminizerApp.h;Rem"
 						Outputs="debug\moc_AluminizerApp.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="AluminizerApp.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_AluminizerApp.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerApp.h -o release\moc_AluminizerApp.cpp"
 						Description="MOC AluminizerApp.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_AluminizerApp.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerApp.h -o release\moc_AluminizerApp.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="AluminizerApp.h;Rem"
 						Outputs="release\moc_AluminizerApp.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="AluminizerPage.h">
+				RelativePath="AluminizerPage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="AluminizerPage.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_AluminizerPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerPage.h -o debug\moc_AluminizerPage.cpp"
 						Description="MOC AluminizerPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_AluminizerPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerPage.h -o debug\moc_AluminizerPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="AluminizerPage.h;Rem"
 						Outputs="debug\moc_AluminizerPage.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="AluminizerPage.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_AluminizerPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerPage.h -o release\moc_AluminizerPage.cpp"
 						Description="MOC AluminizerPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_AluminizerPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 AluminizerPage.h -o release\moc_AluminizerPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="AluminizerPage.h;Rem"
 						Outputs="release\moc_AluminizerPage.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="AnalogOutParameter.h"/>
-			<File
-				RelativePath="AnalogOutput.h"/>
-			<File
-				RelativePath="Bfield.h"/>
-			<File
-				RelativePath="CalibrationPage.h"/>
-			<File
-				RelativePath="CommonExperimentsSheet.h"/>
-			<File
-				RelativePath="..\shared\src\CriticalSection.h"/>
-			<File
-				RelativePath="DDSPage.h"/>
-			<File
-				RelativePath="DDS_Pulse_Widget.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="DDS_Pulse_Widget.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_DDS_Pulse_Widget.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 DDS_Pulse_Widget.h -o debug\moc_DDS_Pulse_Widget.cpp"
-						Description="MOC DDS_Pulse_Widget.h"
-						Outputs="debug\moc_DDS_Pulse_Widget.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="DDS_Pulse_Widget.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_DDS_Pulse_Widget.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 DDS_Pulse_Widget.h -o release\moc_DDS_Pulse_Widget.cpp"
-						Description="MOC DDS_Pulse_Widget.h"
-						Outputs="release\moc_DDS_Pulse_Widget.cpp"
-						Path="."/>
-				</FileConfiguration>
+				RelativePath="AnalogOutParameter.h"
+				>
 			</File>
 			<File
-				RelativePath="DigitalOut.h"/>
-			<File
-				RelativePath="DopplerTempCalibration.h"/>
-			<File
-				RelativePath="ExpAl.h"/>
-			<File
-				RelativePath="ExpCorrelate.h"/>
-			<File
-				RelativePath="ExpLMS.h"/>
-			<File
-				RelativePath="ExpMM.h"/>
-			<File
-				RelativePath="ExpSCAN.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ExpSCAN.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_ExpSCAN.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN.h -o debug\moc_ExpSCAN.cpp"
-						Description="MOC ExpSCAN.h"
-						Outputs="debug\moc_ExpSCAN.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ExpSCAN.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_ExpSCAN.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN.h -o release\moc_ExpSCAN.cpp"
-						Description="MOC ExpSCAN.h"
-						Outputs="release\moc_ExpSCAN.cpp"
-						Path="."/>
-				</FileConfiguration>
+				RelativePath="AnalogOutput.h"
+				>
 			</File>
 			<File
-				RelativePath="ExpSCAN_Al.h"/>
-			<File
-				RelativePath="ExpSCAN_NewFPGA.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ExpSCAN_NewFPGA.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_ExpSCAN_NewFPGA.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN_NewFPGA.h -o debug\moc_ExpSCAN_NewFPGA.cpp"
-						Description="MOC ExpSCAN_NewFPGA.h"
-						Outputs="debug\moc_ExpSCAN_NewFPGA.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ExpSCAN_NewFPGA.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_ExpSCAN_NewFPGA.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN_NewFPGA.h -o release\moc_ExpSCAN_NewFPGA.cpp"
-						Description="MOC ExpSCAN_NewFPGA.h"
-						Outputs="release\moc_ExpSCAN_NewFPGA.cpp"
-						Path="."/>
-				</FileConfiguration>
+				RelativePath="Bfield.h"
+				>
 			</File>
 			<File
-				RelativePath="ExpZeroB.h"/>
-			<File
-				RelativePath="Experiment.h"/>
-			<File
-				RelativePath="ExperimentPage.h"/>
-			<File
-				RelativePath="ExperimentsSheet.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ExperimentsSheet.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_ExperimentsSheet.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExperimentsSheet.h -o debug\moc_ExperimentsSheet.cpp"
-						Description="MOC ExperimentsSheet.h"
-						Outputs="debug\moc_ExperimentsSheet.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ExperimentsSheet.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_ExperimentsSheet.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExperimentsSheet.h -o release\moc_ExperimentsSheet.cpp"
-						Description="MOC ExperimentsSheet.h"
-						Outputs="release\moc_ExperimentsSheet.cpp"
-						Path="."/>
-				</FileConfiguration>
+				RelativePath="CalibrationPage.h"
+				>
 			</File>
 			<File
-				RelativePath="FPGA_GUI.h">
+				RelativePath="common.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="FPGA_GUI.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_FPGA_GUI.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_GUI.h -o debug\moc_FPGA_GUI.cpp"
-						Description="MOC FPGA_GUI.h"
-						Outputs="debug\moc_FPGA_GUI.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="FPGA_GUI.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_FPGA_GUI.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_GUI.h -o release\moc_FPGA_GUI.cpp"
-						Description="MOC FPGA_GUI.h"
-						Outputs="release\moc_FPGA_GUI.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="FPGA_TCP.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="FPGA_TCP.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_FPGA_TCP.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_TCP.h -o debug\moc_FPGA_TCP.cpp"
-						Description="MOC FPGA_TCP.h"
-						Outputs="debug\moc_FPGA_TCP.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="FPGA_TCP.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_FPGA_TCP.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_TCP.h -o release\moc_FPGA_TCP.cpp"
-						Description="MOC FPGA_TCP.h"
-						Outputs="release\moc_FPGA_TCP.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="FPGA_connection.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="FPGA_connection.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_FPGA_connection.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_connection.h -o debug\moc_FPGA_connection.cpp"
-						Description="MOC FPGA_connection.h"
-						Outputs="debug\moc_FPGA_connection.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="FPGA_connection.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_FPGA_connection.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_connection.h -o release\moc_FPGA_connection.cpp"
-						Description="MOC FPGA_connection.h"
-						Outputs="release\moc_FPGA_connection.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="FPGA_page.h"/>
-			<File
-				RelativePath="Fitting.h"/>
-			<File
-				RelativePath="FrequencySource.h"/>
-			<File
-				RelativePath="GlobalsPage.h"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\HFS.h"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\HFS_Al.h"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\HFS_Be.h"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\HFS_Mg.h"/>
-			<File
-				RelativePath="Histogram.h"/>
-			<File
-				RelativePath="..\shared\src\InputParameters.h"/>
-			<File
-				RelativePath="InputParametersGUI.h"/>
-			<File
-				RelativePath="MCC_AnalogOut.h"/>
-			<File
-				RelativePath="MatrixWidget.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="MatrixWidget.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_MatrixWidget.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MatrixWidget.h -o debug\moc_MatrixWidget.cpp"
-						Description="MOC MatrixWidget.h"
-						Outputs="debug\moc_MatrixWidget.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="MatrixWidget.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_MatrixWidget.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MatrixWidget.h -o release\moc_MatrixWidget.cpp"
-						Description="MOC MatrixWidget.h"
-						Outputs="release\moc_MatrixWidget.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="MgAlExperimentsSheet.h"/>
-			<File
-				RelativePath="MgPage.h"/>
-			<File
-				RelativePath="MotionPage.h"/>
-			<File
-				RelativePath="MotorsPage.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="MotorsPage.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_MotorsPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MotorsPage.h -o debug\moc_MotorsPage.cpp"
-						Description="MOC MotorsPage.h"
-						Outputs="debug\moc_MotorsPage.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="MotorsPage.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_MotorsPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MotorsPage.h -o release\moc_MotorsPage.cpp"
-						Description="MOC MotorsPage.h"
-						Outputs="release\moc_MotorsPage.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\Numerics.h"/>
-			<File
-				RelativePath="Ovens.h"/>
-			<File
-				RelativePath="ParameterGUI_Base.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ParameterGUI_Base.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_ParameterGUI_Base.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ParameterGUI_Base.h -o debug\moc_ParameterGUI_Base.cpp"
-						Description="MOC ParameterGUI_Base.h"
-						Outputs="debug\moc_ParameterGUI_Base.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="ParameterGUI_Base.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_ParameterGUI_Base.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ParameterGUI_Base.h -o release\moc_ParameterGUI_Base.cpp"
-						Description="MOC ParameterGUI_Base.h"
-						Outputs="release\moc_ParameterGUI_Base.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\shared\src\RS232device.h"/>
-			<File
-				RelativePath="RefcavityPage.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="RefcavityPage.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_RefcavityPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RefcavityPage.h -o debug\moc_RefcavityPage.cpp"
-						Description="MOC RefcavityPage.h"
-						Outputs="debug\moc_RefcavityPage.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="RefcavityPage.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_RefcavityPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RefcavityPage.h -o release\moc_RefcavityPage.cpp"
-						Description="MOC RefcavityPage.h"
-						Outputs="release\moc_RefcavityPage.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="RemoteFrequencySource.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;RemoteFrequencySource.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_RemoteFrequencySource.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RemoteFrequencySource.h -o debug\moc_RemoteFrequencySource.cpp"
-						Description="MOC RemoteFrequencySource.h"
-						Outputs="debug\moc_RemoteFrequencySource.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;RemoteFrequencySource.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_RemoteFrequencySource.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RemoteFrequencySource.h -o release\moc_RemoteFrequencySource.cpp"
-						Description="MOC RemoteFrequencySource.h"
-						Outputs="release\moc_RemoteFrequencySource.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="RunObject.h"/>
-			<File
-				RelativePath="ScanObject.h"/>
-			<File
-				RelativePath="ScanScheduler.h"/>
-			<File
-				RelativePath="ScanSource.h"/>
-			<File
-				RelativePath="SwitchPanelDialog.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;SwitchPanelDialog.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_SwitchPanelDialog.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 SwitchPanelDialog.h -o debug\moc_SwitchPanelDialog.cpp"
-						Description="MOC SwitchPanelDialog.h"
-						Outputs="debug\moc_SwitchPanelDialog.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;SwitchPanelDialog.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_SwitchPanelDialog.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 SwitchPanelDialog.h -o release\moc_SwitchPanelDialog.cpp"
-						Description="MOC SwitchPanelDialog.h"
-						Outputs="release\moc_SwitchPanelDialog.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\Transition.h"/>
-			<File
-				RelativePath="TransitionPage.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;TransitionPage.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_TransitionPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TransitionPage.h -o debug\moc_TransitionPage.cpp"
-						Description="MOC TransitionPage.h"
-						Outputs="debug\moc_TransitionPage.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;TransitionPage.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_TransitionPage.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TransitionPage.h -o release\moc_TransitionPage.cpp"
-						Description="MOC TransitionPage.h"
-						Outputs="release\moc_TransitionPage.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="TxtParametersGUI.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;TxtParametersGUI.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_TxtParametersGUI.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TxtParametersGUI.h -o debug\moc_TxtParametersGUI.cpp"
-						Description="MOC TxtParametersGUI.h"
-						Outputs="debug\moc_TxtParametersGUI.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;TxtParametersGUI.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_TxtParametersGUI.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TxtParametersGUI.h -o release\moc_TxtParametersGUI.cpp"
-						Description="MOC TxtParametersGUI.h"
-						Outputs="release\moc_TxtParametersGUI.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="Voltages2.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;Voltages2.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_Voltages2.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 Voltages2.h -o debug\moc_Voltages2.cpp"
-						Description="MOC Voltages2.h"
-						Outputs="debug\moc_Voltages2.cpp"
-						Path="."/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;Voltages2.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_Voltages2.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 Voltages2.h -o release\moc_Voltages2.cpp"
-						Description="MOC Voltages2.h"
-						Outputs="release\moc_Voltages2.cpp"
-						Path="."/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="Widgets.h"/>
-			<File
-				RelativePath="about.h"/>
-			<File
-				RelativePath="aluminizer.pro"/>
-			<File
-				RelativePath="common.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine="echo /*-------------------------------------------------------------------- >common.h.cpp &amp;&amp; echo * Precompiled header source file used by Visual Studio.NET to generate>>common.h.cpp &amp;&amp; echo * the .pch file.>>common.h.cpp &amp;&amp; echo *>>common.h.cpp &amp;&amp; echo * Due to issues with the dependencies checker within the IDE, it>>common.h.cpp &amp;&amp; echo * sometimes fails to recompile the PCH file, if we force the IDE to>>common.h.cpp &amp;&amp; echo * create the PCH file directly from the header file.>>common.h.cpp &amp;&amp; echo *>>common.h.cpp &amp;&amp; echo * This file is auto-generated by qmake since no PRECOMPILED_SOURCE was>>common.h.cpp &amp;&amp; echo * specified, and is used as the common stdafx.cpp. The file is only>>common.h.cpp &amp;&amp; echo * generated when creating .vcproj project files, and is not used for>>common.h.cpp &amp;&amp; echo * command line compilations by nmake.>>common.h.cpp &amp;&amp; echo *>>common.h.cpp &amp;&amp; echo * WARNING: All changes made in this file will be lost.>>common.h.cpp &amp;&amp; echo --------------------------------------------------------------------*/>>common.h.cpp &amp;&amp; echo #include &quot;common.h&quot;>>common.h.cpp"
 						Description="Generating precompiled header source file &apos;common.h.cpp&apos; ..."
-						Outputs="common.h.cpp"/>
+						CommandLine="echo /*-------------------------------------------------------------------- &gt;common.h.cpp &amp;&amp; echo * Precompiled header source file used by Visual Studio.NET to generate&gt;&gt;common.h.cpp &amp;&amp; echo * the .pch file.&gt;&gt;common.h.cpp &amp;&amp; echo *&gt;&gt;common.h.cpp &amp;&amp; echo * Due to issues with the dependencies checker within the IDE, it&gt;&gt;common.h.cpp &amp;&amp; echo * sometimes fails to recompile the PCH file, if we force the IDE to&gt;&gt;common.h.cpp &amp;&amp; echo * create the PCH file directly from the header file.&gt;&gt;common.h.cpp &amp;&amp; echo *&gt;&gt;common.h.cpp &amp;&amp; echo * This file is auto-generated by qmake since no PRECOMPILED_SOURCE was&gt;&gt;common.h.cpp &amp;&amp; echo * specified, and is used as the common stdafx.cpp. The file is only&gt;&gt;common.h.cpp &amp;&amp; echo * generated when creating .vcproj project files, and is not used for&gt;&gt;common.h.cpp &amp;&amp; echo * command line compilations by nmake.&gt;&gt;common.h.cpp &amp;&amp; echo *&gt;&gt;common.h.cpp &amp;&amp; echo * WARNING: All changes made in this file will be lost.&gt;&gt;common.h.cpp &amp;&amp; echo --------------------------------------------------------------------*/&gt;&gt;common.h.cpp &amp;&amp; echo #include &quot;common.h&quot;&gt;&gt;common.h.cpp&#x0D;&#x0A;"
+						Outputs="common.h.cpp"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo /*-------------------------------------------------------------------- >common.h.cpp &amp;&amp; echo * Precompiled header source file used by Visual Studio.NET to generate>>common.h.cpp &amp;&amp; echo * the .pch file.>>common.h.cpp &amp;&amp; echo *>>common.h.cpp &amp;&amp; echo * Due to issues with the dependencies checker within the IDE, it>>common.h.cpp &amp;&amp; echo * sometimes fails to recompile the PCH file, if we force the IDE to>>common.h.cpp &amp;&amp; echo * create the PCH file directly from the header file.>>common.h.cpp &amp;&amp; echo *>>common.h.cpp &amp;&amp; echo * This file is auto-generated by qmake since no PRECOMPILED_SOURCE was>>common.h.cpp &amp;&amp; echo * specified, and is used as the common stdafx.cpp. The file is only>>common.h.cpp &amp;&amp; echo * generated when creating .vcproj project files, and is not used for>>common.h.cpp &amp;&amp; echo * command line compilations by nmake.>>common.h.cpp &amp;&amp; echo *>>common.h.cpp &amp;&amp; echo * WARNING: All changes made in this file will be lost.>>common.h.cpp &amp;&amp; echo --------------------------------------------------------------------*/>>common.h.cpp &amp;&amp; echo #include &quot;common.h&quot;>>common.h.cpp"
 						Description="Generating precompiled header source file &apos;common.h.cpp&apos; ..."
-						Outputs="common.h.cpp"/>
+						CommandLine="echo /*-------------------------------------------------------------------- &gt;common.h.cpp &amp;&amp; echo * Precompiled header source file used by Visual Studio.NET to generate&gt;&gt;common.h.cpp &amp;&amp; echo * the .pch file.&gt;&gt;common.h.cpp &amp;&amp; echo *&gt;&gt;common.h.cpp &amp;&amp; echo * Due to issues with the dependencies checker within the IDE, it&gt;&gt;common.h.cpp &amp;&amp; echo * sometimes fails to recompile the PCH file, if we force the IDE to&gt;&gt;common.h.cpp &amp;&amp; echo * create the PCH file directly from the header file.&gt;&gt;common.h.cpp &amp;&amp; echo *&gt;&gt;common.h.cpp &amp;&amp; echo * This file is auto-generated by qmake since no PRECOMPILED_SOURCE was&gt;&gt;common.h.cpp &amp;&amp; echo * specified, and is used as the common stdafx.cpp. The file is only&gt;&gt;common.h.cpp &amp;&amp; echo * generated when creating .vcproj project files, and is not used for&gt;&gt;common.h.cpp &amp;&amp; echo * command line compilations by nmake.&gt;&gt;common.h.cpp &amp;&amp; echo *&gt;&gt;common.h.cpp &amp;&amp; echo * WARNING: All changes made in this file will be lost.&gt;&gt;common.h.cpp &amp;&amp; echo --------------------------------------------------------------------*/&gt;&gt;common.h.cpp &amp;&amp; echo #include &quot;common.h&quot;&gt;&gt;common.h.cpp&#x0D;&#x0A;"
+						Outputs="common.h.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\shared\src\data_plot.h">
+				RelativePath="CommonExperimentsSheet.h"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\CriticalSection.h"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\data_plot.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="..\shared\src\data_plot.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_data_plot.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\shared\src\data_plot.h -o debug\moc_data_plot.cpp"
 						Description="MOC ..\shared\src\data_plot.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_data_plot.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\shared\src\data_plot.h -o debug\moc_data_plot.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="..\shared\src\data_plot.h;Rem"
 						Outputs="debug\moc_data_plot.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="..\shared\src\data_plot.h;Rem"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_data_plot.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\shared\src\data_plot.h -o release\moc_data_plot.cpp"
 						Description="MOC ..\shared\src\data_plot.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_data_plot.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\shared\src\data_plot.h -o release\moc_data_plot.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="..\shared\src\data_plot.h;Rem"
 						Outputs="release\moc_data_plot.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\aluminizerFPGA\shared\src\dds_pulse_info.h"/>
+				RelativePath="..\aluminizerFPGA\shared\src\dds_pulse_info.h"
+				>
+			</File>
 			<File
-				RelativePath="detection_stats.h"/>
-			<File
-				RelativePath="..\aluminizerFPGA\shared\src\fractions.h"/>
-			<File
-				RelativePath="..\shared\src\freq_control_packet.h"/>
-			<File
-				RelativePath="histogram_item.h"/>
-			<File
-				RelativePath="histogram_plot.h">
+				RelativePath="DDS_Pulse_Widget.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;histogram_plot.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile debug\moc_histogram_plot.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 histogram_plot.h -o debug\moc_histogram_plot.cpp"
+						Description="MOC DDS_Pulse_Widget.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_DDS_Pulse_Widget.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 DDS_Pulse_Widget.h -o debug\moc_DDS_Pulse_Widget.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="DDS_Pulse_Widget.h;Rem"
+						Outputs="debug\moc_DDS_Pulse_Widget.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC DDS_Pulse_Widget.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_DDS_Pulse_Widget.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 DDS_Pulse_Widget.h -o release\moc_DDS_Pulse_Widget.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="DDS_Pulse_Widget.h;Rem"
+						Outputs="release\moc_DDS_Pulse_Widget.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="DDSPage.h"
+				>
+			</File>
+			<File
+				RelativePath="detection_stats.h"
+				>
+			</File>
+			<File
+				RelativePath="DigitalOut.h"
+				>
+			</File>
+			<File
+				RelativePath="DopplerTempCalibration.h"
+				>
+			</File>
+			<File
+				RelativePath="ExpAl.h"
+				>
+			</File>
+			<File
+				RelativePath="ExpCorrelate.h"
+				>
+			</File>
+			<File
+				RelativePath="Experiment.h"
+				>
+			</File>
+			<File
+				RelativePath="ExperimentPage.h"
+				>
+			</File>
+			<File
+				RelativePath="ExperimentsSheet.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ExperimentsSheet.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_ExperimentsSheet.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExperimentsSheet.h -o debug\moc_ExperimentsSheet.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ExperimentsSheet.h;Rem"
+						Outputs="debug\moc_ExperimentsSheet.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ExperimentsSheet.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_ExperimentsSheet.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExperimentsSheet.h -o release\moc_ExperimentsSheet.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ExperimentsSheet.h;Rem"
+						Outputs="release\moc_ExperimentsSheet.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ExpLMS.h"
+				>
+			</File>
+			<File
+				RelativePath="ExpMM.h"
+				>
+			</File>
+			<File
+				RelativePath="ExpSCAN.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ExpSCAN.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_ExpSCAN.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN.h -o debug\moc_ExpSCAN.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ExpSCAN.h;Rem"
+						Outputs="debug\moc_ExpSCAN.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ExpSCAN.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_ExpSCAN.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN.h -o release\moc_ExpSCAN.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ExpSCAN.h;Rem"
+						Outputs="release\moc_ExpSCAN.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ExpSCAN_Al.h"
+				>
+			</File>
+			<File
+				RelativePath="ExpSCAN_NewFPGA.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ExpSCAN_NewFPGA.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_ExpSCAN_NewFPGA.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN_NewFPGA.h -o debug\moc_ExpSCAN_NewFPGA.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ExpSCAN_NewFPGA.h;Rem"
+						Outputs="debug\moc_ExpSCAN_NewFPGA.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ExpSCAN_NewFPGA.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_ExpSCAN_NewFPGA.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ExpSCAN_NewFPGA.h -o release\moc_ExpSCAN_NewFPGA.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ExpSCAN_NewFPGA.h;Rem"
+						Outputs="release\moc_ExpSCAN_NewFPGA.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ExpZeroB.h"
+				>
+			</File>
+			<File
+				RelativePath="Fitting.h"
+				>
+			</File>
+			<File
+				RelativePath="FPGA_connection.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC FPGA_connection.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_FPGA_connection.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_connection.h -o debug\moc_FPGA_connection.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="FPGA_connection.h;Rem"
+						Outputs="debug\moc_FPGA_connection.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC FPGA_connection.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_FPGA_connection.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_connection.h -o release\moc_FPGA_connection.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="FPGA_connection.h;Rem"
+						Outputs="release\moc_FPGA_connection.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="FPGA_GUI.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC FPGA_GUI.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_FPGA_GUI.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_GUI.h -o debug\moc_FPGA_GUI.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="FPGA_GUI.h;Rem"
+						Outputs="debug\moc_FPGA_GUI.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC FPGA_GUI.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_FPGA_GUI.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_GUI.h -o release\moc_FPGA_GUI.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="FPGA_GUI.h;Rem"
+						Outputs="release\moc_FPGA_GUI.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="FPGA_page.h"
+				>
+			</File>
+			<File
+				RelativePath="FPGA_TCP.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC FPGA_TCP.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_FPGA_TCP.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_TCP.h -o debug\moc_FPGA_TCP.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="FPGA_TCP.h;Rem"
+						Outputs="debug\moc_FPGA_TCP.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC FPGA_TCP.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_FPGA_TCP.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 FPGA_TCP.h -o release\moc_FPGA_TCP.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="FPGA_TCP.h;Rem"
+						Outputs="release\moc_FPGA_TCP.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\fractions.h"
+				>
+			</File>
+			<File
+				RelativePath="..\shared\src\freq_control_packet.h"
+				>
+			</File>
+			<File
+				RelativePath="FrequencySource.h"
+				>
+			</File>
+			<File
+				RelativePath="GlobalsPage.h"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\HFS.h"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\HFS_Al.h"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\HFS_Be.h"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\HFS_Mg.h"
+				>
+			</File>
+			<File
+				RelativePath="Histogram.h"
+				>
+			</File>
+			<File
+				RelativePath="histogram_item.h"
+				>
+			</File>
+			<File
+				RelativePath="histogram_plot.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
 						Description="MOC histogram_plot.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_histogram_plot.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 histogram_plot.h -o debug\moc_histogram_plot.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;histogram_plot.h"
 						Outputs="debug\moc_histogram_plot.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="Rem;histogram_plot.h"
-						CommandLine="Rem IncrediBuild_AllowRemote &#x0d;&#x0a; Rem IncrediBuild_OutputFile release\moc_histogram_plot.cpp &#x0d;&#x0a; C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 histogram_plot.h -o release\moc_histogram_plot.cpp"
 						Description="MOC histogram_plot.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_histogram_plot.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 histogram_plot.h -o release\moc_histogram_plot.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;histogram_plot.h"
 						Outputs="release\moc_histogram_plot.cpp"
-						Path="."/>
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\issues.txt"/>
+				RelativePath="..\shared\src\InputParameters.h"
+				>
+			</File>
 			<File
-				RelativePath="plotlib\lm_lsqr.h"/>
+				RelativePath="InputParametersGUI.h"
+				>
+			</File>
 			<File
-				RelativePath="local.pro"/>
+				RelativePath="..\issues.txt"
+				>
+			</File>
 			<File
-				RelativePath="..\aluminizerFPGA\shared\src\messaging.h"/>
+				RelativePath="plotlib\lm_lsqr.h"
+				>
+			</File>
 			<File
-				RelativePath="..\aluminizerFPGA\shared\src\my_matrix.h"/>
+				RelativePath="local.pro"
+				>
+			</File>
 			<File
-				RelativePath="..\aluminizerFPGA\shared\src\physics.h"/>
+				RelativePath="MatrixWidget.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC MatrixWidget.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_MatrixWidget.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MatrixWidget.h -o debug\moc_MatrixWidget.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="MatrixWidget.h;Rem"
+						Outputs="debug\moc_MatrixWidget.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC MatrixWidget.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_MatrixWidget.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MatrixWidget.h -o release\moc_MatrixWidget.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="MatrixWidget.h;Rem"
+						Outputs="release\moc_MatrixWidget.cpp"
+					/>
+				</FileConfiguration>
+			</File>
 			<File
-				RelativePath="scan_variable.h"/>
+				RelativePath="MCC_AnalogOut.h"
+				>
+			</File>
 			<File
-				RelativePath="..\aluminizerFPGA\shared\src\string_func.h"/>
+				RelativePath="..\aluminizerFPGA\shared\src\messaging.h"
+				>
+			</File>
+			<File
+				RelativePath="MgAlExperimentsSheet.h"
+				>
+			</File>
+			<File
+				RelativePath="MgPage.h"
+				>
+			</File>
+			<File
+				RelativePath="MotionPage.h"
+				>
+			</File>
+			<File
+				RelativePath="MotorsPage.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC MotorsPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_MotorsPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MotorsPage.h -o debug\moc_MotorsPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="MotorsPage.h;Rem"
+						Outputs="debug\moc_MotorsPage.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC MotorsPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_MotorsPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 MotorsPage.h -o release\moc_MotorsPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="MotorsPage.h;Rem"
+						Outputs="release\moc_MotorsPage.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\my_matrix.h"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\Numerics.h"
+				>
+			</File>
+			<File
+				RelativePath="Ovens.h"
+				>
+			</File>
+			<File
+				RelativePath="ParameterGUI_Base.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ParameterGUI_Base.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_ParameterGUI_Base.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ParameterGUI_Base.h -o debug\moc_ParameterGUI_Base.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ParameterGUI_Base.h;Rem"
+						Outputs="debug\moc_ParameterGUI_Base.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC ParameterGUI_Base.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_ParameterGUI_Base.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ParameterGUI_Base.h -o release\moc_ParameterGUI_Base.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="ParameterGUI_Base.h;Rem"
+						Outputs="release\moc_ParameterGUI_Base.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\physics.h"
+				>
+			</File>
+			<File
+				RelativePath="RefcavityPage.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC RefcavityPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_RefcavityPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RefcavityPage.h -o debug\moc_RefcavityPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="RefcavityPage.h;Rem"
+						Outputs="debug\moc_RefcavityPage.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC RefcavityPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_RefcavityPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RefcavityPage.h -o release\moc_RefcavityPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="RefcavityPage.h;Rem"
+						Outputs="release\moc_RefcavityPage.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="RemoteFrequencySource.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC RemoteFrequencySource.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_RemoteFrequencySource.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RemoteFrequencySource.h -o debug\moc_RemoteFrequencySource.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;RemoteFrequencySource.h"
+						Outputs="debug\moc_RemoteFrequencySource.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC RemoteFrequencySource.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_RemoteFrequencySource.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 RemoteFrequencySource.h -o release\moc_RemoteFrequencySource.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;RemoteFrequencySource.h"
+						Outputs="release\moc_RemoteFrequencySource.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\shared\src\RS232device.h"
+				>
+			</File>
+			<File
+				RelativePath="RunObject.h"
+				>
+			</File>
+			<File
+				RelativePath="scan_variable.h"
+				>
+			</File>
+			<File
+				RelativePath="ScanObject.h"
+				>
+			</File>
+			<File
+				RelativePath="ScanScheduler.h"
+				>
+			</File>
+			<File
+				RelativePath="ScanSource.h"
+				>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\string_func.h"
+				>
+			</File>
+			<File
+				RelativePath="SwitchPanelDialog.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC SwitchPanelDialog.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_SwitchPanelDialog.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 SwitchPanelDialog.h -o debug\moc_SwitchPanelDialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;SwitchPanelDialog.h"
+						Outputs="debug\moc_SwitchPanelDialog.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC SwitchPanelDialog.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_SwitchPanelDialog.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 SwitchPanelDialog.h -o release\moc_SwitchPanelDialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;SwitchPanelDialog.h"
+						Outputs="release\moc_SwitchPanelDialog.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\aluminizerFPGA\shared\src\Transition.h"
+				>
+			</File>
+			<File
+				RelativePath="TransitionPage.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC TransitionPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_TransitionPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TransitionPage.h -o debug\moc_TransitionPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;TransitionPage.h"
+						Outputs="debug\moc_TransitionPage.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC TransitionPage.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_TransitionPage.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TransitionPage.h -o release\moc_TransitionPage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;TransitionPage.h"
+						Outputs="release\moc_TransitionPage.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="TxtParametersGUI.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC TxtParametersGUI.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_TxtParametersGUI.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TxtParametersGUI.h -o debug\moc_TxtParametersGUI.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;TxtParametersGUI.h"
+						Outputs="debug\moc_TxtParametersGUI.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC TxtParametersGUI.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_TxtParametersGUI.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 TxtParametersGUI.h -o release\moc_TxtParametersGUI.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;TxtParametersGUI.h"
+						Outputs="release\moc_TxtParametersGUI.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="Voltages2.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC Voltages2.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile debug\moc_Voltages2.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;debug&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 Voltages2.h -o debug\moc_Voltages2.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;Voltages2.h"
+						Outputs="debug\moc_Voltages2.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC Voltages2.h"
+						CommandLine="Rem IncrediBuild_AllowRemote&#x0D;&#x0A;Rem IncrediBuild_OutputFile release\moc_Voltages2.cpp&#x0D;&#x0A;C:\Qt\4.6.2\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DCONFIG_AL -DCONFIG_PC -DHAS_HFS -D_NO_NIDAQ -D_NO_MCC_DIO -D_NO_MCC_AO -DCONNECT_TO_SIM -DLITTLE_ENDIAN -DPRECOMPILED_HEADER -DHAS_HFS -DWIN32 -DQWT_DLL -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_NO_WARNINGS -DRECURSIVE_QT_LOCKS -DQT_DLL -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;c:\Qt\4.6.2\include\QtCore&quot; -I&quot;c:\Qt\4.6.2\include\QtNetwork&quot; -I&quot;c:\Qt\4.6.2\include\QtGui&quot; -I&quot;c:\Qt\4.6.2\include\QtSvg&quot; -I&quot;c:\Qt\4.6.2\include&quot; -I&quot;..\trlib&quot; -I&quot;..\thirdparty\TNT&quot; -I&quot;..\thirdparty\JAMA&quot; -I&quot;..\thirdparty\fftw&quot; -I&quot;..\thirdparty\ATL&quot; -I&quot;..\thirdparty\qwt-5.2\src&quot; -I&quot;..\aluminizerFPGA\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;..\shared\src&quot; -I&quot;c:\Qt\4.6.2\include\ActiveQt&quot; -I&quot;release&quot; -Ic:\Qt\4.6.2\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 Voltages2.h -o release\moc_Voltages2.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="Rem;Voltages2.h"
+						Outputs="release\moc_Voltages2.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="Widgets.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Generated Files"
 			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
-			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}">
+			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
+			>
 			<File
-				RelativePath="debug\Aluminizer2.res">
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="release\Aluminizer2.res">
+				RelativePath="release\Aluminizer2.res"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="common.h.cpp">
-				<FileConfiguration
-					Name="Debug|Win32">
+					ExcludedFromBuild="true"
+					>
 					<Tool
-						Name="VCCLCompilerTool"
-						ForcedIncludeFiles="$(NOINHERIT)"
-						PrecompiledHeaderThrough="$(INHERIT)"
-						UsePrecompiledHeader="1"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						ForcedIncludeFiles="$(NOINHERIT)"
-						PrecompiledHeaderThrough="$(INHERIT)"
-						UsePrecompiledHeader="1"/>
+						Name="VCCustomBuildTool"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_AluminizerApp.cpp">
+				RelativePath="debug\Aluminizer2.res"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_AluminizerApp.cpp">
+				RelativePath="common.h.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_AluminizerPage.cpp">
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="$(INHERIT)"
+						ForcedIncludeFiles="$(NOINHERIT)"
+					/>
+				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="$(INHERIT)"
+						ForcedIncludeFiles="$(NOINHERIT)"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_AluminizerPage.cpp">
+				RelativePath="release\moc_AluminizerApp.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_DDS_Pulse_Widget.cpp">
+				RelativePath="debug\moc_AluminizerApp.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_DDS_Pulse_Widget.cpp">
+				RelativePath="release\moc_AluminizerPage.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_ExpSCAN.cpp">
+				RelativePath="debug\moc_AluminizerPage.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_ExpSCAN.cpp">
+				RelativePath="release\moc_data_plot.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_ExpSCAN_NewFPGA.cpp">
+				RelativePath="debug\moc_data_plot.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_ExpSCAN_NewFPGA.cpp">
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_ExperimentsSheet.cpp">
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="release\moc_ExperimentsSheet.cpp">
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_FPGA_GUI.cpp">
+				RelativePath="debug\moc_DDS_Pulse_Widget.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_FPGA_GUI.cpp">
+				RelativePath="release\moc_DDS_Pulse_Widget.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_FPGA_TCP.cpp">
+				RelativePath="debug\moc_ExperimentsSheet.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_FPGA_TCP.cpp">
+				RelativePath="release\moc_ExperimentsSheet.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_FPGA_connection.cpp">
+				RelativePath="release\moc_ExpSCAN.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_ExpSCAN.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_FPGA_connection.cpp">
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_MatrixWidget.cpp">
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="release\moc_MatrixWidget.cpp">
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_MotorsPage.cpp">
+				RelativePath="debug\moc_ExpSCAN_NewFPGA.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_MotorsPage.cpp">
+				RelativePath="release\moc_ExpSCAN_NewFPGA.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_ParameterGUI_Base.cpp">
+				RelativePath="debug\moc_FPGA_connection.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_ParameterGUI_Base.cpp">
+				RelativePath="release\moc_FPGA_connection.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_RefcavityPage.cpp">
+				RelativePath="debug\moc_FPGA_GUI.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_RefcavityPage.cpp">
+				RelativePath="release\moc_FPGA_GUI.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_RemoteFrequencySource.cpp">
+				RelativePath="debug\moc_FPGA_TCP.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_RemoteFrequencySource.cpp">
+				RelativePath="release\moc_FPGA_TCP.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_SwitchPanelDialog.cpp">
+				RelativePath="debug\moc_histogram_plot.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_SwitchPanelDialog.cpp">
+				RelativePath="release\moc_histogram_plot.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_TransitionPage.cpp">
+				RelativePath="release\moc_MatrixWidget.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_MatrixWidget.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_TransitionPage.cpp">
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_TxtParametersGUI.cpp">
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="release\moc_TxtParametersGUI.cpp">
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_Voltages2.cpp">
+				RelativePath="debug\moc_MotorsPage.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_Voltages2.cpp">
+				RelativePath="release\moc_MotorsPage.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_data_plot.cpp">
+				RelativePath="release\moc_ParameterGUI_Base.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_ParameterGUI_Base.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_data_plot.cpp">
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
-			</File>
-			<File
-				RelativePath="debug\moc_histogram_plot.cpp">
+				RelativePath="debug\moc_RefcavityPage.cpp"
+				>
 				<FileConfiguration
 					Name="Release|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="release\moc_histogram_plot.cpp">
+				RelativePath="release\moc_RefcavityPage.cpp"
+				>
 				<FileConfiguration
 					Name="Debug|Win32"
-					ExcludedFromBuild="true"/>
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_RemoteFrequencySource.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_RemoteFrequencySource.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_SwitchPanelDialog.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_SwitchPanelDialog.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_TransitionPage.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_TransitionPage.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_TxtParametersGUI.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_TxtParametersGUI.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_Voltages2.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_Voltages2.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 		<File
-			RelativePath="Aluminizer2.rc"/>
+			RelativePath="Aluminizer2.rc"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

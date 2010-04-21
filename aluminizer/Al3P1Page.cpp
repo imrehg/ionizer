@@ -202,8 +202,7 @@ Al3P0Page::Al3P0Page(const string& sPageName,
 	currentClockState(0),
 	pRefCavity(dynamic_cast<RefCavityPage*>(m_pSheet->FindPage("Elsner"))),
 	CommonModeCorrection("Common mode correction", &m_TxtParams, "0.5", &m_vParameters),
-	NominalAOMCenter("Nominal AOM center [MHz]", &m_TxtParams, "", &m_vParameters),
-	last_hist_update(0)
+	NominalAOMCenter("Nominal AOM center [MHz]", &m_TxtParams, "", &m_vParameters)
 {
 	AOMorder = 1;
 	ExpAl::pAl3P0 = this;
@@ -310,63 +309,17 @@ bool Al3P0Page::CanLink(const string& pname)
 	return pname.find("Al3P0") == 0;
 }
 
-void Al3P0Page::update_histograms(double min_delay)
-{
-	if (det_hist_plot.size() == 0)
-		AddHistograms();
-
-	if (min_delay + last_hist_update > CurrentTime_s())
-		return;
-
-	ExperimentPage::pFPGA->SendParams(page_id, FPGA_params);
-
-	for (unsigned i = 0; i < det_hist_plot.size(); i++)
-	{
-		if (det_hist_plot[i])
-		{
-			last_hist_update = CurrentTime_s();
-
-			valarray<double> h = pFPGA->getDetectionHistogram(i);
-			valarray<double> hs(20);
-
-			for (size_t j = 0; j < hs.size(); j++)
-				hs[j] = h[j];
-
-			det_hist_plot[i]->Plot(hs);
-		}
-	}
-}
-
-void Al3P0Page::AddHistograms()
-{
-	unsigned c = 0;
-	unsigned w = num_columns() / 2;
-
-	for (unsigned j = 0; j < 2; j++)
-	{
-		hgrids.push_back(new QHBoxLayout());
-		grid.addLayout(hgrids.back(), grid.rowCount(), 0, 4, -1);
-
-		for (unsigned i = 0; i < 2; i++)
-		{
-			det_hist_plot.push_back(new histogram_plot(this, "", ""));
-			hgrids.back()->addWidget(det_hist_plot.back());
-			c += w;
-			det_hist_plot.back()->show();
-		}
-	}
-}
-
 void Al3P0Page::on_action(const std::string& s)
 {
 	if (s == "CLEAR HIST")
 	{
+		pFPGA->SendParams(page_id, FPGA_params);
 		pFPGA->resetStats();
-		update_histograms(0);
+		update_plots(0);
 	}
 
 	if (s == "GET HIST")
-		update_histograms(0);
+		update_plots(0);
 
 	if (s == "RE-CENTER")
 	{

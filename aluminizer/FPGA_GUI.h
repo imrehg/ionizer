@@ -2,6 +2,7 @@
 
 #include "ParamsPage.h"
 #include "messaging.h"
+#include "histogram_plot.h"
 
 class FPGA_connection;
 class GbE_msg_exchange;
@@ -17,6 +18,7 @@ FPGA_GUI(const string& sPageName, ExperimentsSheet* pSheet, unsigned page_id);
 
 virtual void AddParams();
 void AddRemoteParams();
+void AddPagePlots();
 
 unsigned get_page_id()
 {
@@ -32,6 +34,11 @@ virtual void OnEditChange(ParameterGUI_Base*);
 void DispatchMsg(GbE_msg_exchange* eX, unsigned m);
 
 protected:
+
+//! get plot data from FPGA and display
+void update_plots(double min_delay = 0);
+
+
 virtual void setupRemoteParam(GUI_double*);
 virtual void setupRemoteParam(GUI_matrix*)
 {
@@ -49,4 +56,12 @@ std::vector<std::string> remote_actions;
 public:
 static FPGA_connection* pFPGA;
 bool need_init_remote_actions;
+
+protected:
+	
+virtual unsigned plot_columns(unsigned nPlots);
+
+std::vector<histogram_plot*> page_plots;
+double last_plot_update;   // time when plot was last updated
+
 };

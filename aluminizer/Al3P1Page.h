@@ -137,14 +137,9 @@ virtual bool CanLink(const string& pname);
 virtual ExpSCAN* getCalibrationExp(const calibration_item&);
 
 protected:
-void AddHistograms();
 
 virtual void AddAvailableActions(std::vector<std::string>*);
 virtual void on_action(const std::string& s);
-
-
-//get detection histogram data from FPGA and plot
-void update_histograms(double min_delay = 0);
 
 public:
 double currentClockState;
@@ -153,8 +148,4 @@ protected:
 RefCavityPage* pRefCavity;
 GUI_double CommonModeCorrection;
 GUI_double NominalAOMCenter;
-
-std::vector<histogram_plot*> det_hist_plot;
-double last_hist_update;       // time when histogram was last updated
-
 };

@@ -200,3 +200,60 @@ void FPGA_GUI::on_action(const std::string& s)
 	else
 		ParamsPage::on_action(s);
 }
+
+unsigned FPGA_GUI::plot_columns(unsigned /* nPlots */)
+{
+	return 4;
+}
+
+
+void FPGA_GUI::AddPagePlots()
+{
+	unsigned nPlots = pFPGA->numPagePlots(page_id);
+
+
+	if (nPlots == page_plots.size())
+		return;
+
+	unsigned nCol = plot_columns(nPlots);
+	unsigned nRow = ceil(nPlots / (double)nCol);
+
+	unsigned k=0;
+
+	for (unsigned j = 0; j < nRow; j++)
+	{
+		hgrids.push_back(new QHBoxLayout());
+		grid.addLayout(hgrids.back(), grid.rowCount(), 0, 1, -1);
+		grid.setRowStretch(grid.rowCount(), 0.1);
+
+		for (unsigned i = 0; i < nCol; i++)
+		{
+			page_plots.push_back(new histogram_plot(this, pFPGA->getPlotLabel(page_id, k), ""));
+			hgrids.back()->addWidget(page_plots.back(), -10);
+			page_plots.back()->show();
+
+			k++;
+		}
+	}
+}
+
+void FPGA_GUI::update_plots(double min_delay)
+{
+	if (page_plots.size() == 0)
+		AddPagePlots();
+
+	if (min_delay + last_plot_update > CurrentTime_s())
+		return;
+
+	for (unsigned i = 0; i < page_plots.size(); i++)
+	{
+		if (page_plots[i])
+		{
+			last_plot_update = CurrentTime_s();
+
+			valarray<double> pp = pFPGA->getPagePlotData(page_id, i);
+
+			page_plots[i]->barPlot(pp);
+		}
+	}
+}

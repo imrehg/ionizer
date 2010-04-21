@@ -58,12 +58,14 @@ void iAl3P1::prepState(int mFg_target)
 }
 
 iAl3P0::iAl3P0(list_t* exp_list, const std::string& name) :
-     transition_info(exp_list, name, "Al3P0", 0, 5),
+    transition_info(exp_list, name, "Al3P0", 0, 5),
     clock_state(0),
+	numAl(0), numMg(0), num3P1Pulses(0), num3P0states(0),
+	det_means(4),
     check_interval("Check interval [us]", &params, "value=1000"),
     dark_rate("Dark count rate [1/ms]", &params, "value=1"),
     bright_rate("Bright count rate [1/ms]", &params, "value=20"),
-     min_ok_prob("Min. bright prob. [10^]", &params, "value=-5"),
+    min_ok_prob("Min. bright prob. [10^]", &params, "value=-5"),
     fc(0)
 {
    //pi-polarized pulses
@@ -72,44 +74,104 @@ iAl3P0::iAl3P0(list_t* exp_list, const std::string& name) :
       Al3P0_pi_pulses.push_back(new Al3P0_pulse(pulse_name(mFg2, 0, 0), &params));
    }
 
-   //initialize detection histograms
-
-   unsigned i=0;
-   for(int mF2=-5; mF2<=5; mF2+=10)
-   {
-      for(unsigned j=0; j<2; j++)
-      {
-         char buff[256];
-
-         if(j == 1)
-            snprintf(buff, 256, "3P0 mF=%d/2 (0 Mg) weight", mF2);
-         else
-            snprintf(buff, 256, "1S0 mF=%d/2 (0 Mg) weight", mF2);
-
-         rp_double* p = new rp_double(buff, &params, "value=0.5");
-         det_stats[j+2*i].gui_weights[0] = p;
-      }
-
-      i++;
-   }
-
-   for(unsigned j=0; j<2; j++)
+   for(unsigned j=0; j < det_means.size(); j++)
    {
       char buff[256];
       snprintf(buff, 256, "%u  Mg mean", j);
 
-      rp_double* p = new rp_double(buff, &params, "value=0");
-      det_means[j] = p;
-
-      for(unsigned k=0; k<numHist; k++)
-         det_stats[k].gui_means[j] = p;
+      det_means[j] = new rp_double(buff, &params, "value=0");
    }
+
+   //initialize detection histograms
+   initStats();
 }
 
 iAl3P0::~iAl3P0()
 {
    if(fc)
       delete fc;
+}
+
+const char *byte_to_binary(int x)
+{
+	switch(x)
+	{
+		case 0 : return "00";
+		case 1 : return "01";
+		case 2 : return "10";
+		case 3 : return "11";
+	}
+
+	return "";
+}
+
+
+//! initialize detection statistics (allocate histograms, etc.)
+void iAl3P0::initStats()
+{
+   unsigned i=0;
+
+   num3P0states = 1 << numAl;
+
+   //number of different detection pulse types.  
+   //works for Mg Al and Mg Al Al, but may need modification eventually
+   num3P1Pulses = numAl; 
+
+
+   unsigned newSize=2*num3P0states*num3P1Pulses;
+
+   if(newSize == det_stats.size())
+	   return;
+
+   for(unsigned k=0; k < det_stats.size(); k++)
+	   for(unsigned j=0; j < det_stats[k].gui_weights.size(); j++)
+	   {
+		   if(det_stats[k].gui_weights[j])
+		   {
+			   delete det_stats[k].gui_weights[j];
+			   det_stats[k].gui_weights[j] = 0;
+		   }
+	   }
+
+   det_stats.clear();
+   det_stats.resize(newSize);
+
+   for(int mF2=-5; mF2<=5; mF2+=10)
+   {
+      for(unsigned j=0; j<num3P0states; j++)
+      {
+		  for(unsigned k=0; k<num3P1Pulses; k++)
+		  {
+			  unsigned iDet = getHistIndex(j,mF2,k);
+			  det_stats[iDet].set_num_poissonians(numMg+1);
+
+			  for(unsigned q=0; q < numMg; q++)
+			  {
+				 char buff0[256];
+				 char buff1[256];
+
+				 snprintf(buff0, 256, "pulse %d, Al %s, mF=%d/2", k, byte_to_binary(j), mF2);
+				 snprintf(buff1, 256, "pulse %d, Al %s, mF=%d/2 (%d Mg) weight", k, byte_to_binary(j), mF2, q);
+
+				 det_stats[iDet].setName(buff0);
+
+				 if(q == 0)
+					det_stats[iDet].gui_weights[q] = new rp_double(buff1, &params, "value=1");
+				 else
+				    det_stats[iDet].gui_weights[q] = new rp_double(buff1, &params, "value=0");
+
+			  }
+		  }
+      }
+
+      i++;
+   }
+
+   for(unsigned j=0; j <= numMg; j++)
+   {
+      for(unsigned k=0; k < det_stats.size(); k++)
+         det_stats[k].gui_means[j] = det_means[j];
+   }
 }
 
 FluorescenceChecker* iAl3P0::getFC()
@@ -142,30 +204,33 @@ Al3P0_pulse* iAl3P0::getSB(int mFg, int sb, int pol)
 }
 
 
-void iAl3P0::getHistogramData(unsigned iHist, GbE_msg& msg_out)
+unsigned iAl3P0::getNumPlots()
 {
+	return det_stats.size();
+}
+
+
+//! Return data for plots on a GUI page.  The format is msg_out.m[0] = num_points, msg_out.m[1] = data[0], ...
+void iAl3P0::getPlotData(unsigned iPlot, unsigned /* iStart */, GbE_msg& msg_out)
+   {
 //	printf("[exp_3P0::getHistogramData] iHist=%u\r\n", iHist);
 
-   if(iHist < numHist)
+   if(iPlot < det_stats.size() )
    {
-      unsigned maxC = det_stats[iHist].getMaxCounts();
+      unsigned maxC = det_stats[iPlot].getMaxCounts();
       msg_out.insertU(0, maxC);
 
       for(unsigned j=0; j<maxC; j++)
       {
-         msg_out.insertU(j+1, static_cast<unsigned>(1000*det_stats[iHist].probability(j)));
+         msg_out.insertU(j+1, static_cast<unsigned>(1000*det_stats[iPlot].probability(j)));
    //		printf("[exp_3P0::getHistogramData] p(%u)=%u/1000\r\n", j+1, m[j+1]);
       }
    }
+   else
+	   msg_out.insertU(0, 0);
+
 }
 
-void iAl3P0::getHistogramData(const GbE_msg& msg_in, GbE_msg& msg_out)
-{
-   unsigned iHist = msg_in.extractU(0);
-
-   printf("[getHistogramData] iHist=%u\r\n", iHist);
-   getHistogramData(iHist, msg_out);
-}
 
 void iAl3P0::resetStats(const GbE_msg&, GbE_msg&)
 {
@@ -174,7 +239,7 @@ void iAl3P0::resetStats(const GbE_msg&, GbE_msg&)
 
 void iAl3P0::resetStats()
 {
-   for(unsigned j=0; j<numHist; j++)
+   for(unsigned j=0; j<det_stats.size(); j++)
       det_stats[j].recalc();
 }
 
@@ -188,52 +253,52 @@ void iAl3P0::setClockState(double d)
    clock_state = d;
 }
 
-unsigned iAl3P0::getHistIndex(unsigned n3P0, int mF2)
+unsigned iAl3P0::getHistIndex(unsigned n3P0, int mF2, unsigned pulse_type)
 {
-   if(mF2 == -5)
-      return n3P0;
-
-    if(mF2 == 5)
-      return n3P0+2;
-
-    throw runtime_error("unknown histogram");
+	int imF = (mF2 == -5 ? 0 : 1);
+	return imF*(num3P0states)*(num3P1Pulses) + pulse_type*(num3P0states) + n3P0;
 }
 
-double iAl3P0::getProb(unsigned n3P0, int mF2, unsigned n)
+double iAl3P0::getProb(unsigned n3P0, int mF2, unsigned pulse_type, unsigned n)
 {
-   if(mF2 == -5)
-      return det_stats[getHistIndex(n3P0,mF2)].probability(n);
-
-    if(mF2 == 5)
-      return det_stats[getHistIndex(n3P0,mF2)].probability(n);
-
-    throw runtime_error("unknown histogram");
+    return det_stats[getHistIndex(n3P0,mF2,pulse_type)].probability(n);
 }
 
 //! return mean value of histogram "iHist"
-double iAl3P0::getMean(unsigned n3P0, int mF2)
+double iAl3P0::getMean(unsigned n3P0, int mF2, unsigned pulse_type)
 {
-   return det_stats[getHistIndex(n3P0,mF2)].getOverallMean();
+   return det_stats[getHistIndex(n3P0,mF2,pulse_type)].getOverallMean();
 }
 
-const std::string& iAl3P0::getHistName(unsigned n3P0, int mF2)
+const std::string& iAl3P0::getHistName(unsigned n3P0, int mF2, unsigned pulse_type)
 {
-   return det_stats[getHistIndex(n3P0,mF2)].getName();
+   return det_stats[getHistIndex(n3P0,mF2,pulse_type)].getName();
 }
 
-void iAl3P0::getHistName(const GbE_msg&, GbE_msg&)
+void iAl3P0::getHistName(const GbE_msg& msg_in, GbE_msg& msg_out)
 {
-//not yet implemented
+	unsigned iHist = msg_in.extractU(1);
+
+	strcpy(msg_out.extractS(0), det_stats.at(iHist).getName().c_str());
 }
 
-void iAl3P0::updateHist(unsigned n3P0, int mF2, unsigned n)
+void iAl3P0::updateHist(unsigned n3P0, int mF2, unsigned pulse_type, unsigned n)
 {
-   det_stats[getHistIndex(n3P0,mF2)].update(n);
+   det_stats[getHistIndex(n3P0,mF2,pulse_type)].update(n);
 }
 
-void iAl3P0::updateHistMemory(unsigned n3P0, int mF2, double det_memory)
+void iAl3P0::updateHistMemory(unsigned n3P0, int mF2, unsigned pulse_type, double det_memory)
 {
-   det_stats[getHistIndex(n3P0,mF2)].update_memory(det_memory);
+   det_stats[getHistIndex(n3P0,mF2,pulse_type)].update_memory(det_memory);
 }
+
+void iAl3P0::setIonXtal(const char* name)
+{
+	numAl = numOccurences(name, "Al");
+	numMg = numOccurences(name, "Mg");
+
+	initStats();
+}
+
 
 #endif //CONFIG_AL
