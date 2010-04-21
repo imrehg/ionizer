@@ -349,7 +349,7 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 
    //calc Bayesian mean
    double m = 0;
-   for(unsigned i=0; i<2; i++)
+   for(unsigned i=0; i<P.size(); i++)
       m += P[i].iState * P[i].P;
 
    if(bUpdateStats && ((*num_detections) <= nMax))
