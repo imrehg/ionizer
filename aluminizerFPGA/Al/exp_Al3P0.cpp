@@ -221,7 +221,7 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
    //store PMT values here to update histograms
    pmt_array.resize(nMax);
 
-   //get pointer rto 3P1 sb pulse
+   //get pointer to 3P1 sb pulse
    dds_params* pulse3P1xfer = gpAl3P1->getPulse(mFg_target, pol3P1, abs(xfer_sb));
 
    //calculate 3P1 freq. offsets for servo signal

@@ -76,16 +76,38 @@ void GlobalsPage::PostCreateGUI()
 
 unsigned GlobalsPage::NumAl()
 {
-	if (IonXtal.Value() == "Mg Al")
-		return 1;
+	string xtal = IonXtal.Value();
 
-	if (IonXtal.Value() == "Al Mg Al")
-		return 2;
+	unsigned n = 0;
+	unsigned i = 0;
 
-	if (IonXtal.Value() == "Mg Al Al")
-		return 2;
+	while(i != string::npos)
+	{
+		i = xtal.find("Al", i);
 
-	return 0;
+		if(i != string::npos)
+			n++;
+	}
+
+	return n;
+}
+
+unsigned GlobalsPage::NumMg()
+{
+	string xtal = IonXtal.Value();
+
+	unsigned n = 0;
+	unsigned i = 0;
+
+	while(i != string::npos)
+	{
+		i = xtal.find("Mg", i);
+
+		if(i != string::npos)
+			n++;
+	}
+
+	return n;
 }
 
 std::string GlobalsPage::GetIonXtal()

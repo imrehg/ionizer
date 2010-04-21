@@ -170,6 +170,8 @@ void exp_recover::cool(unsigned us)
     }
 
     PrecoolShort.pulseStayOn();
+    
+    while(! PULSE_CONTROLLER_is_finished(pulser) );
 }
 
 //use maximum likelihood method to determine ion state

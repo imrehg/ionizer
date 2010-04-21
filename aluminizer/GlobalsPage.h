@@ -19,6 +19,7 @@ void SetIonXtal(const std::string);
 std::string GetIonXtal();
 
 unsigned NumAl();
+unsigned NumMg();
 
 protected:
 virtual bool RecalculateParameters();
