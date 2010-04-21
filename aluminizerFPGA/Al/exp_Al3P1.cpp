@@ -26,9 +26,12 @@ exp_3P1::exp_3P1(list_t* exp_list, const std::string& name) :
    invert_Mg("Invert Mg", &params, "value=0"),
    depump_Al("Depump Al", &params, "value=0"), //turn the depump pulse on and off - CWC 01212009
    composite3P1 ("Composite 3P1", &params, "value=0"),
-   checkPrep("Check prep.", &params, "value=1")
+   checkPrep("Check prep.", &params, "value=1"),
+   carrierExp("Carrier exp.", &params, "value=0")
 {
    checkPrep.setExplanation("Check state prep. via clock histrograms");
+   xfer_sb.setExplanation("Sideband used for state-transfer in carrier-type experiments.");
+   carrierExp.setExplanation("In carrier-type experiments the xfer sb transfers the Al+ internal state to motion.");
 }
 
 void exp_3P1::driveAl3P1SB_composite(int sb, int pol) // positive for BSB, negative for RSB, 0 for carrier
@@ -163,7 +166,7 @@ void exp_3P1_test::experiment_pulses(int)
    if(depump_Al)
       pulse3P1(exp_pulse_pol*5, -1*exp_pulse_pol, 0);
 
-   if(exp_pulse_sb == 0 || abs(exp_pulse_sb) > 2)
+   if(exp_pulse_sb == 0 || carrierExp)
       carrier_exp();
    else
    {

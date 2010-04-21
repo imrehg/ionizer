@@ -34,6 +34,7 @@ protected:
    rp_bool invert_Mg, depump_Al; //, fancy_bsb_pulse;
    rp_bool composite3P1;
    rp_bool checkPrep;
+   rp_bool carrierExp;
 
    int mFg_target;
 };
