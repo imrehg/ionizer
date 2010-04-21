@@ -19,7 +19,8 @@
 
 histogram_plot::histogram_plot(QWidget *parent,
                                const std::string& xlabel,
-                               const std::string& ylabel) :
+                               const std::string& ylabel,
+							   const std::string& title) :
 	QWidget(parent),
 	nPendingReplots(0),
 	xMin(1),
@@ -49,6 +50,9 @@ histogram_plot::histogram_plot(QWidget *parent,
 
 	if (ylabel.size())
 		plot.setAxisTitle(QwtPlot::xBottom, ylabel.c_str());
+
+	if(title.size())
+		plot.setTitle(title.c_str());
 
 	histogram = new HistogramItem();
 	histogram->setColor(Qt::darkCyan);

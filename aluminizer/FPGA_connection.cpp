@@ -575,7 +575,7 @@ std::valarray<double> FPGA_connection::getPagePlotData(unsigned page_id, unsigne
 	valarray<double> v(eX.reply(0));
 
 	for (unsigned i = 0; i < v.size(); i++)
-		v[i] = (int)(eX.reply(i + 1));
+		v[i] = ((int)(eX.reply(i + 1))) * 0.001;
 
 	return v;
 }

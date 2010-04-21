@@ -45,7 +45,7 @@ void HistogramItem::init()
 	d_data->attributes = HistogramItem::Auto;
 
 	setItemAttribute(QwtPlotItem::AutoScale, true);
-	setItemAttribute(QwtPlotItem::Legend, true);
+//	setItemAttribute(QwtPlotItem::Legend, true);
 
 	setZ(20.0);
 }

@@ -224,12 +224,13 @@ void FPGA_GUI::AddPagePlots()
 	{
 		hgrids.push_back(new QHBoxLayout());
 		grid.addLayout(hgrids.back(), grid.rowCount(), 0, 1, -1);
-		grid.setRowStretch(grid.rowCount(), 0.1);
 
 		for (unsigned i = 0; i < nCol; i++)
 		{
-			page_plots.push_back(new histogram_plot(this, pFPGA->getPlotLabel(page_id, k), ""));
-			hgrids.back()->addWidget(page_plots.back(), -10);
+			page_plots.push_back(new histogram_plot(this, "", "", pFPGA->getPlotLabel(page_id, k)));
+			hgrids.back()->addWidget(page_plots.back());
+			page_plots.back()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+			page_plots.back()->resize(100,50);
 			page_plots.back()->show();
 
 			k++;

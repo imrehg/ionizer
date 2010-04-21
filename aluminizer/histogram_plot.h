@@ -19,7 +19,8 @@ Q_OBJECT
 public:
 histogram_plot(QWidget *parent,
                const std::string& xlabel,
-               const std::string& ylabel);
+               const std::string& ylabel,
+			   const std::string& title="");
 
 virtual ~histogram_plot();
 

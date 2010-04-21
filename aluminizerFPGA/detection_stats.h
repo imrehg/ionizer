@@ -69,7 +69,7 @@ bool operator<(const detection_index& di1, const detection_index& di2);
 class detection_stats
 {
 public:
-detection_stats(size_t max_counts = 42);
+detection_stats(size_t max_counts = 20);
 
 void setName(const std::string& n);
 const std::string& getName();
