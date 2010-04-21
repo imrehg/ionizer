@@ -253,6 +253,11 @@ void iAl3P0::setClockState(double d)
    clock_state = d;
 }
 
+unsigned iAl3P0::getNum3P0states()
+{
+	return num3P0states;
+}
+
 unsigned iAl3P0::getHistIndex(unsigned n3P0, int mF2, unsigned pulse_type)
 {
 	int imF = (mF2 == -5 ? 0 : 1);

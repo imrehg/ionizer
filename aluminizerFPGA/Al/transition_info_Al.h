@@ -51,6 +51,7 @@ public:
 
      void setClockState(double d);
 
+   unsigned getNum3P0states();
    virtual unsigned getNumPlots();
 
    //! Return data for plots on a GUI page.  The format is msg_out.m[0] = num_points, msg_out.m[1] = data[0], ...

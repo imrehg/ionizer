@@ -258,7 +258,7 @@ unsigned exp_3P0::decide_next_pulse_type(vector<state_prob>& P)
 //returns number of excited Al+ ions
 double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool bStoreData, bool bUpdateStats)
 {
-   vector<state_prob> P(gpAl3P0->getNumPlots());
+   vector<state_prob> P(gpAl3P0->getNum3P0states());
 
    double P0 = 1.0/P.size();
 
@@ -348,6 +348,7 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
          }
       }
 
+	  //normalize probabilities
 	  for(unsigned i=0; i<P.size(); i++)
          P[i].P /= Psum;
       
