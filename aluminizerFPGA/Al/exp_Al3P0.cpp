@@ -43,7 +43,7 @@ exp_3P0::exp_3P0(list_t* exp_list, const std::string& name) :
 {
    rcSignal.name = COOLING_ION_NAME + std::string(" signal");
 
-   alt_xfer_sb.setExplanation("used to determine state of 2nd (inner) Al+");
+   alt_xfer_sb.setExplanation("Used to determine state of 2nd (inner) Al+.  Disabled if equal to 0.");
    mod3P1.setExplanation("to extract 3P1 freq. servo signal");
    gain3P1.setExplanation("3P1 freq. servo integral gain");
    off_detuning.setExplanation("Detuning used to switch off light (for bi-directional probes)");
@@ -310,7 +310,7 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
       preparation_pulses();
 
 	  //qubit transfer sequence
-	  if(curr_pulse_type = 0)
+	  if(curr_pulse_type == 0 || (alt_xfer_sb == 0))
 	  {
 		  pulse3P1xfer->shifted_pulse(shift3P1);
 		  gpMg->getSB(-1*abs(xfer_sb))->pulse();
