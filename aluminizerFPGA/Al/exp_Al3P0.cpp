@@ -142,8 +142,23 @@ void exp_3P0::run(const GbE_msg& msg_in, GbE_msg& msg_out)
    double new_state = get_clock_state(&num_detections, &corr3P1, true);
    double old_state = gpAl3P0->getClockState();
 
-   rcClockState.result =10*new_state;
-   rcXition.result = 10.*fabs(new_state-old_state);
+   //figure out how many Al+ ions flipped state (how many bits changed between old and new state)
+   unsigned ns = (unsigned)(new_state + 0.5);
+   unsigned os = (unsigned)(old_state + 0.5);
+   unsigned nx = 0;
+
+   unsigned bit = 1;
+
+   for(unsigned i=0; i<(gpAl3P0->numAl); i++)
+   {
+	   if ((ns & bit) != (os & bit))
+		   nx++;
+
+	   bit = bit << 1;
+   }
+
+   rcClockState.result = 10*new_state;
+   rcXition.result = (10.*nx) / (gpAl3P0->numAl); // fabs(new_state-old_state);
    rcNumDetections.result = (0.1*num_detections);
    rc3P1corr.result = 1e-3 * gain3P1 * corr3P1;
 

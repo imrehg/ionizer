@@ -83,10 +83,13 @@ public:
 
 protected:
    unsigned getHistIndex(unsigned n3P0, int mF2, unsigned pulse_type);
+
+public:
    unsigned numAl, numMg; //number of Al+ and Mg+ ions
    unsigned num3P1Pulses; //number of different types of 3P1 detection pulses
    unsigned num3P0states;
 
+protected:
    std::vector<Al3P0_pulse*> Al3P0_pi_pulses;
 
    vector<detection_stats> det_stats;
