@@ -215,27 +215,38 @@ bool operator<(const state_prob& p1, const state_prob& p2)
 
 unsigned exp_3P0::decide_next_pulse_type(vector<state_prob>& P)
 {
+	//sort state probabilities in descending order
+	std::sort(P.begin(), P.end());
+
+	if(debug_level > 0)
+	{
+		for(unsigned i=0; i<P.size(); i++)
+			printf("P(%d) = %f   ", P[i].iState, P[i].P);
+
+		printf("\n");
+	}
+
 	//only two states to distinguish (Mg Al)
 	if(P.size() <= 2)
 		return 0;
 
 	//Four states to distinguish (Mg Al Al)
 
-	//sort state probabilities in descending order
-	std::sort(P.begin(), P.end());
-
+	
 	//the "2" bit refers to the inner Al+ ion
 	//the "1" bit refers to the outer Al+ ion
 
 	//trying to determine state of outer ion
 	if( (P[0].iState % 2) != (P[1].iState % 2) )
 	{
+		if(debug_level > 0) printf("Next pulse is type 0\n");
 		return 0; //pulse type 0 will drive the stretch mode
 	}
 
 	//trying to determine state of inner ion
 	if( (P[0].iState / 2) != (P[1].iState / 2) )
 	{
+		if(debug_level > 0) printf("Next pulse is type 0\n");
 		return 1; //pulse type 0 will drive the egyptian mode
 	}
 
@@ -337,15 +348,21 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
          }
       }
 
+	  for(unsigned i=0; i<P.size(); i++)
+         P[i].P /= Psum;
+      
+	  Pmax /= Psum;
+	  Psum = 1;
+
      servoSignal3P1 += shift3P1 * (n - pmtMean3P0);
 
       if(debug_level > 1)
-         printf("%u counts, P[%u]: %e\n", n, iPmax, Pmax/Psum);
+         printf("%u counts, P[%u]: %e\n", n, iPmax, Pmax);
 
       (*num_detections)++;
      shift3P1 *= -1; //flip 3P1 shift
 
-   } while( (Pmax/Psum < min_prob) && ((*num_detections) < nMax) );
+   } while( (Pmax < min_prob) && ((*num_detections) < nMax) );
 
    //calc Bayesian mean
    double m = 0;
