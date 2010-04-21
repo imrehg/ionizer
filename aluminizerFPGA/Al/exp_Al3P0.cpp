@@ -246,7 +246,7 @@ unsigned exp_3P0::decide_next_pulse_type(vector<state_prob>& P)
 	//trying to determine state of inner ion
 	if( (P[0].iState / 2) != (P[1].iState / 2) )
 	{
-		if(debug_level > 0) printf("Next pulse is type 0\n");
+		if(debug_level > 0) printf("Next pulse is type 1\n");
 		return 1; //pulse type 0 will drive the egyptian mode
 	}
 

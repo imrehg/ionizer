@@ -37,7 +37,7 @@ void init_system()
 	xil_printf("Mercurizer version 0.1 starting up...\r\n");
 #endif
 
-#ifdef CONFIG_Al
+#ifdef CONFIG_AL
 	xil_printf("Aluminizer version 2.0 starting up...\r\n");
 
 	//221 MHz for pre-cooling DDS (0) to keep the ions cold
