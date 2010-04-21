@@ -7,3 +7,7 @@ xcopy /D /S /Y aluminizer\*.h ..\..\control_trunk\ionizer
 xcopy /D /S /Y aluminizerFPGA\*.cpp ..\..\control_trunk\ionizerES
 xcopy /D /S /Y aluminizerFPGA\*.c ..\..\control_trunk\ionizerES
 xcopy /D /S /Y aluminizerFPGA\*.h ..\..\control_trunk\ionizerES
+
+cd ..\..\control_trunk\ionizer
+qupdate
+cd ..\..\sf\ionizer
