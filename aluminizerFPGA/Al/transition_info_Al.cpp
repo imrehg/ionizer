@@ -92,17 +92,18 @@ iAl3P0::~iAl3P0()
       delete fc;
 }
 
-const char *byte_to_binary(int x)
+const char *iAl3P0::state_str(int x)
 {
-	switch(x)
-	{
-		case 0 : return "00";
-		case 1 : return "01";
-		case 2 : return "10";
-		case 3 : return "11";
-	}
+	unsigned nBits = std::min<unsigned>(numAl, 32);
 
-	return "";
+	static char bin_str[33];
+
+	for(unsigned i=0; i<nBits; i++)
+		bin_str[nBits-i-1] = ((x >> i) & 1) ? 'P' : 'S';
+
+	bin_str[nBits] = 0;
+
+	return bin_str;
 }
 
 
@@ -150,8 +151,8 @@ void iAl3P0::initStats()
 				 char buff0[256];
 				 char buff1[256];
 
-				 snprintf(buff0, 256, "pulse %d, Al %s, mF=%d/2", k, byte_to_binary(j), mF2);
-				 snprintf(buff1, 256, "pulse %d, Al %s, mF=%d/2 (%d Mg) weight", k, byte_to_binary(j), mF2, q);
+				 snprintf(buff0, 256, "pulse %d, Al %s, mF=%d/2", k, state_str(j), mF2);
+				 snprintf(buff1, 256, "pulse %d, Al %s, mF=%d/2 (%d Mg) weight", k, state_str(j), mF2, q);
 
 				 det_stats[iDet].setName(buff0);
 

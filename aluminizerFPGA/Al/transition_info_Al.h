@@ -81,6 +81,9 @@ public:
 
    Al3P0_pulse* getSB(int mFg, int sb, int pol);
 
+   //! convert state number to binary representation.  e.g. for Mg Al Al x=3 returns PP and x=0 returns SS
+   const char *state_str(int x);
+
 protected:
    unsigned getHistIndex(unsigned n3P0, int mF2, unsigned pulse_type);
 

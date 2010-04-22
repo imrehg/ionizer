@@ -383,7 +383,7 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
          printf("pulse %u -> %2u counts, ", curr_pulse_type, n);
 
 		 for(unsigned i=0; i<P.size(); i++)
-			printf("P(%d)=%.3f ", P[i].iState, P[i].P);
+			printf("P(%s)=%.3f ", gpAl3P0->state_str(P[i].iState), P[i].P);
 
 		printf("\n");
 	  }
