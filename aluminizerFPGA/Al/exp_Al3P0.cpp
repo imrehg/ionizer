@@ -393,11 +393,6 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 
    } while( (P[0].P < min_prob) && ((*num_detections) < nMax) );
 
-   //calc Bayesian mean
-   double m = 0;
-   for(unsigned i=0; i<P.size(); i++)
-      m += P[i].iState * P[i].P;
-
    if(bUpdateStats && ((*num_detections) <= nMax))
    {
       for(unsigned i=0; i<(*num_detections); i++)
@@ -407,16 +402,16 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 	  }
    }
 
-   m /= Psum;
+   //calc Bayesian mean
+   double m = 0;
+   for(unsigned i=0; i<P.size(); i++)
+      m += P[i].iState * P[i].P;
 
-   if(debug_level > 1)
-      printf("Bayesian mean = %f\n", m);
-
-   //if the ion is likely in the ground state, extract 3P1 correction signal
+   //if the ions are likely in the ground state, extract 3P1 correction signal
    if(m < 0.5 && pCorr3P1)
       *pCorr3P1 = servoSignal3P1 / ((*num_detections) * (pmtMean3P0 - pmtMean1S0));
 
-   return m;
+   return P[0].iState;
 }
 
 
