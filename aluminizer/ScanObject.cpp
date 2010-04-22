@@ -97,8 +97,9 @@ void Scan_Base::addPlotCurves()
 			if (data_feed.GetName(i).find("(.)") != string::npos)
 				ps = Qt::DotLine;
 
-			if (data_feed.GetName(i).find("(s)") != string::npos)
-				plot->addCurve(data_feed.GetName(i).c_str());                  //plot thick
+			if (data_feed.GetName(i).find("(s)") != string::npos ||
+				data_feed.GetName(i).find("3P0 state") != string::npos)
+				plot->addCurve(data_feed.GetName(i).c_str(), true); //plot thick
 			else
 				plot->addCurve(data_feed.GetName(i).c_str(), true, 0, ps);     //plot thin
 		}

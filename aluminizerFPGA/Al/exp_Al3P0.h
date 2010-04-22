@@ -17,6 +17,8 @@ public:
     exp_3P0(list_t* exp_list, const std::string& name);
    virtual ~exp_3P0() {}
 
+   virtual void setIonXtal(const char*);
+
    //virtual void init_exp_sequence(const GbE_msg& msg_in, GbE_msg& msg_out);
    virtual void init();
    virtual void run(const GbE_msg& msg_in, GbE_msg& msg_out);
@@ -47,7 +49,8 @@ protected:
    rp_double RamseyPhase;
    rp_double mod3P1, gain3P1;
 
-   result_channel rcClockState, rcXition, rcNumDetections, rcFC, rc3P1corr;
+   vector<result_channel*> rcClockStates;
+   result_channel rcXition, rcNumDetections, rcFC, rc3P1corr;
 
    int pol3P1; //polarization of 3P1 pulses
    FluorescenceChecker* fc;
@@ -55,6 +58,8 @@ protected:
 
    std::vector<unsigned> pmt_array;
    std::vector<unsigned> pulse_type;
+
+   unsigned numMg, numAl;
 };
 
 class exp_3P0_lock : public exp_3P0

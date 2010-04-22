@@ -44,10 +44,6 @@ int get_sbMax() const
 	return sbMax;
 }
 
-virtual void setIonXtal(const char*)
-{
-}
-
 private:
 std::string base_name;
 char sbuffPulseName[64];

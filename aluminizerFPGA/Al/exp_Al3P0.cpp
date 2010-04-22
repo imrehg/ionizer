@@ -34,12 +34,12 @@ exp_3P0::exp_3P0(list_t* exp_list, const std::string& name) :
    off_detuning("Off detuning [Hz]", &params, "value=0.1"),
    Ramsey		(0, "Ramsey",			&params, "t=0"),
    RamseyPhase ("Ramsey phase [deg.]",	&params, "value=0"),
-   rcClockState(channels, "3P0 state"),
    rcXition(channels, "Clock xition (s)"),
    rcNumDetections(channels, "# det."),
    rcFC(channels, "Flour. check [counts / 100 us]"),
    rc3P1corr(channels, "3P1 corr. [kHz]"),
-   probe_dir(1)
+   probe_dir(1),
+   numAl(0), numMg(0)
 {
    rcSignal.name = COOLING_ION_NAME + std::string(" signal");
 
@@ -47,6 +47,29 @@ exp_3P0::exp_3P0(list_t* exp_list, const std::string& name) :
    mod3P1.setExplanation("to extract 3P1 freq. servo signal");
    gain3P1.setExplanation("3P1 freq. servo integral gain");
    off_detuning.setExplanation("Detuning used to switch off light (for bi-directional probes)");
+}
+
+
+void exp_3P0::setIonXtal(const char* name)
+{
+	numAl = numOccurences(name, "Al");
+	numMg = numOccurences(name, "Mg");
+
+	if(numAl != rcClockStates.size())
+	{
+		//delete old result channels
+		for(unsigned i=0; i<rcClockStates.size(); i++)
+			delete rcClockStates[i];
+		
+		rcClockStates.clear();
+
+		for(unsigned i=0; i<numAl; i++)
+		{
+			char buff[256];
+			snprintf(buff, 256, "3P0 state (%u)", i);
+			rcClockStates.push_back(new result_channel(channels, buff));
+		}
+	}
 }
 
 //! figure out correct polarizations, etc
@@ -63,6 +86,11 @@ void exp_3P0::init()
 
    rcXition.result = 0;
    rc3P1corr.result = 0;
+
+   if(rcClockStates.size() != gpAl3P0->numAl)
+   {
+
+   }
 
    exp_3P1::init();
 }
@@ -145,20 +173,23 @@ void exp_3P0::run(const GbE_msg& msg_in, GbE_msg& msg_out)
    //figure out how many Al+ ions flipped state (how many bits changed between old and new state)
    unsigned ns = (unsigned)(new_state + 0.5);
    unsigned os = (unsigned)(old_state + 0.5);
-   unsigned nx = 0;
+   unsigned nx = 0; //number of transitions
 
    unsigned bit = 1;
 
-   for(unsigned i=0; i<(gpAl3P0->numAl); i++)
+   for(unsigned i=0; i<numAl; i++)
    {
 	   if ((ns & bit) != (os & bit))
+	   {
 		   nx++;
+	   }
+
+	   rcClockStates[i]->result = (ns & bit) ? 10 : 0;
 
 	   bit = bit << 1;
    }
 
-   rcClockState.result = 10*new_state;
-   rcXition.result = (10.*nx) / (gpAl3P0->numAl); // fabs(new_state-old_state);
+   rcXition.result = (10.*nx) / numAl; // fabs(new_state-old_state);
    rcNumDetections.result = (0.1*num_detections);
    rc3P1corr.result = 1e-3 * gain3P1 * corr3P1;
 
@@ -230,40 +261,22 @@ bool operator<(const state_prob& p1, const state_prob& p2)
 
 unsigned exp_3P0::decide_next_pulse_type(vector<state_prob>& P)
 {
-	//sort state probabilities in descending order
-	std::sort(P.begin(), P.end());
-
-	if(debug_level > 0)
-	{
-		for(unsigned i=0; i<P.size(); i++)
-			printf("P(%d) = %f   ", P[i].iState, P[i].P);
-
-		printf("\n");
-	}
-
 	//only two states to distinguish (Mg Al)
 	if(P.size() <= 2)
 		return 0;
 
 	//Four states to distinguish (Mg Al Al)
-
-	
-	//the "2" bit refers to the inner Al+ ion
-	//the "1" bit refers to the outer Al+ ion
+    //use binary notation	
+	//the 2^1 bit refers to the inner Al+ ion
+	//the 2^0 bit refers to the outer Al+ ion
 
 	//trying to determine state of outer ion
 	if( (P[0].iState % 2) != (P[1].iState % 2) )
-	{
-		if(debug_level > 0) printf("Next pulse is type 0\n");
 		return 0; //pulse type 0 will drive the stretch mode
-	}
 
 	//trying to determine state of inner ion
 	if( (P[0].iState / 2) != (P[1].iState / 2) )
-	{
-		if(debug_level > 0) printf("Next pulse is type 1\n");
-		return 1; //pulse type 0 will drive the egyptian mode
-	}
+		return 1; //pulse type 1 will drive the egyptian mode
 
 	//shouldn't be possible to get here
 	return 0;
@@ -283,13 +296,12 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 	   P[i].P = P0;
    }
 
-   double Psum, Pmax;
+   double Psum;
 
    *num_detections = 0;
 
    unsigned nMax  = num_exp-10;
-   unsigned iPmax;
-
+  
    //store PMT values here to update histograms
    pmt_array.resize(nMax);
    pulse_type.resize(nMax);
@@ -348,37 +360,38 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
 	  pulse_type[(*num_detections)] = curr_pulse_type;
 
       Psum = 0;
-      Pmax = 0;
-      iPmax = 0;
-
+      
       for(unsigned i=0; i<P.size(); i++)
       {
          P[i].P *= gpAl3P0->getProb(P[i].iState, mF2, curr_pulse_type, n);
          Psum += P[i].P;
-
-         if(P[i].P > Pmax)
-         {
-            Pmax = P[i].P;
-            iPmax = P[i].iState;
-         }
       }
 
 	  //normalize probabilities
 	  for(unsigned i=0; i<P.size(); i++)
          P[i].P /= Psum;
-      
-	  Pmax /= Psum;
+ 
+	  //sort state probabilities in descending order
+	  std::sort(P.begin(), P.end());
+
 	  Psum = 1;
 
-     servoSignal3P1 += shift3P1 * (n - pmtMean3P0);
+      servoSignal3P1 += shift3P1 * (n - pmtMean3P0);
 
       if(debug_level > 1)
-         printf("%u counts, P[%u]: %e\n", n, iPmax, Pmax);
+	  {
+         printf("pulse %u -> %2u counts, ", curr_pulse_type, n);
+
+		 for(unsigned i=0; i<P.size(); i++)
+			printf("P(%d)=%.3f ", P[i].iState, P[i].P);
+
+		printf("\n");
+	  }
 
       (*num_detections)++;
      shift3P1 *= -1; //flip 3P1 shift
 
-   } while( (Pmax < min_prob) && ((*num_detections) < nMax) );
+   } while( (P[0].P < min_prob) && ((*num_detections) < nMax) );
 
    //calc Bayesian mean
    double m = 0;
@@ -389,15 +402,15 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
    {
       for(unsigned i=0; i<(*num_detections); i++)
 	  {
-         gpAl3P0->updateHist(iPmax, mF2, pulse_type[i], pmt_array[i]);
-		 gpAl3P0->updateHistMemory(iPmax, mF2, pulse_type[i], det_memory * (*num_detections) );
+         gpAl3P0->updateHist(P[0].iState, mF2, pulse_type[i], pmt_array[i]);
+		 gpAl3P0->updateHistMemory(P[0].iState, mF2, pulse_type[i], det_memory * (*num_detections) );
 	  }
    }
 
-   m/= Psum;
+   m /= Psum;
 
    if(debug_level > 1)
-      printf("Bayesian mean = %e\n", m);
+      printf("Bayesian mean = %f\n", m);
 
    //if the ion is likely in the ground state, extract 3P1 correction signal
    if(m < 0.5 && pCorr3P1)
@@ -424,7 +437,6 @@ exp_3P0_lock::exp_3P0_lock(list_t* exp_list, const std::string& name, unsigned n
      rcProbeFreq1(num_freq)
 {
    rcXition.name = "Clock xition";
-   rcClockState.name = "3P0 state (h)";
 
    for(unsigned i=0; i<num_freq; i++)
    {

@@ -311,10 +311,7 @@ void setIonXtal(const GbE_msg& msg_in, GbE_msg&)
 
 	for (unsigned i = 0; i < global_exp_list.size(); i++)
 	{
-		transition_info* pPage = dynamic_cast<transition_info*>( global_exp_list.at(i) );
-
-		if (pPage)
-			pPage->setIonXtal(p_name);
+		global_exp_list.at(i)->setIonXtal(p_name);
 	}
 }
 

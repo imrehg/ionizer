@@ -15,10 +15,20 @@ typedef std::vector<remote_param*> params_t;
 class result_channel
 {
 public:
-result_channel(std::vector<result_channel*>& v, const std::string& name) : name(name), result(0)
+result_channel(std::vector<result_channel*>& v, const std::string& name) : v(v), name(name), result(0)
 {
 	v.push_back(this);
 }
+
+~result_channel()
+{
+	std::vector<result_channel*>::iterator it = std::find(v.begin(), v.end(), this);
+
+	if(it != v.end())
+		v.erase(it);
+}
+
+std::vector<result_channel*>& v;
 
 //if a name has an (s) at the end it gets a thick plot curve
 //if a name has an (h) at the end it's not plotted
@@ -43,6 +53,10 @@ info_interface(list_t* exp_list, const std::string& name) :
 }
 
 virtual ~info_interface()
+{
+}
+
+virtual void setIonXtal(const char*)
 {
 }
 
