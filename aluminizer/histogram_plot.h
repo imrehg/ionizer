@@ -24,6 +24,8 @@ histogram_plot(QWidget *parent,
 
 virtual ~histogram_plot();
 
+void disableXaxis();
+
 void Plot(const std::valarray<unsigned>& data);
 void Plot(const std::valarray<double>& data);
 

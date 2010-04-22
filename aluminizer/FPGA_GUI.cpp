@@ -230,7 +230,10 @@ void FPGA_GUI::AddPagePlots()
 			page_plots.push_back(new histogram_plot(this, "", "", pFPGA->getPlotLabel(page_id, k)));
 			hgrids.back()->addWidget(page_plots.back());
 			page_plots.back()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-			page_plots.back()->resize(100,50);
+			
+			if(j+1 < nRow)
+				page_plots.back()->disableXaxis();
+
 			page_plots.back()->show();
 
 			k++;

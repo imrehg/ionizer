@@ -34,7 +34,7 @@ histogram_plot::histogram_plot(QWidget *parent,
 
 	QObject::connect(this, SIGNAL(signal_replot()), this, SLOT(slot_replot()));
 
-	plot.setMargin(3);
+//	plot.setMargin(3);
 	plot.setCanvasBackground(QColor(Qt::white));
 	plot.canvas()->setFrameStyle(QFrame::NoFrame | QFrame::Plain );
 
@@ -45,6 +45,10 @@ histogram_plot::histogram_plot(QWidget *parent,
 	grid->setMinPen(QPen(Qt::gray, 0, Qt::DotLine));
 	grid->attach(&plot);
 
+	QwtText txt(title.c_str());
+	QFont fnt = txt.font();
+	fnt.setPointSize(8);
+
 	if (xlabel.size())
 		plot.setAxisTitle(QwtPlot::xBottom, xlabel.c_str());
 
@@ -52,13 +56,24 @@ histogram_plot::histogram_plot(QWidget *parent,
 		plot.setAxisTitle(QwtPlot::xBottom, ylabel.c_str());
 
 	if(title.size())
-		plot.setTitle(title.c_str());
+	{
+		QwtText txt(title.c_str());
+		QFont fnt = txt.font();
+		fnt.setPointSize(8);
+		txt.setFont(fnt);
+		plot.setTitle(txt);
+	}
+
+	plot.setAxisFont(QwtPlot::xBottom, fnt);
+	plot.setAxisFont(QwtPlot::yLeft, fnt);
 
 	histogram = new HistogramItem();
 	histogram->setColor(Qt::darkCyan);
 	histogram->attach(&plot);
 
 	layout.addWidget(&plot);
+	layout.setSizeConstraint(QLayout::SetNoConstraint);
+//	layout.setGeometry(QRect(0, 0, 400, 400));
 
 	plot.replot();
 	plot.show();
@@ -223,4 +238,9 @@ void histogram_plot::barPlot(const std::valarray<double>& data)
 	}
 
 	replot();
+}
+
+void histogram_plot::disableXaxis()
+{
+	plot.enableAxis(QwtPlot::xBottom, false);
 }
