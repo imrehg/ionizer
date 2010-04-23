@@ -142,6 +142,7 @@ void slot_addY(double, unsigned int);
 protected:
 void updateCurves();
 void setXYdata(const xy_t& x, const xy_t& y, size_t iCurve);
+QColor chooseCurveColor(const char* label);
 
 private:
 std::string title;
@@ -213,6 +214,7 @@ std::string markerText;
 int markerFS;
 
 bool bNewYscale;
+std::vector<QColor> defaultColors, availableColors;
 };
 
 class plot_window : public QMainWindow
@@ -230,5 +232,9 @@ virtual void closeEvent(QCloseEvent * event );
 QWidget* pPlot;
 std::string window_title, settings_name;
 };
+
+#ifndef NO_COLOR_PREF
+void global_getTraceColor(const char* label, QColor* clr);
+#endif
 
 #endif // DATA_PLOT_H

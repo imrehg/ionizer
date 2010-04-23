@@ -7,18 +7,18 @@ win32 { INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA ../thirdparty/fftw .
 include(local.pro)
 
 CONFIG += console precompile_header
-CONFIG += debug
-
-TARGET = Aluminizer
+CONFIG += debug_and_release
 
 AL {
 message("target = Aluminizer")
 DEFINES += CONFIG_AL
+TARGET = Aluminizer
 }
 
 HG {
 message("target = Mercurizer")
 DEFINES += CONFIG_HG
+TARGET = Mercurizer
 }
 
 CONFIG(debug, debug|release) {
@@ -26,10 +26,8 @@ win32 { LIBS += qwtd5.lib ..\trlib\debug\trlib.lib}
 } else {
 win32 { LIBS += qwt5.lib }
 }
- 
 
-QT += network
-QT += svg
+QT += network svg
 
 DEFINES += CONFIG_PC HAS_HFS
 

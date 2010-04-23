@@ -19,6 +19,40 @@
 
 using namespace std;
 
+ColorPicker::ColorPicker(QWidget* parent) :
+	QPushButton(parent)
+{
+//	setAlignment(Qt::AlignRight);
+	QObject::connect(this, SIGNAL(clicked()), this, SLOT(rightClick()), Qt::AutoConnection);
+}
+
+const QColor& ColorPicker::value()
+{
+	return clr;
+}
+
+void ColorPicker::setValue(int u)
+{
+	QString text;
+	text.setNum(u >> 16, 16);
+	setText(text);
+
+	setPalette(QPalette(QColor(QRgb(u))));
+    setAutoFillBackground(true);
+}
+
+void ColorPicker::rightClick()
+{
+	clr = QColorDialog::getColor(clr);
+
+	if(clr.isValid())
+	{
+		printf("color = %u\n", (unsigned) (clr.rgb()) );
+		setValue(clr.rgb());
+		emit valueChanged(clr.rgb());
+	}
+}
+
 /*************************************************************************/
 // void SetWidgetValue(W* w, const v& v) template specializations
 // Write the value v to the GUI
@@ -92,6 +126,11 @@ template<> void SetWidgetValue(TTL_Pulse_Widget* w, const ttl_pulse_info& v)
 	w->setPulseInfo(v);
 }
 
+template<> void SetWidgetValue(ColorPicker* w, const QColor& v)
+{
+	w->setValue(v.rgb());
+}
+
 template<> void SetWidgetValue(QComboBox*, const std::string&)
 {
 	throw runtime_error("Error: SetWidgetValue(QComboBox*, const std::string&) should never be called");
@@ -139,7 +178,10 @@ template<> void SetWidgetReadOnly(QLCDNumber*, bool)
 template<> void SetWidgetReadOnly(QProgressBar*, bool)
 {
 }
-
+template<> void SetWidgetReadOnly(ColorPicker* w, bool b)
+{
+	w->setEnabled(!b);
+}
 
 /*************************************************************************/
 // std::string GetWidgetString(W* w) template specializations
@@ -210,6 +252,10 @@ template<> std::string GetWidgetString(MatrixWidget* w)
 	return to_string<matrix_t>(w->getValue());
 }
 
+template<> std::string GetWidgetString(ColorPicker* w)
+{
+	return to_string<unsigned>(w->value().rgb());
+}
 
 /*************************************************************************/
 // void InitInputWidget(W* w, ParameterGUI_Base* r) template specializations
@@ -220,8 +266,9 @@ template<> void InitInputWidget(QLineEdit* w, ParameterGUI_Base* r)
 	QObject::connect(w, SIGNAL(textEdited(const QString &)), r, SLOT(GUI_value_change()), Qt::AutoConnection);
 }
 
-template<> void InitInputWidget(QComboBox*, ParameterGUI_Base*)
+template<> void InitInputWidget(QComboBox* w, ParameterGUI_Base* r)
 {
+	QObject::connect(w, SIGNAL(currentIndexChanged(int)), r, SLOT(GUI_value_change()), Qt::AutoConnection);
 }
 
 template<> void InitInputWidget(QSpinBox* w, ParameterGUI_Base* r)
@@ -258,6 +305,9 @@ template<> void InitInputWidget(QLCDNumber* w, ParameterGUI_Base*)
 	w->setSegmentStyle(QLCDNumber::Flat);
 }
 
+template<class W> void InitInputWidget(W* w, ParameterGUI_Base*)
+{
+}
 
 template<> void InitInputWidget(QCheckBox* w, ParameterGUI_Base* r)
 {
@@ -294,7 +344,10 @@ template<> void InitInputWidget(MatrixWidget* w, ParameterGUI_Base* r)
 	QObject::connect(w, SIGNAL(valueChanged()), r, SLOT(GUI_value_change()), Qt::AutoConnection);
 }
 
-
+template<> void InitInputWidget(ColorPicker* w, ParameterGUI_Base* r)
+{
+	QObject::connect(w, SIGNAL(valueChanged(unsigned)), r, SLOT(GUI_value_change()), Qt::AutoConnection);
+}
 
 template<> void selectScanWidget(QLineEdit*, const std::string&, bool)
 {
@@ -318,6 +371,9 @@ template<> void selectScanWidget(QProgressBar*, const std::string&, bool)
 {
 }
 template<> void selectScanWidget(MatrixWidget*, const std::string&, bool)
+{
+}
+template<> void selectScanWidget(ColorPicker*, const std::string&, bool)
 {
 }
 
@@ -345,4 +401,17 @@ template<> void selectScanWidget(DDS_Pulse_Widget* w, const std::string& scan_ty
 template<> void selectScanWidget(TTL_Pulse_Widget* w, const std::string& scan_type, bool bScan)
 {
 	w->selectScanWidget(scan_type, bScan);
+}
+
+
+/* string conversion functions */
+
+template<> std::string to_string(const QColor& value, int)
+{
+	return to_string<unsigned>(value.rgb());
+}
+
+template<> QColor from_string<QColor>(const std::string& s)
+{
+	return QColor(QRgb(from_string<unsigned>(s)));
 }

@@ -50,8 +50,23 @@ data_plot::data_plot(QWidget *parent, bool plot_average, int line_width,
 	data_lock(QReadWriteLock::Recursive),
 	layout(this),
 	fnt("Helvetica", 14, QFont::Bold),
-	bNewYscale(true)
+	bNewYscale(true),
+	defaultColors(10)
 {
+	 defaultColors[0] = Qt::magenta;
+	 defaultColors[1] = Qt::blue;
+	 defaultColors[2] = Qt::red;
+	 defaultColors[3] = Qt::darkGreen;
+	 defaultColors[4] = Qt::darkCyan;
+	 defaultColors[5] = Qt::green;
+	 defaultColors[6] = Qt::gray;
+	 defaultColors[7] = Qt::darkYellow;
+	 defaultColors[8] = Qt::darkRed;
+	 defaultColors[9] = Qt::darkMagenta;
+
+	 availableColors = defaultColors;
+
+
 	QObject::connect(this, SIGNAL(signal_replot()), this, SLOT(slot_replot()), Qt::QueuedConnection);
 	QObject::connect(this, SIGNAL(sig_addX(double)), this, SLOT(slot_addX(double)), Qt::QueuedConnection);
 	QObject::connect(this, SIGNAL(sig_addY(double, unsigned int)), this, SLOT(slot_addY(double, unsigned int)), Qt::QueuedConnection);
@@ -267,6 +282,26 @@ void data_plot::addXY(double x, double* y, unsigned nY)
 	}
 }
 
+QColor data_plot::chooseCurveColor(const char* label)
+{
+	if(availableColors.size() == 0)
+		availableColors = defaultColors;
+
+	QColor clr = availableColors[0];
+
+#ifndef NO_COLOR_PREF
+	global_getTraceColor(label, &clr);
+#endif
+
+	//delete selected color from available colors list if it's there
+	vector<QColor>::iterator it = std::find(availableColors.begin(), availableColors.end(), clr);
+
+	if(it != availableColors.end())
+		availableColors.erase(it);
+
+	return clr;
+}
+
 void data_plot::addCurve(const char* label, bool bPlotAverage, int iLineWidth,
                          Qt::PenStyle ps, bool bNeedsUpdate)
 {
@@ -280,10 +315,9 @@ void data_plot::addCurve(const char* label, bool bPlotAverage, int iLineWidth,
 	curvesThatNeedUpdate.push_back(bNeedsUpdate);
 
 
-	QColor colors[] = { Qt::magenta, Qt::blue, Qt::red, Qt::darkGreen, Qt::black, Qt::darkCyan, Qt::green, Qt::gray, Qt::darkYellow, Qt::darkRed, Qt::darkMagenta };
+	QColor clr = chooseCurveColor(label);
 
-
-	QPen line_pen( colors[(curves.size() - 1) % 10] );
+	QPen line_pen( clr );
 	line_pen.setStyle(ps);
 
 	if (iLineWidth >= 0)
@@ -293,9 +327,8 @@ void data_plot::addCurve(const char* label, bool bPlotAverage, int iLineWidth,
 
 	if (this->plot_average && bPlotAverage)
 	{
-		QColor clr = colors[curves.size() - 1];
 		QwtSymbol symb(QwtSymbol::Rect, QBrush(clr), QPen(clr), QSize(2, 2));
-		curves.back()->setPen(QPen(colors[curves.size() - 1]));
+		curves.back()->setPen(QPen(clr));
 		curves.back()->setStyle(QwtPlotCurve::Dots );
 		//	curves.back()->setSymbol(symb);
 

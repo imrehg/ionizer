@@ -13,6 +13,26 @@
 
 using namespace std;
 
+void global_getTraceColor(const char* label, QColor* clr)
+{
+	ExperimentPage::pGlobals->getTraceColor(label, clr);
+}
+
+void GlobalsPage::getTraceColor(const char* label, QColor* clr)
+{
+	QRegExp rx;
+	rx.setPatternSyntax(QRegExp::Wildcard);
+
+	for(unsigned i=0; i<traceNames.size(); i++)
+	{
+		rx.setPattern(traceNames[i]->Value().c_str());
+		if(rx.exactMatch(label))
+		{
+			*clr = traceColors[i]->Value();
+			break;
+		}
+	}
+}
 
 //return whether or not the specified thing should be debuggged
 bool debugQ(const std::string& sCategory, const std::string& sMsg)
@@ -45,6 +65,9 @@ GlobalsPage::GlobalsPage(const std::string& sPageName, ExperimentsSheet* pSheet)
 	SavePlotType("Save plots as", "None\nPDF\nSVG\n",     &m_TxtParams, "None", &m_vParameters),
 	IonXtal("Ion crystal", "", &m_TxtParams, "Mg", &m_vParameters),
 	recordCameraXY("Record camera XY", &m_TxtParams, "0", &m_vParameters),
+	numTraceColors("Trace color preferences [#]", &m_TxtParams, "8", &m_vParameters),
+	traceNames(numTraceColors),
+	traceColors(numTraceColors),
 	xpos("xpos", &m_TxtParams, "0"),
 	ypos("ypos", &m_TxtParams, "0"),
 	startup_IonXtal(IonXtal.Value())
@@ -56,6 +79,20 @@ GlobalsPage::GlobalsPage(const std::string& sPageName, ExperimentsSheet* pSheet)
 
 	gridV_spacing = WidgetSpacing;
 	default_num_columns = NumColumns * 2;
+
+	numTraceColors.setFlag(RP_FLAG_NOPACK, true);
+	for(unsigned i=0; i<traceNames.size(); i++)
+	{
+		char buff[64];
+		snprintf(buff, 64, "Trace name %u", i);
+		traceNames[i] = new GUI_string(buff, &m_TxtParams, "", &m_vParameters);
+		traceNames[i]->setToolTip("Regular expression tto match trace name");
+
+		snprintf(buff, 64, "Trace color %u", i);
+		traceColors[i] = new GUI_color(buff, &m_TxtParams, "0", &m_vParameters);
+		traceColors[i]->setToolTip("Click button to change color");
+	}
+
 }
 
 GlobalsPage::~GlobalsPage()

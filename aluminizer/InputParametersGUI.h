@@ -193,6 +193,7 @@ void SetReadOnly(bool bReadOnly)
 W* input;
 };
 
+typedef InputParameterGUI<ColorPicker ,     QColor, true>         GUI_color;
 typedef InputParameterGUI<QLineEdit,   std::string, true>         GUI_string;
 
 typedef InputParameterGUI<QBaseSpinBox,        int, true>         GUI_int_base;

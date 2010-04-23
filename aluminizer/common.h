@@ -62,6 +62,7 @@ extern std::string g_t0s;
 #include <QWaitCondition>
 #include <QTextEdit>
 #include <QSound>
+#include <QColorDialog>
 
 #include <QAction>
 #include <QThread>

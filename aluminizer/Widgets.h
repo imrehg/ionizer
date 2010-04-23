@@ -2,6 +2,8 @@
 
 class ParameterGUI_Base;
 
+
+
 class QBaseSpinBox : public QSpinBox
 {
 public:
@@ -9,7 +11,7 @@ QBaseSpinBox(int base = 10, QWidget* parent = 0) :
 	QSpinBox(parent), base_(base)
 {
 	// need to turn the validator off if you want to enter text manually
-	//  setValidator(0);
+	//setValidator(0);
 }
 
 protected:
@@ -29,6 +31,24 @@ int mapTextToValue(bool* ok)
 int base_;
 };
 
+class ColorPicker : public QPushButton
+{
+	Q_OBJECT
+
+public:
+    ColorPicker(QWidget* parent = 0);
+	const QColor& value();
+
+public slots:
+	void setValue(int u);
+	void rightClick();
+
+signals:
+	void valueChanged(unsigned);
+
+protected:
+	QColor clr;
+};
 
 template<class W, class V> void SetWidgetValue(W* w, const V& v);
 template<class W> void SetWidgetReadOnly(W* w, bool b);

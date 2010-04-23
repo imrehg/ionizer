@@ -34,7 +34,7 @@ histogram_plot::histogram_plot(QWidget *parent,
 
 	QObject::connect(this, SIGNAL(signal_replot()), this, SLOT(slot_replot()));
 
-//	plot.setMargin(3);
+//	plot.setMargin(-50);
 	plot.setCanvasBackground(QColor(Qt::white));
 	plot.canvas()->setFrameStyle(QFrame::NoFrame | QFrame::Plain );
 

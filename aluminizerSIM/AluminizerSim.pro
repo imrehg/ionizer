@@ -11,7 +11,7 @@ DRIVER_PATH = ../FPGA/customIP2/IP/drivers/pulse_controller_v3_01_a/src
 INCLUDEPATH += $$shared $$DRIVER_PATH $$FPGApath
 
 
-CONFIG += console
+CONFIG += console debug_and_release
 DEFINES += ALUMINIZER_SIM LITTLE_ENDIAN _CRT_SECURE_NO_WARNINGS HAS_HFS CONFIG_PC
 
 QT += core \
