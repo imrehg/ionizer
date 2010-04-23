@@ -142,7 +142,7 @@ void slot_addY(double, unsigned int);
 protected:
 void updateCurves();
 void setXYdata(const xy_t& x, const xy_t& y, size_t iCurve);
-QColor chooseCurveColor(const char* label);
+QColor chooseCurveColor(const char* label, int* iLineWidth);
 
 private:
 std::string title;
@@ -234,7 +234,7 @@ std::string window_title, settings_name;
 };
 
 #ifndef NO_COLOR_PREF
-void global_getTraceColor(const char* label, QColor* clr);
+bool global_getTracePreference(const char* label, QColor* clr, int* linewidth);
 #endif
 
 #endif // DATA_PLOT_H

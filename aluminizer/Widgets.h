@@ -40,7 +40,7 @@ public:
 	const QColor& value();
 
 public slots:
-	void setValue(int u);
+	void setValue(unsigned u);
 	void rightClick();
 
 signals:

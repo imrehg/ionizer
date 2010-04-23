@@ -21,7 +21,7 @@ std::string GetIonXtal();
 unsigned NumAl();
 unsigned NumMg();
 
-void getTraceColor(const char* label, QColor* clr);
+bool getTracePreference(const char* label, QColor* clr, int* linewidth);
 
 protected:
 virtual bool RecalculateParameters();
@@ -48,6 +48,7 @@ GUI_bool recordCameraXY;
 GUI_unsigned numTraceColors;
 std::vector<GUI_string*> traceNames;
 std::vector<GUI_color*> traceColors;
+std::vector<GUI_int*> traceLW;
 
 InputParameter<int>  xpos;
 InputParameter<int>  ypos;

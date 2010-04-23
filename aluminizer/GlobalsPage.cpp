@@ -13,12 +13,12 @@
 
 using namespace std;
 
-void global_getTraceColor(const char* label, QColor* clr)
+bool global_getTracePreference(const char* label, QColor* clr, int* linewidth)
 {
-	ExperimentPage::pGlobals->getTraceColor(label, clr);
+	return ExperimentPage::pGlobals->getTracePreference(label, clr, linewidth);
 }
 
-void GlobalsPage::getTraceColor(const char* label, QColor* clr)
+bool GlobalsPage::getTracePreference(const char* label, QColor* clr, int* linewidth)
 {
 	QRegExp rx;
 	rx.setPatternSyntax(QRegExp::Wildcard);
@@ -29,9 +29,12 @@ void GlobalsPage::getTraceColor(const char* label, QColor* clr)
 		if(rx.exactMatch(label))
 		{
 			*clr = traceColors[i]->Value();
-			break;
+			*linewidth = traceLW[i]->Value();
+			return true;
 		}
 	}
+
+	return false;
 }
 
 //return whether or not the specified thing should be debuggged
@@ -68,6 +71,7 @@ GlobalsPage::GlobalsPage(const std::string& sPageName, ExperimentsSheet* pSheet)
 	numTraceColors("Trace color preferences [#]", &m_TxtParams, "8", &m_vParameters),
 	traceNames(numTraceColors),
 	traceColors(numTraceColors),
+	traceLW(numTraceColors),
 	xpos("xpos", &m_TxtParams, "0"),
 	ypos("ypos", &m_TxtParams, "0"),
 	startup_IonXtal(IonXtal.Value())
@@ -86,11 +90,17 @@ GlobalsPage::GlobalsPage(const std::string& sPageName, ExperimentsSheet* pSheet)
 		char buff[64];
 		snprintf(buff, 64, "Trace name %u", i);
 		traceNames[i] = new GUI_string(buff, &m_TxtParams, "", &m_vParameters);
-		traceNames[i]->setToolTip("Regular expression tto match trace name");
+		traceNames[i]->setToolTip("Regular expression to match trace name");
+		traceNames[i]->setFlag(RP_FLAG_3_COLUMN, true);
 
-		snprintf(buff, 64, "Trace color %u", i);
+		snprintf(buff, 64, "Color %u", i);
 		traceColors[i] = new GUI_color(buff, &m_TxtParams, "0", &m_vParameters);
 		traceColors[i]->setToolTip("Click button to change color");
+		traceColors[i]->setFlag(RP_FLAG_3_COLUMN, true);
+
+		snprintf(buff, 64, "Linewidth %u", i);
+		traceLW[i] = new GUI_int(buff, &m_TxtParams, "0", &m_vParameters);
+		traceLW[i]->setFlag(RP_FLAG_3_COLUMN, true);
 	}
 
 }

@@ -282,7 +282,7 @@ void data_plot::addXY(double x, double* y, unsigned nY)
 	}
 }
 
-QColor data_plot::chooseCurveColor(const char* label)
+QColor data_plot::chooseCurveColor(const char* label, int* iLineWidth)
 {
 	if(availableColors.size() == 0)
 		availableColors = defaultColors;
@@ -290,7 +290,7 @@ QColor data_plot::chooseCurveColor(const char* label)
 	QColor clr = availableColors[0];
 
 #ifndef NO_COLOR_PREF
-	global_getTraceColor(label, &clr);
+	global_getTracePreference(label, &clr, iLineWidth);
 #endif
 
 	//delete selected color from available colors list if it's there
@@ -315,7 +315,7 @@ void data_plot::addCurve(const char* label, bool bPlotAverage, int iLineWidth,
 	curvesThatNeedUpdate.push_back(bNeedsUpdate);
 
 
-	QColor clr = chooseCurveColor(label);
+	QColor clr = chooseCurveColor(label, &iLineWidth);
 
 	QPen line_pen( clr );
 	line_pen.setStyle(ps);

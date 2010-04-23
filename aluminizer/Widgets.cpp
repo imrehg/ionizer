@@ -31,13 +31,17 @@ const QColor& ColorPicker::value()
 	return clr;
 }
 
-void ColorPicker::setValue(int u)
+void ColorPicker::setValue(unsigned u)
 {
-	QString text;
-	text.setNum(u >> 16, 16);
-	setText(text);
+	char buff[64];
+	snprintf(buff, 64, "%06X", u & 0x00ffffff);
+	setText(buff);
 
-	setPalette(QPalette(QColor(QRgb(u))));
+	char buffFG[64];
+	snprintf(buffFG, 64, "%06X", (~u) & 0x00ffffff);
+
+	setStyleSheet("background-color: #" + QString(buff) + "; color: #" + QString(buffFG));
+
     setAutoFillBackground(true);
 }
 
@@ -47,7 +51,6 @@ void ColorPicker::rightClick()
 
 	if(clr.isValid())
 	{
-		printf("color = %u\n", (unsigned) (clr.rgb()) );
 		setValue(clr.rgb());
 		emit valueChanged(clr.rgb());
 	}
