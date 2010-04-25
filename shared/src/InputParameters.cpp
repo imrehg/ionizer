@@ -1,10 +1,6 @@
 /*  ___
  |R  */
 
-#ifdef PRECOMPILED_HEADER
-#include "common.h"
-#endif
-
 #include <cstdlib>
 #include <iostream>
 #include <fstream>

@@ -2,7 +2,7 @@
 
 #include "freq_control_packet.h"
 
-#include <trlib.h>
+#include "ionizer_utils.h"
 
 using namespace std;
 

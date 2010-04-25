@@ -3,7 +3,7 @@
 #endif
 
 #include "FrequencySource.h"
-#include "trlib.h"
+#include "ionizer_utils.h"
 
 #include <iostream>
 

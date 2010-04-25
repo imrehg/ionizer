@@ -1,7 +1,3 @@
-#ifdef PRECOMPILED_HEADER
-#include "common.h"
-#endif
-
 #ifdef WIN32
    #define _USE_MATH_DEFINES
    #define _snprintf snprintf

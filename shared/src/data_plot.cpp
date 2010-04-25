@@ -1,10 +1,6 @@
-#ifdef PRECOMPILED_HEADER
-#include "common.h"
-#endif
-
 #include "data_plot.h"
 
-#include <Utils.h>
+#include <ionizer_utils.h>
 #include <math.h>
 #include <assert.h>
 

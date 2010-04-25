@@ -1,7 +1,3 @@
-#ifdef PRECOMPILED_HEADER
-#include "common.h"
-#endif
-
 #include "Numerics.h"
 #include "fractions.h"
 

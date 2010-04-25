@@ -40,7 +40,7 @@ typedef char* LPTSTR;
 extern double g_t0;
 extern std::string g_t0s;
 
-#include <trlib.h>
+#include "ionizer_utils.h"
 #include "string_func.h"
 
 #include <QApplication>

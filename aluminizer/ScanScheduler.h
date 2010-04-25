@@ -1,6 +1,6 @@
 #pragma once
 
-#include <trlib.h>
+#include "ionizer_utils.h"
 
 #include "Experiment.h"
 #include "CriticalSection.h"

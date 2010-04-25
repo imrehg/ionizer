@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9,00"
 	Name="AluminizerSim"
-	ProjectGUID="{69368D23-EAF1-32B7-90A7-CD3D62D8E6B7}"
+	ProjectGUID="{0CAF68D5-3CD9-33C0-8F7C-064FD34C56EB}"
 	Keyword="Qt4VSv1.0">
 	<Platforms>
 		<Platform

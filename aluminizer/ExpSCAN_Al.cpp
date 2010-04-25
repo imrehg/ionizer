@@ -10,7 +10,7 @@
 #include "data_plot.h"
 #include "scan_variable.h"
 #include "Voltages2.h"
-#include <trlib.h>
+#include "ionizer_utils.h"
 
 ExpSCAN_Al::ExpSCAN_Al(const string& sPageName,
                        ExperimentsSheet* pSheet,

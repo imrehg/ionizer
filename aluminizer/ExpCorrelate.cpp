@@ -3,7 +3,7 @@
 #include "FPGA_connection.h"
 #include "data_plot.h"
 #include "histogram_plot.h"
-#include "Utils.h"
+#include "ionizer_utils.h"
 
 ExpCorrelate::ExpCorrelate(const string& sPageName,
                            ExperimentsSheet* pSheet,

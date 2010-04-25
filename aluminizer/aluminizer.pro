@@ -22,7 +22,7 @@ TARGET = Mercurizer
 }
 
 CONFIG(debug, debug|release) {
-win32 { LIBS += qwtd5.lib ..\trlib\debug\trlib.lib}
+win32 { LIBS += qwtd5.lib }
 } else {
 win32 { LIBS += qwt5.lib }
 }
@@ -102,8 +102,8 @@ HEADERS += aluminizer.pro local.pro ../issues.txt
 
 HEADERS += $$sharedFPGA/messaging.h  
 HEADERS += $$sharedFPGA/dds_pulse_info.h  
-HEADERS += $$sharedSRC/InputParameters.h $$sharedSRC/CriticalSection.h $$sharedSRC/RS232device.h $$sharedSRC/data_plot.h
-HEADERS += common.h InputParametersGUI.h ParameterGUI_Base.h Widgets.h AluminizerApp.h
+HEADERS += $$sharedSRC/InputParameters.h $$sharedSRC/CriticalSection.h $$sharedSRC/RS232device.h $$sharedSRC/data_plot.h $$sharedSRC/ionizer_utils.h
+HEADERS += common.h InputParametersModel.h InputParametersGUI.h ParameterGUI_Base.h Widgets.h AluminizerApp.h
 HEADERS += AluminizerPage.h ExperimentsSheet.h SwitchPanelDialog.h DigitalOut.h 
 HEADERS += TxtParametersGUI.h ExperimentPage.h MotorsPage.h FPGA_GUI.h
 HEADERS += Experiment.h  RunObject.h ScanScheduler.h about.h
@@ -125,8 +125,8 @@ HEADERS += $$sharedFPGA/Transition.h $$sharedFPGA/HFS.h $$sharedFPGA/HFS_Be.h \
 
 
 SOURCES += $$sharedFPGA/dds_pulse_info.cpp  
-SOURCES += $$sharedSRC/InputParameters.cpp $$sharedSRC/CriticalSection.cpp $$sharedSRC/RS232device.cpp $$sharedSRC/data_plot.cpp
-SOURCES += InputParametersGUI.cpp main.cpp ParameterGUI_Base.cpp Widgets.cpp AluminizerApp.cpp
+SOURCES += $$sharedSRC/InputParameters.cpp $$sharedSRC/CriticalSection.cpp $$sharedSRC/RS232device.cpp $$sharedSRC/data_plot.cpp $$sharedSRC/ionizer_utils.cpp
+SOURCES += InputParametersGUI.cpp InputParametersModel.cpp main.cpp ParameterGUI_Base.cpp Widgets.cpp AluminizerApp.cpp
 SOURCES += ExperimentsSheet.cpp SwitchPanelDialog.cpp DigitalOut.cpp MotorsPage.cpp
 SOURCES += TxtParametersGUI.cpp ExperimentPage.cpp AluminizerPage.cpp FPGA_GUI.cpp
 SOURCES += AnalogOutParameter.cpp MCC_AnalogOut.cpp Voltages2.cpp Bfield.cpp  AlignmentPage.cpp
