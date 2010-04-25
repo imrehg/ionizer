@@ -3,6 +3,8 @@
 #include <valarray>
 
 #include <QReadWriteLock>
+#include <QAbstractTableModel>
+#include <QTime>
 
 #include <qwt_plot.h>
 #include <qwt_interval_data.h>
@@ -66,5 +68,31 @@ QwtArray<QwtDoubleInterval> intervals;
 QwtArray<double> values;
 
 QHBoxLayout layout;
+};
+
+
+
+class simple_histogram : public QWidget
+{
+public:
+	simple_histogram(QWidget *parent , const std::string& title);
+
+	//! set data (already binned)
+	void barPlot(const std::valarray<double>& data);
+	
+protected:
+
+	virtual void mouseMoveEvent ( QMouseEvent * );
+	virtual void paintEvent ( QPaintEvent * event );
+
+	void drawBar(QPainter *painter, Qt::Orientation, const QRect& rect) const;
+
+	std::valarray<double> hist_data;
+	
+	std::string title;
+	double scale;
+	int x, y;
+	QTime tLastMouse;
+	bool bNewData;
 };
 

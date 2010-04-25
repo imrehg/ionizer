@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "InputParametersModel.h"
 #include "InputParametersGUI.h"
 #include "AluminizerPage.h"
 #include "CriticalSection.h"
@@ -111,6 +111,7 @@ bool bIgnoreGUISignals;
 QReadWriteLock page_lock;
 QWaitCondition page_updated;
 QMutex mutexPU;
+QSpacerItem* bottomSpacer;
 
 static unsigned gridV_spacing, default_num_columns;
 

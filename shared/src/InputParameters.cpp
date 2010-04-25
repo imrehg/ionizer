@@ -33,13 +33,14 @@ InputParameters::InputParameters(std::ifstream* p_is) :
 		getline(*p_is, sLine, ';');
 
 		string sName, sValue;
-		if (!processNew(sLine, sName, sValue))
+		time_t tChanged  = 0;
+		if (!processNew(sLine, sName, sValue, tChanged))
 			if (!processOld(sLine, sName, sValue))
 				continue;
 
 
 		//add the pair sName, sValue to the map
-		UpdatePair(sName, sValue, 0, false);
+		UpdatePair(sName, sValue, 0, false, tChanged);
 		//	cerr << sName << " = " << sValue << endl;
 
 	}
@@ -86,7 +87,7 @@ bool InputParameters::processOld(const std::string& sLine, std::string& sName, s
 	return true;
 }
 
-bool InputParameters::processNew(const std::string& sLine, std::string& sName, std::string& sValue)
+bool InputParameters::processNew(const std::string& sLine, std::string& sName, std::string& sValue, time_t& tChanged)
 {
 	string sWhite("\r\n ");
 
@@ -110,6 +111,8 @@ bool InputParameters::processNew(const std::string& sLine, std::string& sName, s
 		return false; //can't process
 
 	sValue = string(sLine, lbV + 1, rbV - lbV - 1);
+
+	sscanf(sLine.substr(rbV+1).c_str(), ", %u", &tChanged);
 
 	return true;
 }
@@ -165,15 +168,22 @@ void InputParameters::SaveState(std::ostream* p_os)
 
 	for (const_iterator cit = begin(); cit != end(); cit++)
 		if (cit->second.value.length() > 0)
+		{
 			//	if(cit->second.was_touched)
-			*p_os << "{" << cit->first.c_str() << "} = {" << cit->second.value.c_str() << "} ;" << endl;
+			*p_os << "{" << cit->first.c_str() << "} = {";
+			*p_os << cit->second.value.c_str() << "}, " << cit->second.tChanged << ";" << endl;
+		}
 
 	delete p_os;
 }
 
 
-bool InputParameters::UpdatePair(const std::string& sName, const std::string& sValue, int new_revision, bool touch)
+bool InputParameters::UpdatePair(const std::string& sName, const std::string& sValue, 
+								 int new_revision, bool touch, time_t tChanged)
 {
+	if(sName.length() == 0)
+		return false;
+
 	CriticalSectionOwner cso(&cs, 0);
 
 	(*this)[sName].was_touched |= touch;
@@ -181,6 +191,11 @@ bool InputParameters::UpdatePair(const std::string& sName, const std::string& sV
 	if ((*this)[sName].value != sValue)
 	{
 		(*this)[sName].value = sValue;
+
+		if(tChanged > 0)
+			(*this)[sName].tChanged = tChanged;
+		else
+			time( & ((*this)[sName].tChanged) );
 
 		if (new_revision >= 0)
 			(*this)[sName].revision = new_revision;

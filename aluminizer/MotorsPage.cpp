@@ -168,6 +168,7 @@ double MotorsPage::GetAngle(int i)
 
 void MotorsPage::AddAvailableActions(std::vector<std::string>* p)
 {
+	ParamsPage::AddAvailableActions(p);
 	p->push_back("RUN");
 	p->push_back("HOME");
 	p->push_back("QUERY");
@@ -271,6 +272,8 @@ void MotorsPage::on_action(const std::string& s)
 		if (MgPI_status.Value() == "2034" || MgPI_status.Value() == "2042")
 			manager.get(QNetworkRequest(QUrl("http://847ionswitch.bw.nist.gov/cgi-bin/movestage?ccw45")));
 	}
+
+	ParamsPage::on_action(s);
 }
 
 unsigned MotorsPage::num_columns()

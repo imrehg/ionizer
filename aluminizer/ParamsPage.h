@@ -1,31 +1,32 @@
 #pragma once
 
 #include "TxtParametersGUI.h"
+#include "InputParametersModel.h"
 
 class ExperimentsSheet;
+class QTableView;
 
 class ParamsPage : public TxtParametersGUI
 {
 public:
 ParamsPage(ExperimentsSheet* pSheet, const std::string& sPageName);
-virtual ~ParamsPage()
-{
-};
+virtual ~ParamsPage();
 
-virtual void SaveParams(const std::string& OutputDirectory)
-{
-	m_TxtParams.SaveState(OutputDirectory);
-}
+virtual void SaveParams(const std::string& OutputDirectory);
 
+virtual void on_action(const std::string& s);
+virtual void AddAvailableActions(std::vector<std::string>* v);
 std::string ParamsFileName();
+void createModelView();
 
-TxtParameters* GetTxtParams()
+TxtParametersModel* GetTxtParams()
 {
 	return &m_TxtParams;
 }
 
 public:
 
-TxtParameters m_TxtParams;
+TxtParametersModel m_TxtParams;
+QTableView* view;
 };
 

@@ -61,7 +61,7 @@ protected:
 	
 virtual unsigned plot_columns(unsigned nPlots);
 
-std::vector<histogram_plot*> page_plots;
+std::vector<simple_histogram*> page_plots;
 double last_plot_update;   // time when plot was last updated
 
 };

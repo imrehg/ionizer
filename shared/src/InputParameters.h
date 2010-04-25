@@ -1,4 +1,5 @@
-/*  ___
+/*  
+___
  |R  */
 
 #pragma once
@@ -10,23 +11,25 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <ctime>
 
 //parameter data represented as a string in the back-end DB
 class ip_data
 {
 public:
-ip_data() : was_touched(false), revision(0)
+ip_data() : was_touched(false), revision(0), tChanged(0)
 {
 }
 
 std::string value;
 bool was_touched;
 int revision;
+time_t tChanged;
 };
 
 //a string-to-string map that serves as a simple parameter database
 //the data can be written to an ostream and recovered from an istream.
-class InputParameters : private std::map<std::string, ip_data>
+class InputParameters : protected std::map<std::string, ip_data>
 {
 public:
 //constructor for istream text source
@@ -37,7 +40,7 @@ virtual ~InputParameters();
 
 //Updates the "value" associate with the "key".
 //If the new value is different from the stored one the revision number is incremented.
-bool UpdatePair(const std::string& key, const std::string& value, int new_revision, bool touch = true);
+bool UpdatePair(const std::string& key, const std::string& value, int new_revision, bool touch=true, time_t tChanged=0);
 
 //Returns the value associated with the "key"
 std::string GetValue(const std::string& key);
@@ -57,7 +60,7 @@ virtual std::string Name()
 protected:
 //process line to extract name/value pair
 bool processOld(const std::string& sLine, std::string& sName, std::string& sValue);
-bool processNew(const std::string& sLine, std::string& sName, std::string& sValue);
+bool processNew(const std::string& sLine, std::string& sName, std::string& sValue, time_t& tChanged);
 
 //for thread safety only allow one data operation at a time.
 NamedCriticalSection cs;

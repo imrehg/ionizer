@@ -319,7 +319,7 @@ template<class T> bool ExperimentsSheet::LinkParamSource(const std::string& pnam
 		if (pX)
 			if (pX->LinkPulseTo(pGUI, pname))
 			{
-				cout << "Linking paramater " << pname << " to page: " << pX->GetName() << endl;
+				//cout << "Linking paramater " << pname << " to page: " << pX->GetName() << endl;
 				return true;
 			}
 	}

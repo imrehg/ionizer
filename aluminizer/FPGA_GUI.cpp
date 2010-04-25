@@ -220,6 +220,9 @@ void FPGA_GUI::AddPagePlots()
 
 	unsigned k=0;
 
+	if(bottomSpacer)
+		grid.removeItem(bottomSpacer);
+
 	for (unsigned j = 0; j < nRow; j++)
 	{
 		hgrids.push_back(new QHBoxLayout());
@@ -227,13 +230,17 @@ void FPGA_GUI::AddPagePlots()
 
 		for (unsigned i = 0; i < nCol; i++)
 		{
-			page_plots.push_back(new histogram_plot(this, "", "", pFPGA->getPlotLabel(page_id, k)));
-			hgrids.back()->addWidget(page_plots.back());
+//			page_plots.push_back(new histogram_plot(this, "", "", pFPGA->getPlotLabel(page_id, k)));
+			page_plots.push_back(new simple_histogram(this, pFPGA->getPlotLabel(page_id, k)));
+
+		//	hgrids.back()->addWidget(page_plots.back());
 			page_plots.back()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 			
-			if(j+1 < nRow)
-				page_plots.back()->disableXaxis();
+//			if(j+1 < nRow)
+//				page_plots.back()->disableXaxis();
 
+			page_plots.back()->resize(200,200);
+			grid.addWidget(page_plots.back());
 			page_plots.back()->show();
 
 			k++;

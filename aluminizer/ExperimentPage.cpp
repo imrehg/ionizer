@@ -4,6 +4,8 @@
 
 #include "ExperimentPage.h"
 #include "MgAlExperimentsSheet.h"
+#include <QTableView>
+#include <QHeaderView>
 
 using namespace std;
 
@@ -15,9 +17,22 @@ SwitchPanel*      ExperimentPage::pSwitches(0);
 
 ParamsPage::ParamsPage(ExperimentsSheet* pSheet, const std::string& sPageName) :
 	TxtParametersGUI(pSheet, sPageName),
-	m_TxtParams(ParamsFileName())
+	m_TxtParams(ParamsFileName()),
+	view(0)
 {
 }
+
+ParamsPage::~ParamsPage()
+{
+	if(view)
+		delete view;
+}
+
+void ParamsPage::SaveParams(const std::string& OutputDirectory)
+{
+	m_TxtParams.SaveState(OutputDirectory);
+}
+
 
 std::string ParamsPage::ParamsFileName()
 {
@@ -28,6 +43,48 @@ std::string ParamsPage::ParamsFileName()
 	return "params" + s + ".txt";
 }
 
+void ParamsPage::createModelView()
+{
+
+	if(view)
+	{
+		if(! view->isVisible())
+		{
+			delete view;
+			view = 0;
+		}
+	}
+
+	if(view == 0)
+	{
+		view = new QTableView;
+		view->setModel(&m_TxtParams);
+		view->setWindowTitle(title.c_str());
+		view->horizontalHeader()->setVisible(true);
+		view->verticalHeader()->setVisible(true);
+		view->setAlternatingRowColors(true);
+		view->show();
+	}
+
+	view->reset();
+	//view->refresh();
+}
+
+void ParamsPage::on_action(const std::string& s)
+{
+	if (s == "PARAMS")
+	{
+		createModelView();
+	}
+	else
+		TxtParametersGUI::on_action(s);
+}
+
+void ParamsPage::AddAvailableActions(std::vector<std::string>* v)
+{
+	TxtParametersGUI::AddAvailableActions(v);
+	v->push_back("PARAMS");
+}
 
 ExperimentPage::ExperimentPage(const std::string& sPageName, ExperimentsSheet* pSheet, unsigned page_id) :
 	FPGA_GUI(sPageName, pSheet, page_id),

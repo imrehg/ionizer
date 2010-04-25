@@ -404,6 +404,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\InputParametersModel.cpp"
+				>
+			</File>
+			<File
 				RelativePath="plotlib\lm_lsqr.cpp"
 				>
 			</File>
@@ -989,6 +993,10 @@
 			</File>
 			<File
 				RelativePath="InputParametersGUI.h"
+				>
+			</File>
+			<File
+				RelativePath=".\InputParametersModel.h"
 				>
 			</File>
 			<File

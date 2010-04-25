@@ -16,6 +16,9 @@
 #include <QSettings>
 #include <QCloseEvent>
 #include <QShowEvent>
+#include <QPainter>
+
+using namespace std;
 
 histogram_plot::histogram_plot(QWidget *parent,
                                const std::string& xlabel,
@@ -243,4 +246,74 @@ void histogram_plot::barPlot(const std::valarray<double>& data)
 void histogram_plot::disableXaxis()
 {
 	plot.enableAxis(QwtPlot::xBottom, false);
+}
+
+
+simple_histogram::simple_histogram(QWidget *parent, const std::string& title)
+    : QWidget(parent), title(title), scale(1), x(-1), y(-1)
+{
+	setMouseTracking(true);
+}
+
+
+void simple_histogram::barPlot(const std::valarray<double>& data)
+{
+	hist_data = data;
+	scale = hist_data.max();
+	update();
+}
+
+
+void simple_histogram::mouseMoveEvent ( QMouseEvent * e)
+{
+	tLastMouse.restart();
+
+	x = e->x();
+	y = e->y();
+	update();
+	
+}
+
+void simple_histogram::paintEvent ( QPaintEvent * ) 
+{
+	 QPainter painter(this);
+     painter.setPen(Qt::black);
+
+	 painter.setFont(QFont("Arial", 8));
+	 painter.drawText(rect(), Qt::AlignTop, title.c_str());
+	 painter.setBrush(Qt::blue);
+
+	 int bottomMargin = 2;
+	 int topMargin = 15; 
+	 QRect r = rect();
+	 int w = r.width();
+
+	 int h = r.height()-topMargin-bottomMargin; //max height of bar
+
+	 int barW = w/hist_data.size();
+	 double vScale = h/scale;
+
+	 for(unsigned i=0; i<hist_data.size(); i++)
+	 {
+		 int barH = vScale*hist_data[i];
+		 QRect bar(barW*i, h-barH+topMargin, barW, barH ); 
+		 painter.drawRect(bar);
+	 }
+
+	 painter.setBrush(Qt::white);
+	 if(tLastMouse.elapsed() < 1000)
+	 {
+		 double p = (h - (y - topMargin))/vScale;
+
+		 QRect rXY = rect();
+		 rXY.setLeft(rXY.width()/2);
+		 rXY.setTop(rXY.height()/4);
+		 painter.drawText(rXY, QString("%1 counts\np=%2").arg(x/barW).arg(p, 4, 'f', 3));
+	 }
+}
+
+void simple_histogram::drawBar(QPainter *painter,
+                               Qt::Orientation, const QRect& rect) const
+{
+	painter->drawRect(rect);
 }

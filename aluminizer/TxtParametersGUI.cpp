@@ -28,7 +28,8 @@ TxtParametersGUI::TxtParametersGUI(ExperimentsSheet* pSheet, const std::string& 
 	csRecalculating(title + "::csRecalculating"),
 	top_layout(this),
 	bIgnoreGUISignals(false),
-	page_lock(QReadWriteLock::Recursive)
+	page_lock(QReadWriteLock::Recursive),
+	bottomSpacer(0)
 {
 	QObject::connect(this, SIGNAL(sig_update_data()), this, SLOT(UpdateData()), Qt::QueuedConnection);
 	top_layout.addLayout(&grid);
@@ -360,7 +361,10 @@ void TxtParametersGUI::PlaceWindows()
 
 	//add lower spacer
 	if (needsBottomSpacer())
-		grid.addItem(new QSpacerItem(200, 2000, QSizePolicy::Maximum, QSizePolicy::Maximum), r + 1, 0, 1, num_columns() - 2);
+	{
+		bottomSpacer = new QSpacerItem(200, 2000, QSizePolicy::Maximum, QSizePolicy::Maximum);
+		grid.addItem(bottomSpacer, r + 1, 0, 1, num_columns() - 2);
+	}
 
 	//grid.addSpacerItem(new QSpacerItem(2000, 2000, QSizePolicy::Minimum, QSizePolicy::Maximum));
 

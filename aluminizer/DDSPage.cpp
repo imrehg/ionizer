@@ -90,6 +90,7 @@ void DDSPage::SetPhase(int i, double p)
 
 void DDSPage::AddAvailableActions(std::vector<std::string>* p)
 {
+	ParamsPage::AddAvailableActions(p);
 	p->push_back("TEST");
 
 }
