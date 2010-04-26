@@ -62,12 +62,16 @@ void exp_3P0::setIonXtal(const char* name)
 			delete rcClockStates[i];
 		
 		rcClockStates.clear();
+		rcXitions.clear();
 
 		for(unsigned i=0; i<numAl; i++)
 		{
 			char buff[256];
 			snprintf(buff, 256, "3P0 state (%u)", i);
 			rcClockStates.push_back(new result_channel(channels, buff));
+
+			snprintf(buff, 256, "Clock xition (%u)", i);
+			rcXitions.push_back(new result_channel(channels, buff));
 		}
 	}
 }
@@ -181,8 +185,11 @@ void exp_3P0::run(const GbE_msg& msg_in, GbE_msg& msg_out)
    {
 	   if ((ns & bit) != (os & bit))
 	   {
+		   rcXitions[i]->result = 10;
 		   nx++;
 	   }
+	   else
+		   rcXitions[i]->result = 0;
 
 	   rcClockStates[i]->result = (ns & bit) ? 10 : 0;
 

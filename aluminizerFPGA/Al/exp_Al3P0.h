@@ -50,6 +50,7 @@ protected:
    rp_double mod3P1, gain3P1;
 
    vector<result_channel*> rcClockStates;
+   vector<result_channel*> rcXitions;
    result_channel rcXition, rcNumDetections, rcFC, rc3P1corr;
 
    int pol3P1; //polarization of 3P1 pulses
