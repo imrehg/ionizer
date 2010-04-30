@@ -46,7 +46,7 @@ void init_remote_interfaces()
 
     eRecover = new exp_recover(&global_exp_list);
     new exp_detect(&global_exp_list);
-    new exp_detectN(&global_exp_list);
+ //   new exp_detectN(&global_exp_list);
     new exp_correlate(&global_exp_list);
 
 #ifndef ALUMINIZER_SIM
@@ -70,7 +70,7 @@ void init_remote_interfaces()
 	new exp_raman	   (&global_exp_list, "Qubit cal 2");
 	new exp_raman_RF   (&global_exp_list, "Qubit scan");
 
-	new exp_raman	   (&global_exp_list, "Order check");
+        new exp_order_check(&global_exp_list, "Order check");
 	
 	new exp_3P1_test   (&global_exp_list, "3P1 cal");
 	new exp_3P1_test   (&global_exp_list, "3P1 scan");
@@ -87,6 +87,8 @@ void init_remote_interfaces()
 
 	new exp_3P0        (&global_exp_list, "3P0 cal");
 	new exp_3P0        (&global_exp_list, "3P0 scan");
+	new exp_3P0_corr   (&global_exp_list, "3P0 corr");
+
 	//exp_3P0_lock   e3P0LockP			(&global_exp_list, "3P0 lock(+)");
 	//exp_3P0_lock   e3P0LockM			(&global_exp_list, "3P0 lock(-)");
 	

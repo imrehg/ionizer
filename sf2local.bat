@@ -1,14 +1,18 @@
 echo Copy SourceForge updates to local source tree
 svn up
-xcopy /D /S /Y aluminizer\*.cpp ..\..\control_trunk\ionizer
-xcopy /D /S /Y aluminizer\*.c ..\..\control_trunk\ionizer
-xcopy /D /S /Y aluminizer\*.h ..\..\control_trunk\ionizer
-xcopy /D /S /Y aluminizer\*.ico ..\..\control_trunk\ionizer
-xcopy /D /S /Y aluminizer\*.pro ..\..\control_trunk\ionizer
 
-xcopy /D /S /Y aluminizerFPGA\*.cpp ..\..\control_trunk\ionizerES
-xcopy /D /S /Y aluminizerFPGA\*.c ..\..\control_trunk\ionizerES
-xcopy /D /S /Y aluminizerFPGA\*.h ..\..\control_trunk\ionizerES
+set aluminizer_dir=..\..\control_trunk\Ionizer
+set aluminizerFPGA_dir=..\..\control_trunk\IonizerES
+
+xcopy /D /S /Y aluminizer\*.cpp %aluminizer_dir%
+xcopy /D /S /Y aluminizer\*.c %aluminizer_dir%
+xcopy /D /S /Y aluminizer\*.h %aluminizer_dir%
+xcopy /D /S /Y aluminizer\*.ico %aluminizer_dir%
+xcopy /D /S /Y aluminizer\*.pro %aluminizer_dir%
+
+xcopy /D /S /Y aluminizerFPGA\*.cpp %aluminizerFPGA_dir%
+xcopy /D /S /Y aluminizerFPGA\*.c %aluminizerFPGA_dir%
+xcopy /D /S /Y aluminizerFPGA\*.h %aluminizerFPGA_dir%
 
 xcopy /D /S /Y shared\src\*.cpp ..\..\control_trunk\shared\src
 xcopy /D /S /Y shared\src\*.h ..\..\control_trunk\shared\src

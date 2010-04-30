@@ -31,10 +31,14 @@ public:
 
 
 protected:
+	//! fill results data into various channels for plotting and logging
+	virtual void fill_results(double old_state, double new_state);
+
    //! make clock pulse at shifted freq.
    /*! If the pulse is bi-directional, dF0 and dF1 specify the shifts of the two directions */
    void makeClockPulse(double dF0, double dF1);
 
+   virtual void makeRamseyPulse();
    virtual void experiment_pulses(int iExp);
    unsigned decide_next_pulse_type(vector<state_prob>& P);
    
@@ -61,6 +65,35 @@ protected:
    std::vector<unsigned> pulse_type;
 
    unsigned numMg, numAl;
+};
+
+//! Experiment for 3P0 correlation spectroscopy with two Al+
+class exp_3P0_corr : public exp_3P0
+{
+public:
+    exp_3P0_corr(list_t* exp_list, const std::string& name);
+    ~exp_3P0_corr() {}
+
+	virtual void init();
+
+protected:
+
+	virtual void makeRamseyPulse();
+
+	//! fill results data into various channels for plotting and logging
+	virtual void fill_results(double old_state, double new_state);
+
+	rp_bool randPhase;
+
+    rp_unsigned rampTargetID; 
+	rp_double rampDist;
+
+	//Correlation in transitions for the two ions:
+	//both flipped or both didn't flip: 10
+	//one flipped but the other didn't: -10 
+	result_channel rcTransitionCorr;
+
+	my_matrix v1, v2;
 };
 
 class exp_3P0_lock : public exp_3P0

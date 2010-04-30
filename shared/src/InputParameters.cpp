@@ -108,7 +108,7 @@ bool InputParameters::processNew(const std::string& sLine, std::string& sName, s
 
 	sValue = string(sLine, lbV + 1, rbV - lbV - 1);
 
-	sscanf(sLine.substr(rbV+1).c_str(), ", %u", &tChanged);
+        sscanf(sLine.substr(rbV+1).c_str(), ", %lu", &tChanged);
 
 	return true;
 }

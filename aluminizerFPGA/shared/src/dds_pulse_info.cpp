@@ -143,7 +143,7 @@ bool operator!=(const dds_pulse_info& a, const dds_pulse_info& b)
 unsigned numOccurences(const std::string& s1, const std::string& s2)
 {
 	unsigned n = 0;
-	unsigned i = 0;
+        size_t i = 0;
 
 	while(i != string::npos)
 	{

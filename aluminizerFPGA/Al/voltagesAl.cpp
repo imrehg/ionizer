@@ -101,6 +101,12 @@ unsigned voltagesAl::remote_action(const char* s)
    return 0;
 }
 
+void voltagesAl::set_voltages(const my_matrix& ao_new)
+{
+	for(unsigned i=0; i<ao_new.nc; i++)
+		ao_lcd[i]->set_ao( ao_new.element(0, i) );
+}
+
 void voltagesAl::set_voltage(unsigned iChannel, double V)
 {
    ao_lcd[iChannel]->set_ao(V);

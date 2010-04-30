@@ -20,12 +20,13 @@ public:
    //! called after parameters have been updated
    virtual void updateParams();
 
-	void set_voltage(unsigned iChannel, double V);
-	double get_voltage(unsigned iChannel);
+	virtual void set_voltage(unsigned iChannel, double V);
+	virtual double get_voltage(unsigned iChannel);
 
    virtual unsigned remote_action(const char* s);
 
-   void voltagesForSetting(unsigned iSetting, bool bHV, my_matrix& ao_new);
+   virtual void voltagesForSetting(unsigned iSetting, bool bHV, my_matrix& ao_new);
+   virtual void set_voltages(const my_matrix& ao_new);
 
    void updateGUI();
 

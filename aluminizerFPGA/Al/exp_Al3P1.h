@@ -32,9 +32,10 @@ protected:
    rp_unsigned nSigmaPump;
 
    rp_bool invert_Mg, depump_Al; //, fancy_bsb_pulse;
-   rp_bool composite3P1;
+   //rp_bool composite3P1;
    rp_bool checkPrep;
    rp_bool carrierExp;
+   rp_bool addMgBSB; //CWC 04232010, In a carrier type exp. and exp_pulse_sb < 0, add a Mg BSB followed by a Al 3P1 RSB before the actual experiment
 
    int mFg_target;
 };
@@ -59,6 +60,9 @@ protected:
 
    Al3P1_pulse exp_pulse;
 
+   rp_bool shelve3P1;
+   
+   dds_params Heat;
    ttl_params Ramsey;
    rp_double RamseyPhase;
    rp_unsigned RamseyTTL;

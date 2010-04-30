@@ -39,7 +39,8 @@ protected:
    rp_int extraCoolingSB;
    rp_unsigned extraCoolingNum;
    rp_bool		debug_GSC;
-
+   rp_bool      fancy_pulse;
+   
    ttl_params Repump;
 
    //store sideband pulse pointers here for faster access.  
@@ -61,13 +62,25 @@ protected:
 
    raman_pulse exp_pulse;
 
-   rp_bool fancy_pulse;
    ttl_params Ramsey;
    rp_double RamseyPhase;
    rp_unsigned RamseyTTL;
    ttl_params Wait;
 };
 
+class exp_order_check : public exp_raman
+{
+public:
+   exp_order_check(list_t* exp_list, const std::string& name="Order check");
+   virtual ~exp_order_check() {}
+
+protected:
+
+   virtual void post_exp_sequence(double /* signal */);
+   
+   rp_double min_counts, max_counts;
+   rp_unsigned settings_id;
+};
 
 class exp_raman_RF : public exp_raman
 {

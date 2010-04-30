@@ -50,7 +50,12 @@ void AluminizerPage::on_action(const std::string& s)
 
 void AluminizerPage::LaunchEditor(const std::string& fname)
 {
+#ifdef WIN32
 	QString program = "notepad.exe";
+#else
+        QString program = "gedit";
+#endif
+
 	QStringList arguments;
 
 	arguments << fname.c_str();

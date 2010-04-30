@@ -580,15 +580,19 @@ string SourceScan::GetXlabel()
 
 void SourceScan::DefaultExperimentState()
 {
-	cout << "Revert to default state: "  << ScanPage->GetName() << endl;
+	cout << "Revert to default state: "  << ScanPage->GetName() << " ... ";
 
 	Scan_Fittable::DefaultExperimentState();
 	ss->setDefaultValue();
+
+	cout << "done." << endl;
 }
 
 
 numerics::FitObject* SourceScan::CreateFitObject()
 {
+	cout << "[SourceScan::CreateFitObject]" << endl;
+
 	if (ss->getName() == "Mg Detect(T)" && ScanPage->Title() == "Repump" )
 		return new FitRepump(&validData, 0, ScanPage->FitYColumn(),
 		                     pRunObject->GetOutputDirectory());

@@ -25,13 +25,15 @@ exp_3P1::exp_3P1(list_t* exp_list, const std::string& name) :
    nSigmaPump("Pumping pulses", &params, "value=0"),
    invert_Mg("Invert Mg", &params, "value=0"),
    depump_Al("Depump Al", &params, "value=0"), //turn the depump pulse on and off - CWC 01212009
-   composite3P1 ("Composite 3P1", &params, "value=0"),
+   //composite3P1 ("Composite 3P1", &params, "value=0"),
    checkPrep("Check prep.", &params, "value=1"),
-   carrierExp("Carrier exp.", &params, "value=0")
+   carrierExp("Carrier exp.", &params, "value=0"),
+   addMgBSB("Add Mg BSB", &params, "value=0")
 {
    checkPrep.setExplanation("Check state prep. via clock histrograms");
    xfer_sb.setExplanation("Sideband used for state-transfer in carrier-type experiments.");
    carrierExp.setExplanation("In carrier-type experiments the xfer sb transfers the Al+ internal state to motion.");
+   addMgBSB.setExplanation("In a carrier type exp. and exp_pulse_sb < 0, add a Mg BSB followed by a Al 3P1 RSB to excite Al to the 3P1 state while keeping the motion in GS"); //CWC 04232010
 }
 
 void exp_3P1::driveAl3P1SB_composite(int sb, int pol) // positive for BSB, negative for RSB, 0 for carrier
@@ -106,11 +108,14 @@ void exp_3P1::preparation_pulses()
 exp_3P1_test::exp_3P1_test(list_t* exp_list,
             const std::string& name) :
    exp_3P1(exp_list, name),
+   shelve3P1("Shelve 3P1", &params, "value=0"),
    exp_pulse("experiment pulse", &params, TTL_3P1_SIGMA, "t=1 fOn=1 fOff=0 nohide"),
-   Ramsey		(0, "Ramsey",			&params, "t=0"),
+   Heat(DDS_HEAT, "Heat", &params, 0, "t=100 fOn=1.58 fOff=0"),
+   Ramsey	(0, "Ramsey",			&params, "t=0"),
    RamseyPhase  ("Ramsey phase [deg.]", &params, "value=0"),
    RamseyTTL	("Ramsey TTL",			&params, "value=0")
 {
+	shelve3P1.setExplanation("Shelve Al+ in 3P1 state by driving STR prior to exp. pulse (for Mg Al Al).");
 }
 
 void exp_3P1_test::make_exp_pulse()
@@ -122,6 +127,7 @@ void exp_3P1_test::init()
 {
    exp_3P1::init();
 
+   exp_pulse.setX90Y180X90(fancy_pulse);
    exp_pulse.set_port(exp_pulse_port);
 }
 
@@ -151,6 +157,9 @@ void exp_3P1_test::bsb_exp(int sb)
 
 void exp_3P1_test::carrier_exp()
 {
+	if(exp_pulse_sb < 0 && addMgBSB) //CWC 04232010
+		gpMg->getSB(-1*exp_pulse_sb)->pulse();
+	
    make_exp_pulse(); //Al+ carrier
 
    //transfer sequence
@@ -160,12 +169,24 @@ void exp_3P1_test::carrier_exp()
    getAl3P1SB(xfer_sb, xfer_pol)->pulse();
    gpMg->getSB(-1*xfer_sb)->pulse();
 }
-
+ 
 void exp_3P1_test::experiment_pulses(int)
 {
    if(depump_Al)
       pulse3P1(exp_pulse_pol*5, -1*exp_pulse_pol, 0);
 
+   Heat.pulse();
+
+   if(shelve3P1)
+   {
+   	//make 3P1 shelving pulse on STR mode on exp_port
+   	Al3P1_pulse* pulse = getAl3P1SB(2, xfer_pol);
+   	unsigned port = pulse->port;
+   	pulse->set_port(exp_pulse_port);
+    pulse->pulse();
+    pulse->set_port(port);
+   }
+   
    if(exp_pulse_sb == 0 || carrierExp)
       carrier_exp();
    else

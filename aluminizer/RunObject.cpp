@@ -49,6 +49,9 @@ RunObject::~RunObject()
 {
 	cerr << "RunObject::~RunObject() entry " << exp->GetName() << endl;
 
+	if(num_time_slices == 0)
+		exp->InitExperimentStart();
+
 	if (owned)
 	{
 		delete owned;

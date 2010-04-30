@@ -95,7 +95,7 @@ void exp_3P0::init()
    {
 
    }
-
+ 
    exp_3P1::init();
 }
 
@@ -171,10 +171,31 @@ void exp_3P0::run(const GbE_msg& msg_in, GbE_msg& msg_out)
 
    unsigned num_detections = 0;
    double corr3P1 = 0;
-   double new_state = get_clock_state(&num_detections, &corr3P1, true);
-   double old_state = gpAl3P0->getClockState();
 
-   //figure out how many Al+ ions flipped state (how many bits changed between old and new state)
+   double old_state = gpAl3P0->getClockState();
+   double new_state = get_clock_state(&num_detections, &corr3P1, true);
+   
+   gpAl3P0->setClockState(new_state);
+
+   rcNumDetections.result = (0.1*num_detections);
+   rc3P1corr.result = 1e-3 * gain3P1 * corr3P1;
+
+   fill_results(old_state, new_state);
+
+   if(bDebugPulses)
+   {
+      sprintf(host->buffDebug, "Finish pulse sequence for experiment: %s\n\n\n", name.c_str());
+      host->sendDebugMsg(host->buffDebug, true);
+   }
+
+   bDebugPulses = false;
+
+   finish_exp_sequence(msg_out);
+}
+
+void exp_3P0::fill_results(double old_state, double new_state)
+{
+	//figure out how many Al+ ions flipped state (how many bits changed between old and new state)
    unsigned ns = (unsigned)(new_state + 0.5);
    unsigned os = (unsigned)(old_state + 0.5);
    unsigned nx = 0; //number of transitions
@@ -197,20 +218,6 @@ void exp_3P0::run(const GbE_msg& msg_in, GbE_msg& msg_out)
    }
 
    rcXition.result = (10.*nx) / numAl; // fabs(new_state-old_state);
-   rcNumDetections.result = (0.1*num_detections);
-   rc3P1corr.result = 1e-3 * gain3P1 * corr3P1;
-
-   gpAl3P0->setClockState(new_state);
-
-   if(bDebugPulses)
-   {
-      sprintf(host->buffDebug, "Finish pulse sequence for experiment: %s\n\n\n", name.c_str());
-      host->sendDebugMsg(host->buffDebug, true);
-   }
-
-   bDebugPulses = false;
-
-   finish_exp_sequence(msg_out);
 }
 
 void exp_3P0::makeClockPulse(double dF0, double dF1)
@@ -253,10 +260,15 @@ void exp_3P0::makeClockPulse(double dF0, double dF1)
    }
    else
    {
-      exp_pulse.ramsey_pulse(&Ramsey, (double)RamseyPhase);
+	   makeRamseyPulse();
    }
 
     DopplerCool.ddsOff();
+}
+
+void exp_3P0::makeRamseyPulse()
+{
+	exp_pulse.ramsey_pulse(&Ramsey, (double)RamseyPhase);
 }
 
 void exp_3P0::experiment_pulses(int) {}
@@ -421,6 +433,86 @@ double exp_3P0::get_clock_state(unsigned* num_detections, double* pCorr3P1, bool
    return P[0].iState;
 }
 
+exp_3P0_corr::exp_3P0_corr(list_t* exp_list, const std::string& name) :
+      exp_3P0(exp_list, name),
+	  randPhase("Randomize Ramsey phase", &params, "value=0"),
+      rampTargetID("Ramp target ID", &params, "value=1"),
+	  rampDist("Ramp distance [0...1]", &params, "value=0"),
+	  rcTransitionCorr(channels, "Correlation (s)"),
+	  v1(1, 11), v2(1, 11)
+{
+}
+
+void exp_3P0_corr::fill_results(double old_state, double new_state)
+{
+	exp_3P0::fill_results(old_state, new_state);
+
+	if(rcXitions.size() > 1)
+	{
+		if(rcXitions[0]->result == rcXitions[1]->result)
+			rcTransitionCorr.result = 10;
+		else
+			rcTransitionCorr.result = -10;
+	}
+}
+
+void exp_3P0_corr::init()
+{
+	exp_3P0::init();
+
+	iVoltages->voltagesForSetting(0, true, v1);
+	iVoltages->voltagesForSetting(rampTargetID, true, v2);
+
+    //pre-calculate voltages
+    for(unsigned i=0; i<v1.nc; i++)
+    {
+        double delta = v2.element(0, i) - v1.element(0, i);
+		v2.element(0, i) = v1.element(0, i) + delta * rampDist;
+
+		if(debug_level > 3)
+			printf("v%d=%5.2f ", i, v2.element(0, i));
+    }
+
+	if(debug_level > 3)
+		printf("\n");
+}
+
+void exp_3P0_corr::makeRamseyPulse()
+{
+	PULSE_CONTROLLER_disable_timing_check(pulser);
+    PULSE_CONTROLLER_clear_timing_check(pulser);
+    PULSE_CONTROLLER_enable_timing_check(pulser);
+    
+	//first pi/2 pulse
+	exp_pulse.ramsey_pulse1();
+
+	//wait for current pulse sequence to finish
+    while( PULSE_CONTROLLER_timing_ok(pulser) );
+
+	PULSE_CONTROLLER_disable_timing_check(pulser);
+    PULSE_CONTROLLER_clear_timing_check(pulser);
+    PULSE_CONTROLLER_enable_timing_check(pulser);
+    
+	// free-evolution
+	exp_pulse.ramsey_pulse2(&Ramsey);
+
+	//adjust trap voltages
+	iVoltages->set_voltages(v2);
+		
+	if(randPhase)
+		RamseyPhase.set( rand() % 360 );
+
+	//second pi/2 pulse
+	exp_pulse.ramsey_pulse3((double)RamseyPhase);
+	
+	DopplerCool.pulse();
+	
+	//wait for current pulse sequence to finish
+    while( PULSE_CONTROLLER_timing_ok(pulser) );
+
+	//adjust trap voltage back
+	iVoltages->set_voltages(v1);
+}
 
 exp_3P0_lock::exp_3P0_lock(list_t* exp_list, const std::string& name, unsigned num_freq) :
       exp_3P0(exp_list, name),

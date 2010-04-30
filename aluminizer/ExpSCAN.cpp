@@ -317,6 +317,8 @@ void ExpSCAN::InitExperimentStart()
 
 void ExpSCAN::FinishRun()
 {
+	cout << "[ExpSCAN::FinishRun] entry" << endl;
+
 	QWriteLocker lock(&page_lock);
 
 	if (pScan)
@@ -349,7 +351,11 @@ void ExpSCAN::FinishRun()
 
 	cci = 0;
 
+	cout << "[ExpSCAN::FinishRun] updating data" << endl;
+
 	PostUpdateData();
+
+	cout << "[ExpSCAN::FinishRun] exit" << endl;
 }
 
 data_plot* ExpSCAN::get_data_plot()

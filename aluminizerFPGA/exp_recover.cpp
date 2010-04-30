@@ -160,7 +160,7 @@ void exp_recover::cool(unsigned us)
 {
     unsigned t = 0;
     unsigned tCycle = (PrecoolShort.t + DopplerCool.t) / 100;
-
+    
     while(t < us)
     {
         PrecoolShort.pulse();
@@ -171,9 +171,11 @@ void exp_recover::cool(unsigned us)
 
     PrecoolShort.pulseStayOn();
     
-    while(! PULSE_CONTROLLER_is_finished(pulser) );
+	//wait for current pulse sequence to finish
+	
+    while( ! PULSE_CONTROLLER_is_finished(pulser) );
 }
-
+ 
 //use maximum likelihood method to determine ion state
 // -1 -- unknown
 //  0 -- dark

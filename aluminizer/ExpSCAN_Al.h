@@ -57,7 +57,7 @@ virtual unsigned FitYColumn();
 
 static bool matchTitle(const std::string& s)
 {
-	return (s.find("3P0 scan") != string::npos) || (s.find("3P0 cal") != string::npos);
+	return (s.find("3P0 scan") != string::npos) || (s.find("3P0 cal") != string::npos) || (s.find("3P0 corr") != string::npos);
 }
 virtual TransitionPage* GetCurrentTransition();
 virtual std::string getTransitionBaseName()

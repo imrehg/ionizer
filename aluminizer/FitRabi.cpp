@@ -218,7 +218,11 @@ FitRabiFreq::FitRabiFreq(std::vector< std::vector<double> >* xy,
 	MinAmplitude(MinAmplitude),
 	InterrogationTime(fabs(InterrogationTime))
 {
+	cout << "[FitRabiFreq::FitRabiFreq] entry" << endl;
+
 	Guesses.push_back(new NormalGuess);
+
+	cout << "[FitRabiFreq::FitRabiFreq] exit" << endl;
 }
 
 std::vector<double> FitRabiFreq::NormalGuess::GuessBaseParams(numerics::FitObject* fit)
@@ -391,9 +395,13 @@ FitRabiTime::FitRabiTime(std::vector< std::vector<double> >* xy,
 	MinContrast(MinContrast),
 	MinAmplitude(MinAmplitude)
 {
+	cout << "[FitRabiTime::FitRabiTime] entry" << endl;
+
 	Guesses.push_back(new FFTGuess);
 //	Guesses.push_back(new NormalGuess);
 //	Guesses.push_back(new LongGuess);
+
+	cout << "[FitRabiTime::FitRabiTime] exit" << endl;
 }
 
 double FitRabiTime::GetPiTime()

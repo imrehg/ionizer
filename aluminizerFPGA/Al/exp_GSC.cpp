@@ -16,6 +16,7 @@ exp_GSC::exp_GSC(list_t* exp_list, const std::string& name) :
    extraCoolingSB  ("Extra cooling [SB]",	&params, "value=2"),
    extraCoolingNum  ("Extra cooling [#]",	&params, "value=2"),
    debug_GSC	   ("Debug GSC",				&params, "value=0"),
+   fancy_pulse     ("X90 Y180 X90",		&params, "value=0"),
    Repump	   (TTL_REPUMP, "Mg Repump",			&params, "t=100")
 {
    Detect.setFlag(RP_FLAG_CAN_HIDE);
@@ -141,7 +142,6 @@ exp_raman::exp_raman(list_t* exp_list,
                  const std::string& name) :
    exp_GSC(exp_list, name),
    exp_pulse	("experiment pulse", &params, TTL_RAMAN_90, "t=1 fOn=1789 fOff=0"),
-   fancy_pulse ("X90 Y180 X90",		&params, "value=0"),
    Ramsey		(0, "Ramsey",			&params, "t=0"),
    RamseyPhase ("Ramsey phase [deg.]",	&params, "value=0"),
    RamseyTTL	("Ramsey TTL",			&params, "value=0"),
@@ -154,7 +154,7 @@ void exp_raman::init()
    exp_GSC::init();
    exp_pulse.setPolarization(exp_pulse_pol);
    exp_pulse.setX90Y180X90(fancy_pulse);
-
+   
    Ramsey.ttl = RamseyTTL;
 }
 
@@ -172,6 +172,23 @@ void exp_raman::experiment_pulses(int)
    {
       exp_pulse.ramsey_pulse(&Ramsey, (double)RamseyPhase);
    }
+}
+
+exp_order_check::exp_order_check(list_t* exp_list, const std::string& name) :
+   exp_raman(exp_list, name),
+   min_counts("Min. counts", &params, "0"),
+   max_counts("Max. counts", &params, "5"),
+   settings_id("Voltage column",  &params, "3")
+{
+    min_counts.setExplanation("If signal is below Min. counts, re-order.");
+    max_counts.setExplanation("If signal is above Max. counts, re-order.");
+    settings_id.setExplanation("Voltage column for re-ordering.");
+}
+
+void exp_order_check::post_exp_sequence(double signal)
+{
+    if(signal < min_counts || signal > max_counts)
+        iVoltages->rampTo(settings_id, true, false);
 }
 
 exp_raman_RF::exp_raman_RF(list_t* exp_list,

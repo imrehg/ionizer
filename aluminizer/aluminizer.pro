@@ -1,18 +1,18 @@
 TEMPLATE = app
 RC_FILE = Aluminizer2.rc
 PRECOMPILED_HEADER = common.h
-INCLUDEPATH += ../trlib
-win32 { INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA ../thirdparty/fftw ../thirdparty/ATL}
+INCLUDEPATH += ../thirdparty/TNT ../thirdparty/JAMA
+win32 { INCLUDEPATH += ../thirdparty/fftw ../thirdparty/ATL}
 
 include(local.pro)
 
 CONFIG += console precompile_header
-CONFIG += debug_and_release
+CONFIG += debug
 
 AL {
 message("target = Aluminizer")
 DEFINES += CONFIG_AL
-TARGET = Aluminizer
+TARGET = aluminizer
 }
 
 HG {
@@ -79,7 +79,7 @@ win32 { INCLUDEPATH += ../thirdparty/qwt-5.2/src }
 
 
 #LINUX defines / libraries
-unix { LIBS += ../trlib/trlib.a /usr/lib/libqwt-qt4.so}
+unix { LIBS += /usr/lib/libqwt-qt4.so}
 unix { LIBS += /usr/lib/libfftw3.so }
 unix { INCLUDEPATH += /usr/include/qwt-qt4 }
 
@@ -89,7 +89,7 @@ OTHERS += ../issues.txt
 
 
 sharedSRC = ../shared/src
-srcFPGA = ../aluminizerFPGA
+srcFPGA = ../IonizerES
 sharedFPGA = $$srcFPGA/shared/src
 
 INCLUDEPATH += $$sharedFPGA $$sharedSRC

@@ -366,7 +366,7 @@ void pulse_X90_Y180_X90()
 		DDS_set_freq(dds, ftwOn);
 		TTL_pulse(padding, 0);
 		TTL_pulse((t >> 1), ttl);     //X-90
-		DDS_set_phase(dds, (PHASE_90 / fDiv));
+		DDS_set_phase(dds, (PHASE_90 / abs(fDiv))); //phase must be positive (unsigned)
 		TTL_pulse(t, ttl);            //Y-180
 		DDS_set_phase(dds, PHASE_0);
 		TTL_pulse((t >> 1), ttl);     //X-90
@@ -428,6 +428,43 @@ void ramsey_pulse(ttl_params* ramsey, double phase /*degrees*/)
 			//	TTL_pulse(100, 0);
 			//	TTL_pulse(padding, 0);
 		}
+	}
+}
+
+void ramsey_pulse1()
+{
+	//TODO: fix this with a flag for fOn/fOff switching
+	if (bEnabled)
+	{
+			//first pi/2 pulse
+			//	TTL_pulse(padding, 0);
+			DDS_set_freq(dds, ftwOn);
+			DDS_set_phase(dds, 0);
+			//	TTL_pulse(padding, 0);
+			TTL_pulse((t >> 1), ttl);
+	}
+}
+
+void ramsey_pulse2(ttl_params* ramsey)
+{
+	if (bEnabled)
+	{
+		//free evolution
+		ramsey->pulse();
+	}
+}
+
+void ramsey_pulse3(double phase /*degrees*/)
+{
+	if (bEnabled)
+	{
+			//second pi/2 pulse
+			SetPhase(phase / fDiv);
+			
+			//	TTL_pulse(100, 0);
+			TTL_pulse((t >> 1), ttl);
+			//	TTL_pulse(100, 0);
+			//	TTL_pulse(padding, 0);
 	}
 }
 
@@ -519,13 +556,15 @@ public:
 Al3P1_pulse(const std::string& name,
             std::vector<remote_param*>* v,
             unsigned ttl = 0, const std::string& init_str = "t=1 fOn=120 fOff=0") :
-	dds_params(DDS_3P1x2, name, v, ttl, init_str, -2, 240, false)
+	dds_params(DDS_3P1x2, name, v, ttl, init_str, -2, 240, false), port(0)
 {
 }
 
 void set_port(unsigned p)
 {
 	//set TTL for correct port
+	port = p;
+	
 	switch (p)
 	{
 	case 0: ttl = TTL_3P1_SIGMA; break;
@@ -535,6 +574,7 @@ void set_port(unsigned p)
 	}
 	;
 }
+unsigned port;
 };
 
 class FluorescenceChecker;
